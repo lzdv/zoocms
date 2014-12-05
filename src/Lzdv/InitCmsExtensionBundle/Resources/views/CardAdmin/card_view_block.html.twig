@@ -1,0 +1,27 @@
+{% from 'LzdvInitCmsExtensionBundle:MediaView:macro.html.twig' import admin_image, admin_video %}
+{% if cardView.hasMedia %}
+    <h4 class="block-title">Card</h4>
+    {#{% thumbnail mediaItem.media, 'small' with {'class': 'img-polaroid'} %}#}
+
+    {% if cardView.title %}
+        <h4>{{ cardView.title }}</h4>
+        <hr>
+    {% endif %}
+    {% if cardView.mediaType == 'image' %}
+        <div>
+            <div class="thumbnail">
+                {% media cardView.media, 'admin' %}
+            </div>
+        </div>
+    {% endif %}
+    {% if cardView.mediaType == 'video' %}
+        {{ admin_video(cardView.media, 'heroCarousel', null, 'admin') }}
+    {% endif %}
+    
+    {% if cardView.text %}
+        {{ cardView.text|raw }}
+    {% endif %}
+{% else %}
+    New Card
+{% endif %}
+<div style="clear: both;">&nbsp;</div>

@@ -1,0 +1,122 @@
+{#
+
+This file is part of the Networking package.
+
+(c) net working AG <info@networking.ch>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+{% from 'MopaBootstrapBundle::flash.html.twig' import session_flash %}
+
+<!DOCTYPE html>
+
+{% block html_tag %}
+<html>
+{% endblock html_tag %}
+
+{% block head %}
+    <head>
+        <meta charset="UTF-8"/>
+
+        {% block head_style %}
+            {# Override this block to add your own files! #}
+            {% stylesheets filter='lessphp,?yui_css'
+            'bundles/applicationnetworkinginitcms/less/styles.less'
+            'bundles/mopabootstrap/bootstrap/less/bootstrap.less'
+            'bundles/applicationnetworkinginitcms/css/prettyPhoto.css'
+            output='css/styles.css' %}
+            <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen"/>
+            {% endstylesheets %}
+        {% endblock head_style %}
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" type="text/css" href="https://www.google.com/fonts#UsePlace:use/Collection:Lora:400,400italic,700,700italic">
+
+        {% block head_script %}
+            {# Overwrite this block to add your own js here, to get them generated into final files #}
+        {% endblock head_script %}
+
+        <title>{% block title %}{% endblock title %}</title>
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
+        {% block head_bottom %}
+        {% endblock head_bottom %}
+    </head>
+{% endblock head %}
+
+{% block body_tag %}
+<body data-spy="scroll">
+{% endblock body_tag %}
+
+{# From here the body starts #}
+{% block body_start %}
+{% endblock body_start %}
+
+{% block body %}
+        
+{% block container %}
+    <div class="container {% block container_class %}container-fluid{% endblock container_class %}">
+
+        {% block navbar %}
+            {% include 'ApplicationNetworkingInitCmsBundle:Navbar:navbar.html.twig' %}
+        {% endblock navbar %}
+        
+        {% block header %}
+        {% endblock header %}
+
+        <div class="content">
+            {% block page_header %}
+            {% endblock page_header %}
+
+            {% block flashes %}
+                {% from 'MopaBootstrapBundle::flash.html.twig' import session_flash %}
+                {{ session_flash(null,true) }}
+                {% if app.session.flashbag.peekAll|length > 0 %}
+                    <div class="row">
+                        <div class="col-md-16">
+                            {{ session_flash() }}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endblock flashes %}
+
+            {% block content_row %}
+                <div class="row">
+                    {% block content %}
+                        {% block content_sidebar %}
+                        {% endblock content_sidebar %}
+                    {% endblock content %}
+                    {% block fos_user_content %}
+                    {% endblock fos_user_content %}
+                </div>
+            {% endblock content_row %}
+        </div>
+        <footer>
+            {% block footer %}
+            {% endblock footer %}
+        </footer>
+    </div> <!-- /container -->
+{% endblock container %}
+{% block foot_script %}
+    {# To only use a subset or add more js overwrite and copy paste this block
+    To speed up page loads save a copy of jQuery in your project and override this block to include the correct path
+    Otherwise the regeneration is done on every load in dev more with use_controller: true
+     #}
+    {% javascripts
+    'http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'
+    'bundles/mopabootstrap/bootstrap/js/tooltip.js'
+    'bundles/mopabootstrap/bootstrap/js/*.js'
+    'bundles/mopabootstrap/js/mopabootstrap-collection.js'
+    'bundles/mopabootstrap/js/mopabootstrap-subnav.js'
+    'bundles/mopabootstrap/components/smalot-bootstrap-datetimepicker/js/bootstrap-datetimepicker.js'
+    'bundles/applicationnetworkinginitcms/js/jquery.prettyPhoto.js'
+    output='js/sandbox.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock foot_script %}
+{% endblock body %}
+</body>
+</html>
+

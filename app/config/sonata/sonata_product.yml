@@ -1,0 +1,36 @@
+sonata_product:
+    products:
+        #Wine
+        sonata.initcms.product.wine:
+            provider: sonata.initcms.product.wine.type
+            manager: sonata.initcms.product.wine.manager
+
+    class:
+        product:              Application\Sonata\ProductBundle\Entity\Product
+        #package:              Application\Sonata\ProductBundle\Entity\Package
+        product_category:     Application\Sonata\ProductBundle\Entity\ProductCategory
+        #product_collection:   Application\Sonata\ProductBundle\Entity\ProductCollection
+        category:             Application\Sonata\ClassificationBundle\Entity\Category
+        collection:           Application\Sonata\ClassificationBundle\Entity\Collection
+        #delivery:             Application\Sonata\ProductBundle\Entity\Delivery
+        media:                Networking\InitCmsBundle\Entity\Media
+        gallery:              Networking\InitCmsBundle\Entity\Gallery
+
+    seo:
+        product:
+            site: '@sonataproject'
+            creator: '@th0masr'
+            domain: 'http://demo.sonata-project.org'
+            media_prefix: 'http://demo.sonata-project.org'
+            media_format: 'reference'
+
+
+
+# Enable Doctrine to map the provided entities
+doctrine:
+    orm:
+        entity_managers:
+            default:
+                mappings:
+                    ApplicationSonataProductBundle: ~
+                    SonataProductBundle: ~

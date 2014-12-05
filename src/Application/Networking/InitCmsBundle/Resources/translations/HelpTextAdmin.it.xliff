@@ -1,0 +1,1073 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="it" datatype="plaintext" original="">
+        <body>
+
+            <!-- cms admin section -->
+
+            <trans-unit id="list.label_title">
+                <source>list.label_title</source>
+                <target>Help Text Title</target>
+            </trans-unit>
+            <trans-unit id="list.label_translation_key">
+                <source>list.label_translation_key</source>
+                <target>Translation Key</target>
+            </trans-unit>
+            <trans-unit id="list.label_locale">
+                <source>list.label_locale</source>
+                <target>Website Locale</target>
+            </trans-unit>
+            <trans-unit id="list.pre_title_text">
+                <source>list.pre_title_text</source>
+                <target>Administer your</target>
+            </trans-unit>
+            <trans-unit id="breadcrumb.link_help_text_list">
+                <source>breadcrumb.link_help_text_list</source>
+                <target><![CDATA[<small>Administer your</small>]]> Help Texts</target>
+            </trans-unit>
+            <trans-unit id="filter.label_locale">
+                <source>filter.label_locale</source>
+                <target>Language</target>
+            </trans-unit>
+            <trans-unit id="form.label_locale">
+                <source>form.label_locale</source>
+                <target>Help Text language</target>
+            </trans-unit>
+            <trans-unit id="form.label_translation_key">
+                <source>form.label_translation_key</source>
+                <target>Translation key</target>
+            </trans-unit>
+            <trans-unit id="form.label_title">
+                <source>form.label_title</source>
+                <target>Help Text Title</target>
+            </trans-unit>
+            <trans-unit id="form.label_text">
+                <source>form.label_text</source>
+                <target>Text</target>
+            </trans-unit>
+            <trans-unit id="title.help">
+                <source>title.help</source>
+                <target>Help &amp; User Manual</target>
+            </trans-unit>
+            <trans-unit id="link.close">
+                <source>link.close</source>
+                <target>CLOSE</target>
+            </trans-unit>
+            <trans-unit id="help_title">
+                <source>help_title</source>
+                <target>Help for: %admin_title% %action%</target>
+            </trans-unit>
+            <trans-unit id="networking_init_cms.admin.page.edit">
+                <source>networking_init_cms.admin.page.edit</source>
+                <target>Page edit</target>
+            </trans-unit>
+            <trans-unit id="action.list">
+                <source>action.list</source>
+                <target>List</target>
+            </trans-unit>
+            <trans-unit id="action.edit">
+                <source>action.edit</source>
+                <target>Edit</target>
+            </trans-unit>
+            <trans-unit id="action.delete">
+                <source>action.delete</source>
+                <target>Delete</target>
+            </trans-unit>
+            <trans-unit id="action.create">
+                <source>action.create</source>
+                <target>Create</target>
+            </trans-unit>
+
+            <!-- help navigation -->
+
+            <trans-unit id="networking_init_cms.admin.page">
+                <source>networking_init_cms.admin.page</source>
+                <target>Pages</target>
+            </trans-unit>
+            <trans-unit id="networking_init_cms.admin.menu_item">
+                <source>networking_init_cms.admin.menu_item</source>
+                <target>Menu</target>
+            </trans-unit>
+            <trans-unit id="sonata.media.admin.media">
+                <source>sonata.media.admin.media</source>
+                <target>Media</target>
+            </trans-unit>
+            <trans-unit id="sonata.user.admin.user">
+                <source>sonata.user.admin.user</source>
+                <target>User</target>
+            </trans-unit>
+
+            <!-- overview -->
+
+            <trans-unit id="overview.title">
+                <source>overview.title</source>
+                <target>Help Overview</target>
+            </trans-unit>
+            <trans-unit id="overview.text">
+                <source>overview.text</source>
+                <target><![CDATA[
+                   <p>This help site covers most of the functionality of the CMS. Select the help pages from the left hand navigation or just click on the question mark on the top right whilst using the CMS to access the corresponding help page.</p>
+
+                   <h2>Terms</h2>
+
+                   <p><strong>CMS</strong><br />
+                   <span style="line-height:1.6em">Abbreviation for Content Management System</span></p>
+
+                   <p><strong>Page</strong><br />
+                   <span style="line-height:1.6em">A page holds content in a certain layout.</span></p>
+
+                   <p><strong>Internal URL</strong><br />
+                   <span style="line-height:1.6em">A string that reflects a page created by the CMS (e.g. &quot;/company/employees&quot;)</span></p>
+
+                   <p><strong>External URL</strong><br />
+                   <span style="line-height:1.6em">A string the reflects a URL to a webpage not generated by the CMS (e.g. &ldquo;http://www.google.com)</span></p>
+
+                   <p><strong>Menu item </strong><br />
+                   <span style="line-height:1.6em">A single link in a menu with its name and URL</span></p>
+
+                   <p><strong>Menu </strong><br />
+                   <span style="line-height:1.6em">A set of menu items used to navigate the website.</span></p>
+
+                   <p><strong>Media</strong><br />
+                   <span style="line-height:1.6em">Media files used in the content (e.g. Images, Videos)</span></p>
+
+                   <p><strong>User</strong><br />
+                   <span style="line-height:1.6em">A person with a login to the CMS or the secured area of the website</span></p>
+
+                   <h2>Basic Workflow</h2>
+
+                   <p>If you are new to the CMS, here is a basic workflow example of how to create new a page and make it available in the navigation.</p>
+
+                   <ol>
+                   	<li>Go to &quot;Pages&quot; and add a new page.</li>
+                   	<li>In the edit mode of the page, click on the &quot;+&quot; icons to add content where you like.</li>
+                   	<li>Click the &quot;Publish&quot; button to make it publicly available (or check the &quot;Review&quot; box to notify the publisher).</li>
+                   	<li>To make the page accessible in the navigation, create a new menu item, give it a name and select your new page.</li>
+                   </ol>
+
+                   <p>Congratulations, now you should have a new page, which is accessible through the navigation. Please have a look to specific help topics to get more detailed information.</p>
+                    ]]>
+                </target>
+            </trans-unit>
+
+            <!-- dashboard -->
+
+            <trans-unit id="dashboard.title">
+                <source>dashboard.title</source>
+                <target>Dashboard Overview</target>
+            </trans-unit>
+            <trans-unit id="dashboard.text">
+                <source>dashboard.text</source>
+                <target><![CDATA[
+                    <p>The Dashboard is the first page you will see after you logged in successfully. Depending on your role and rights you may have different kinds of information displayed on your Dashboard.</p>
+
+                    <h2>Information blocks</h2>
+
+                    <p><strong>Page Status Summary</strong><br />
+                    Overview of how many pages are in draft, review or published state</p>
+
+                    <p><strong>Current Draft Pages</strong><br />
+                    A list of the last edited pages, which are not published</p>
+
+                    <p><strong>Pages to Review</strong><br />
+                    A list of pages which need to be reviewed and published</p>
+
+                    <p><strong>Users currently Online</strong><br />
+                    Shows all users who are currently logged in.</p>
+
+                    <p>The Dashboard can be extended as well, if you miss something please contact your Webmaster to add the needed feature.</p>
+                    ]]>
+                </target>
+            </trans-unit>
+
+            <!-- pages -->
+
+            <trans-unit id="networking_init_cms.admin.page.list.title">
+                <source>networking_init_cms.admin.page.list.title</source>
+                <target>Pages overview</target>
+            </trans-unit>
+            <trans-unit id="networking_init_cms.admin.page.list.text">
+                <source>networking_init_cms.admin.page.list.text</source>
+                <target><![CDATA[
+                    <p>A page is a key building block for the website. On a page you can add or change your content and its position in the layout. Under &quot;Pages&quot; in the CMS you see a list of all your pages. On top of the list you can filter and search pages. There is also a prominent button for adding new Pages. On the bottom of the list you find bulk actions to apply quick changes to multiple pages at once.</p>
+
+                    <h2>List of pages</h2>
+
+                    <p>The list of pages offers different information or actions. Every new row describes a different page. The following list explains the columns from left to right.</p>
+
+                    <p><strong>Check Boxes</strong><br />
+                    You can select single <s>pages</s> or multiple pages by checking or unchecking the check boxes on the left <s>to</s> side of every page. The first checkbox on the top left will check or uncheck all of the listed pages. After you selected the pages you want, you can choose an action from the dropdown menu at the bottom of the list. By clicking &quot;OK&quot; you will execute the action for all the checked pages.</p>
+
+                    <p><strong>Page Name</strong><br />
+                    A column that shows the page name. If you click on the name you will go directly to the edit mode.</p>
+
+                    <p><strong>Page Status</strong><br />
+                    On the right side of the page name you see the status of page. It can be set to draft, review or published.</p>
+
+                    <p><strong>URL</strong><br />
+                    This column shows the URL of the page. The URL excludes your domain name in favor of a shorter version.</p>
+
+                    <p><strong>Edit Button</strong><br />
+                    The edit button has a pencil icon. Click to edit the content and the configuration of the page.</p>
+
+                    <p><strong>Delete Button</strong><br />
+                    The delete button has a trashcan icon. Click it to delete a page you no longer want to use.</p>
+
+                    <h2>Filter pages</h2>
+
+                    <p>The page list can be filtered by selecting one or more of the offered parameters. You can change these parameters and click on the &quot;Filter&quot; button to find pages that match your filters. If you click on &quot;Clear&quot; the filters will be reset. By Clicking on &quot;More filter options&quot; all the available options for filtering will be shown.</p>
+
+                    <p><strong>Language</strong><br />
+                    Change between different languages, you can only view pages in one language at a time</p>
+
+                    <p><strong>Page Name</strong><br />
+                    Find a specific page by name or find multiple pages with a part of the page name</p>
+
+                    <p><strong>URL</strong><br />
+                    Find a page or multiple pages with a specific part of the URL</p>
+
+                    <p><strong>Page Status<br />
+                    ​</strong>Find pages according to their status draft review or published.</p>
+
+                    <h2>Add a new page</h2>
+
+                    <p>To add a new page, start by clicking the &quot;+ Add Page&quot; button. There is an additional help section available with more details.</p>
+                    ]]>
+                </target>
+            </trans-unit>
+            <trans-unit id="networking_init_cms.admin.page.create.title">
+                <source>networking_init_cms.admin.page.create.title</source>
+                <target>Add a new page</target>
+            </trans-unit>
+            <trans-unit id="networking_init_cms.admin.page.create.text">
+                <source>networking_init_cms.admin.page.create.text</source>
+                <target><![CDATA[
+                 <p>Begin by clicking the &quot;+ Add Page&quot; button in the &quot;Pages&quot; section of the CMS. All fields marked with &quot;*&quot; are mandatory, the others are optional. The following list explains all fields.</p>
+
+                 <h2>New page fields</h2>
+
+                 <p><strong>Language</strong><br />
+                 Each page belongs to one language. You can copy this page into another language at a later stage, or connect the page to an existing page in another language in order to create a link connecting single pages in the different languages.</p>
+
+                 <p><strong>Page Name</strong><br />
+                 The page name is for your internal use and not shown on the website</p>
+
+                 <p><strong>Parent Page</strong><br />
+                 If another page is related to this one (e.g. About Us and Contact), the pages can be connected. This will be shown in the list view of the Pages as well in the URL: e.g. http://wwww.site.com/about_us/contact instead of http://wwww.site.com/contact</p>
+
+                 <p><strong>URL</strong><br />
+                 Only the last part of the URL has to be entered. If there one or more parent pages exist, they will be automatically added as a prefix to the URL. No special characters can be used in an URL. Those will be automatically filtered out. Above the input field you can preview the processed URL</p>
+
+                 <p><strong>Visibility</strong><br />
+                 A page can be either public and be seen by everyone or it is protected, meaning that the user must be logged in to view the page.</p>
+
+                 <p><strong>Page Layout</strong><br />
+                 Choose the layout that fits your page the best. A selection of predefined layout will be displayed with a thumbnail image. The Layout will dictate what content can be placed where on the page.</p>
+
+                 <p><strong>Meta Title</strong><br />
+                 This title is shown in the title of the browser and searched by search engines</p>
+
+                 <p><strong>Meta Keywords</strong><br />
+                 Keywords are not shown on the page, but only in the source code of the page. Those are needed by google and other search engines to index your page</p>
+
+                 <p><strong>Meta Description</strong><br />
+                 As with the keywords above, the meta description is only visible in the source code. Search engines also use it.</p>
+
+                 <p>As soon as you save the form, the page is saved to the database and you switch to the editing view.</p>
+                ]]>
+                </target>
+            </trans-unit>
+            <trans-unit id="networking_init_cms.admin.page.edit.title">
+                <source>networking_init_cms.admin.page.edit.title</source>
+                <target>Edit a page</target>
+            </trans-unit>
+            <trans-unit id="networking_init_cms.admin.page.edit.text">
+                <source>networking_init_cms.admin.page.edit.text</source>
+                <target><![CDATA[
+          <p>The Edit Form has multiple areas. Below the page title you see the content area with one or more layout containers. On the right side you find additional information and actions for the page.</p>
+
+          <h2>Content area</h2>
+
+          <p>In the content area below the page title you see the different layout containers (e.g. header, main-content, left column etc.). For each layout container, multiple content blocks can be assigned. Those blocks can be either text or galleries (or other predefined content types). New blocks can be created by clicking on the + icon. Existing blocks can be deleted (Trash icon), edited (Pen icon) or moved to another position (arrows).</p>
+
+          <h2>Publishing Status</h2>
+
+          <p>A page can be in a Draft or Published state. The last published state is what the normal user will see in the frontend, the draft state is only visible for users of the admin area of the CMS. Pages in the Draft state can also be marked for review, this is not so much as a state as a flag to let everyone know that the page is ready to be published following a review. IMPORTANT, only published pages are viewable to the general public.</p>
+
+          <p><strong>Draft</strong><br />
+          As soon a page is created or something on the page is edited, the status is set to &quot;Draft&quot;. If all the changes are correct, the status should be changed to &quot;Review&quot; or &quot;Published&quot;. If necessary, say you want to return to the last &quot;Published&quot; Version, you can click &quot;Discard Draft&quot; on the right side.</p>
+
+          <p><strong>Review</strong><br />
+          Someone has made changes to the page, and the page is ready for publication (but is not yet published). Before the page is published, the changes should be reviewed. Check the &quot;Review&quot; box to add the Page to a review list for a publisher. Overall it is it optional to use this status, it just helps create a proper editor/publisher workflow.</p>
+
+          <p><strong>Published</strong><br />
+          If all the changes are correct (by a review), the status can be changed to &quot;Published&quot;. All changes will now be publicly visible.</p>
+
+          <h2>Translations</h2>
+
+          <p>If this page exists in another language, a link to this page can be created. As an alternative option, the page can be copied to another language for a quicker start. Under translation you can manage all language associations.</p>
+
+          <h2>Menu Connections</h2>
+
+          <p>A page can be present in different menus. Maybe you want your &ldquo;contact&rdquo; page in the main menu, but also in the footer menu. Under menu connections you can manage all menu entries as well as create new ones.</p>
+
+          <h2>Settings &amp; SEO</h2>
+
+          <p>Here you find the same fields as used when creating a page. You can edit the page name (by clicking on the pen icon), the URL, the page visibility, the page layout and other page meta settings.</p>
+                ]]>
+                </target>
+            </trans-unit>
+
+            <!-- menu -->
+
+            <trans-unit id="networking_init_cms.admin.menu_item.navigation.title">
+                <source>networking_init_cms.admin.menu_item.navigation.title</source>
+                <target>Menu overview</target>
+            </trans-unit>
+            <trans-unit id="networking_init_cms.admin.menu_item.navigation.text">
+                <source>networking_init_cms.admin.menu_item.navigation.text</source>
+                <target><![CDATA[
+                    <p>A menu provides a navigation to make your content easily accessible by others. Each menu is represented by a tab, the selected menu is highlighted. Below the highlighted menu you will see all the options and the list of menu items. The menu item list displays information about each menu point and offers the functions to move (reorder), edit and delete each point. On top of the tabs you can filter the menus by language.</p>
+
+                    <h2>Understanding menus</h2>
+
+                    <p><strong>Menu</strong><br />
+                    A menu is a list of pages or links for navigating the content on your website. A website can have multiple menus, for example a &quot;main menu&quot; and a &quot;secondary menu&quot;. You can add a new menu with the &quot;+&quot; tab on the right side of the menu tab navigation (most users do not have the permission to add or delete menus).</span></p>
+
+                    <p><strong>Menu Item</strong><br />
+                    A menu item consists of a name and a page or a link (URL). Menu items can be organized hierarchically, drag and drop them to create the structure you like. You can build multiple levels of menu items and nest them freely. The URL does not change if you move a</span><span style="line-height:1.6em"> menu item to another place in your menu tree (the URL</span><span style="line-height:1.6em"> is defined by the URL of the page, or the URL entered in the external/internal URL setting of the menu item).</p>
+
+                    <p><strong>Menu Item Name</strong><br />
+                    The Name of a menu item can be any string of your choice. If you like you can use the same term as for the page name it links to, but you can also name it anything else. Choose a name, which describes the content well, and also use terms which will aid google and other search engines to locate your pages.</p>
+
+                    <p><strong>Menu Item Link</strong><br />
+                    A menu item links to a page or to a custom external/internal URL. Different menu items can link to the same page or the same URL.</p>
+
+                    <p><strong>Menu Language</strong><br />
+                    A menu belongs to the selected language only. Thus every language has it's own menus. This allows you to have a separate menu tree in each language.</p>
+                ]]></target>
+            </trans-unit>
+            <trans-unit id="networking_init_cms.admin.menu.create.title">
+                <source>networking_init_cms.admin.menu.create.title</source>
+                <target>Create a Menu tree</target>
+            </trans-unit>
+            <trans-unit id="networking_init_cms.admin.menu.create.text">
+                <source>networking_init_cms.admin.menu.create.text</source>
+                <target><![CDATA[
+                    <p>This function allows the web site administrator to create new menus, there needs to be a menu provider and template render zone programmend - ask your webmaster</p>
+
+                    <p>This function is only available for users with super admin rights</p>
+                ]]>
+                </target>
+            </trans-unit>
+            <trans-unit id="networking_init_cms.admin.menu_item.create.title">
+                <source>networking_init_cms.admin.menu_item.create.title</source>
+                <target>Create a menu item</target>
+            </trans-unit>
+            <trans-unit id="networking_init_cms.admin.menu_item.create.text">
+                <source>networking_init_cms.admin.menu_item.create.text</source>
+                <target><![CDATA[
+                    <p>In the menu overview you will find the blue button &quot;+ Add Item&quot;, clicking it will create a new menu item in the current selected menu.</p>
+
+                    <h2>Form Fields</h2>
+
+                    <p><strong>Name</strong><br />
+                    The name is mandatory and will be used for your menu item. Use a name that describes your content best.</p>
+
+                    <p><strong>Page</strong><br />
+                    The page is not mandatory. You can select any existing page to use as the URL for the menu item. If you do not select a page, you must enter either an external or an internal URL</p>
+
+                    <p><strong>External URL</strong><br />
+                    The external URL is not mandatory. Instead of selecting a page you can add any URL as long as provide the whole URL e.g. http://www.initcms.com. You need this to create an absolute link to another site.</p>
+
+                    <p><strong>Internal URL</strong><br />
+                    The internal URL is not mandatory. Instead of selecting a page or an external URL you can add an internal URL. An internal URL contains everything after the top level domain e.g. /news/new-products. You need this to create relative links to your own site.</p>
+
+                    <p><strong>+ Options</strong><br />
+                    Click Options to get the following additional possibilities.</p>
+
+                    <p><strong>Visibility</strong><br />
+                    Use the visibility setting to make the menu item public available or only in the secured area.</p>
+
+                    <p><strong>Link Target</strong><br />
+                    Define the target if you don&#39;t want that the page opens in the same window. There are multiple options to choose from.</p>
+
+                    <p><strong>Link Class</strong><br />
+                    The link class your enter here will be added as a CSS styling option.</p>
+
+                    <p><strong>Link Relation</strong><br />
+                    This setting adds the &ldquo;rel&rdquo; attribute to your link. This can be useful when creating links which open a lightbox image gallery for example, or to trigger other javascript functionality.</p>
+
+                    <p><strong>Hide Menu Item</strong><br />
+                    If you want to hide the menu item, but still want to work it normally otherwise check this box. For example, you want a particular navigation point to be highlighted as the active parent of the search results page, but do not wish to have a link visible in the menu to the search results page, then this would be the right choice for you.</p>
+                  ]]></target>
+            </trans-unit>
+            <trans-unit id="networking_init_cms.admin.menu_item.edit.title">
+                <source>networking_init_cms.admin.menu_item.edit.title</source>
+                <target>Edit menu item</target>
+            </trans-unit>
+            <trans-unit id="networking_init_cms.admin.menu_item.edit.text">
+                <source>networking_init_cms.admin.menu_item.edit.text</source>
+                <target><![CDATA[<p>In the menu overview, next to every menu item, you will find the &#39;Edit&#39;-button (the gray button with the pencil). Click this button will activate the edit mode.</p>
+
+                <p>In the first row the menu name will be displayed as well as the the &#39;close&#39; icon and link on the right hand side, which allows you to close the form without making any changes (click outside of the form window, the grayed out zone, has the same effect).</p>
+
+                <p>The lowest row contains the buttons to cancel editing and submit (update) the form.</p>
+
+                <h2>Form Fields</h2>
+
+                <p><strong>Name</strong><br />
+                The name is mandatory and will be used for your menu item. Use a name that describes your content best.</p>
+
+                <p><strong>Page</strong><br />
+                The page is not mandatory. You can select any existing page to use as the URL for the menu item. If you do not select a page, you must enter either an external or an internal URL</p>
+
+                <p><strong>External URL</strong><br />
+                The external URL is not mandatory. Instead of selecting a page you can add any URL as long as provide the whole URL e.g. http://www.initcms.com. You need this to create an absolute link to another site.</p>
+
+                <p><strong>Internal URL</strong><br />
+                The internal URL is not mandatory. Instead of selecting a page or an external URL you can add an internal URL. An internal URL contains everything after the top level domain e.g. /news/new-products. You need this to create relative links to your own site.</p>
+
+                <p><strong>+ Options</strong><br />
+                Click Options to get the following additional possibilities.</p>
+
+                <p><strong>Visibility</strong><br />
+                Use the visibility setting to make the menu item public available or only in the secured area.</p>
+
+                <p><strong>Link Target</strong><br />
+                Define the target if you don&#39;t want that the page opens in the same window. There are multiple options to choose from.</p>
+
+                <p><strong>Link Class</strong><br />
+                The link class your enter here will be added as a CSS styling option.</p>
+
+                <p><strong>Link Relation</strong><br />
+                This setting adds the &ldquo;rel&rdquo; attribute to your link. This can be useful when creating links which open a lightbox image gallery for example, or to trigger other javascript functionality.</p>
+
+                <p><strong>Hide Menu Item</strong><br />
+                If you want to hide the menu item, but still want to work it normally otherwise check this box. For example, you want a particular navigation point to be highlighted as the active parent of the search results page, but do not wish to have a link visible in the menu to the search results page, then this would be the right choice for you.</p>
+                ]]></target>
+            </trans-unit>
+
+            <!-- media -->
+
+            <trans-unit id="sonata.media.admin.media.list.title">
+                <source>sonata.media.admin.media.list.title</source>
+                <target>Media overview</target>
+            </trans-unit>
+            <trans-unit id="sonata.media.admin.media.list.text">
+                <source>sonata.media.admin.media.list.text</source>
+                <target><![CDATA[
+                    <p>The media section helps you to manage media files like images, videos and other files conveniently. On the top of the media site you can filter the media by name or you have the additional option to filter by media tags. The different tabs show the media context (see below), just choose &quot;Default&quot; if you have no other information. The type helps you to see all files, only images, only files or only videos. After the type you have an &quot;+ Add Item&quot; Button which is also covered by this help. Finally you see a list of your media files according to all your above settings and you can perform some actions on every item.</p>
+
+                    <h2>Media Context</h2>
+
+                    <p>A media context is a way to group specific media types together. Media contexts are defined in the site configuration; you can restrict which types of media are allowed in each context, and, in the case of images, define what sizes the images should be cropped to. This allows great control of you media, and prevents users uploading the wrong media type as well as keeping images in the correct format.</p>
+
+                    <p>E.g. You need to maintain product images as well as images for news articles; your webmaster must configure two media contexts, each one defining the various image sizes (thumbnail, small, medium etc). as well as define what files will be allowed.</p>
+
+                    <h2>Media Formats</h2>
+
+                    <p>This refers to the format or type of media such e.g.</p>
+
+                    <ul>
+                    	<li>Image (.jpg, .png)</li>
+                    	<li>PDF documents (.pdf)</li>
+                    	<li>Video (h246, mpeg)</li>
+                    	<li>Audio (.mp3)</li>
+                    </ul>
+
+                    <p>Your Webmaster will setup these for you.</p>
+                    ]]>
+                </target>
+            </trans-unit>
+            <trans-unit id="sonata.media.admin.media.create.title">
+                <source>sonata.media.admin.media.create.title</source>
+                <target><![CDATA[Create media item]]></target>
+            </trans-unit>
+            <trans-unit id="sonata.media.admin.media.create.text">
+                <source>sonata.media.admin.media.create.text</source>
+                <target><![CDATA[<p>Create a new media element by select your media context first (e.g. standard media, background images, publications etc).</p>
+
+                <p>Click the &#39;+ Add new media&#39; button displayed under the chosen media context.</p>
+
+                <p>Choose the type of media you want to add (if a choice is available). The media types available will depend on each media context, they could include image, file or YouTube URL for example.</p>
+
+                <p><strong>Image Media type</strong><br />
+                Click &#39;Choose File&#39;, a new finder window will open. Select your choosen image from your computer or network.<br />
+                The file name will be shown next to the &#39;Choose File&#39; input button. Now click one of the &#39;Add....&#39; buttons</p>
+
+                <ul>
+                	<li>Add item and edit it</li>
+                	<li>Add item and return to list</li>
+                	<li>Add item and create another</li>
+                </ul>
+
+                <p>Cancel will return you back to the list view, and your file will not be uploaded.</p>
+
+                <p>If there is an error message relating to the file type, please contact your Webmaster so that they can configure this for you.</p>
+
+                <p><strong>File Media type</strong><br />
+                Click &#39;Choose File&#39;, a new finder window will open. Select your choosen file from your computer or network.<br />
+                The file name will be shown next to the &#39;Choose File&#39; input button. Now click one of the &#39;Add....&#39; buttons</p>
+
+                <ul>
+                	<li>Add item and edit it</li>
+                	<li>Add item and return to list</li>
+                	<li>Add item and create another</li>
+                </ul>
+
+                <p>Cancel will return you back to the list view, and your file will not be uploaded.</p>
+
+                <p>If there is an error message relating to the file type, please contact your Webmaster so that they can configure this for you.</p>
+
+                <p><strong>YouTube Media type</strong><br />
+                This is example of a media type allows you to enter the URL to a YouTube video, so that it can be used later in the website. Should you require other media types for example Vimeo of video data upload, please contact your webmaster<br />
+                Enter the URL of your YouTube video in the text field input button. Now click one of the &#39;Add....&#39; buttons</p>
+
+                <ul>
+                	<li>Add item and edit it</li>
+                	<li>Add item and return to list</li>
+                	<li>Add item and create another</li>
+                </ul>]]></target>
+            </trans-unit>
+            <trans-unit id="sonata.media.admin.media.edit.title">
+                <source>sonata.media.admin.media.edit.title</source>
+                <target><![CDATA[Edit media item]]></target>
+            </trans-unit>
+            <trans-unit id="sonata.media.admin.media.edit.text">
+                <source>sonata.media.admin.media.edit.text</source>
+                <target><![CDATA[<p>Edit an existing media by first selecting a media context first (e.g. standard media, background images, publications etc) via the avaliable media context tabs.</p>
+
+                <p>Click the edit button next to the media item that you wish to edit. You will then be able to switch between two views, edit and preview.</p>
+
+                <p><strong>Edit</strong></p>
+
+                <p>Name: Per default the name of the item (if it is a file) will be the name of the file that was originally uploaded, you can change this to what ever you would like, with or without a file ending (.pdf, .jpg etc).</p>
+
+                <p>Enabled: This is a field that can be then used in the frontend to define if a media item is enabled or not, check with your webmaster to see if this is used in your frontend templates</p>
+
+                <p>Flush CDN: Should you media be saved on a Cloud based Content Delivery Network (CDN), it is often necessary to flush (delete) cached media on these servers should you make a change to the file. This field is used to mark which files should have their CDN cache cleaned, your webmaster must, however program a task which will carry this out.</p>
+
+                <p>Author: the Author of the given media item, which can be used in the frontend HTML.</p>
+
+                <p>Description: A short description of the media, which can be used in the frontend HTML.</p>
+
+                <p>Copyright: A copyright notice, which can be used in the frontend HTML.</p>
+
+                <p>New File: Here you are given the opportunity to upload and new file, replacing the original file.</p>
+
+                <p>Tag your media: You can assign your media with multiple tags as a way of categorising them. The function is sensible to enable easier location of media within a large media library. Should a tag that meets your requirements not be available, click the &#39;+ Add new&#39; button to create a new media tag.</p>
+
+                <p>Now you can:</p>
+
+                <ul>
+                	<li>Add item and edit it</li>
+                	<li>Add item and return to list</li>
+                	<li>Add item and create another</li>
+                </ul>
+
+                <p>Cancel will return you back to the list view, and your changes will not be saved.</p>
+
+                <p><strong>View</strong></p>
+
+                <p>This view allows you to view your media (image and YouTube only)</p>
+
+                <p>The following general information is thereafter displayed:</p>
+
+                <p>Size (in Bytes if image or file)<br />
+                Width (in pixels if image or YouTube)<br />
+                Height  (in pixels if image or YouTube)<br />
+                Content type (if known)<br />
+                Copyright (if entered in form)<br />
+                Author (if entered in form)<br />
+                CDN Flushed at (last update date)</p>
+
+                <p>Protected URL: A URL which can be protected via a login (if implemented) to protect the access to media</p>
+
+                <p>Public URL: URL to the file on the server (imagen and file) or the splash image in the case of a YouTube video.</p>
+
+                <p>The warning message shows that if you use this URL, it is not possible for the application to protect it.</p>
+
+                <p>Afterwards follow the formats:</p>
+
+                <p>reference: show the URL to the original file</p>
+
+                <p>default_xxx: The name is made of the context name (e.g. default) plus the name of the format size. Your webmaster should set up predefined sizes for use with images and YouTube videos for displaying the same image in different formats on your webpage.</p>
+                ]]></target>
+            </trans-unit>
+
+
+            <trans-unit id="sonata.media.admin.gallery.list.title">
+                <source>sonata.media.admin.gallery.list.title</source>
+                <target>Media Gallery</target>
+            </trans-unit>
+            <trans-unit id="sonata.media.admin.gallery.list.text">
+                <source>sonata.media.admin.gallery.list.text</source>
+                <target><![CDATA[
+                    <p>The media gallery helps to present a collection of media items (typically images) on a page. You may add media via the media manager first, and then select them when creating a gallery, or you can upload media during the gallery creation process.</p>
+
+                    <p>Galleries can later be incorporated on a page by inserting a content block of the type &ldquo;Gallery&rdquo;.</p>
+
+                    <h2>Add a gallery</h2>
+
+                    <p>When you add a gallery you can also add media in the same step, so you don&#39;t have to go forth and back. The gallery consists of the following fields.</p>
+
+                    <p><strong>Enabled</strong><br />
+                    This flag can be used in your websites templates in order for the template to know if it should display the gallery or not. It is up to the template programmers as to how the field is used.</p>
+
+                    <p><strong>Name</strong><br />
+                    The name of the gallery. It will only be used internally, so you know which gallery you select for a page</p>
+
+                    <p><strong>Format</strong><br />
+                    Choose from different predefined formats. The formats define the size of the images and are predefined in your websites configuration. Your Webmaster is responsible for setting these up correctly at the beginning.</p>
+
+                    <p><strong>Media<br />
+                    ​</strong>Click &quot;+ Add new&quot; to add existing media or directly upload new media. You can even delete media from the gallery if necessary. You can come back any time to add or change media for a gallery.</p>
+                ]]></target>
+            </trans-unit>
+            <trans-unit id="sonata.media.admin.gallery.create.title">
+                <source>sonata.media.admin.gallery.create.title</source>
+                <target>Create gallery</target>
+            </trans-unit>
+            <trans-unit id="sonata.media.admin.gallery.create.text">
+                <source>sonata.media.admin.gallery.create.text</source>
+                <target><![CDATA[<p>When creating a gallery it is also possible to upload media directly, saving you from switching from the media manager to the gallery manager.</p>
+
+                <h2>Upload media</h2>
+
+                <p>Enter the basic information about your gallery:</p>
+
+                <ul>
+                	<li>Enabled: Is the gallery enabled (to be displayed) or not, this is only useful if the webmaster has programmed the templates to regard this field</li>
+                	<li>Name: Internal name for the gallery</li>
+                	<li>Format: Format (size) of the images or YouTube videos to display, check with your webmaster for more information.</li>
+                </ul>
+
+                <h2>Media</h2>
+
+                <p>Your will see all gallery objects in the over view table.</p>
+
+                <p><strong>Media</strong><br />
+                If available a thumbnail of the image/YouTube video will be displayed.</p>
+
+                <p>List: You can select an existing media item from your media library.</p>
+
+                <p>+Neu: You can create a new media entry.</p>
+
+                <p>Delete: You can remove the media entry connection (the media itself will not be deleted).</p>
+
+                <p><strong>Enabled</strong><br />
+                Here you can enable and disable individual media items within the gallery</p>
+
+                <p><strong>Position</strong><br />
+                Here you can order the media, by use of drag &amp; drop for display in the frontend</p>
+
+                <p>With the <strong>&#39;+ New&#39; Button</strong> you can create a new position in your gallery to add a new media element.</p>
+
+                <p>Now you can:</p>
+
+                <ul>
+                	<li>Add item and edit it</li>
+                	<li>Add item and return to list</li>
+                	<li>Add item and create another</li>
+                </ul>
+
+                <p>With &#39;Cancel&#39; your changes will not be saved and you will be returned to the Gallery list view.</p>]]></target>
+            </trans-unit>
+            <trans-unit id="sonata.media.admin.gallery.edit.title">
+                <source>sonata.media.admin.gallery.edit.title</source>
+                <target>Edit gallery</target>
+            </trans-unit>
+            <trans-unit id="sonata.media.admin.gallery.edit.text">
+                <source>sonata.media.admin.gallery.edit.text</source>
+                <target><![CDATA[<p>When editing a gallery, you can upload new media directly there without leaving the gallery page.</p>
+
+                <h2>Edit &#39;Gallery-name&#39;</h2>
+
+                <p>Edit the following information for your chosen gallery:</p>
+
+                <ul>
+                	<li>Enabled: Is the gallery enabled (to be displayed) or not, this is only useful if the webmaster has programmed the templates to regard this field</li>
+                	<li>Name: Internal name for the gallery</li>
+                	<li>Format: Format (size) of the images or YouTube videos to display, check with your webmaster for more information.</li>
+                </ul>
+
+                <h2>Media</h2>
+
+                <p>Your will see all gallery objects in the over view table.</p>
+
+                <p><strong>Media</strong><br />
+                If available a thumbnail of the image/YouTube video will be displayed.</p>
+
+                <p>List: You can select an existing media item from your media library.</p>
+
+                <p>+Neu: You can create a new media entry.</p>
+
+                <p>Delete: You can remove the media entry connection (the media itself will not be deleted).</p>
+
+                <p><strong>Enabled</strong><br />
+                Here you can enable and disable individual media items within the gallery</p>
+
+                <p><strong>Position</strong><br />
+                Here you can order the media, by use of drag &amp; drop for display in the frontend</p>
+
+                <p>With the <strong>&#39;+ New&#39; Button</strong> you can create a new position in your gallery to add a new media element.</p>
+
+                <p>Now you can:</p>
+
+                <ul>
+                	<li>Add item and edit it</li>
+                	<li>Add item and return to list</li>
+                	<li>Add item and create another</li>
+                </ul>
+
+                <p>With &#39;Cancel&#39; your changes will not be saved and you will be returned to the Gallery list view.</p>
+                ]]></target>
+            </trans-unit>
+            <trans-unit id="networking_init_cms.admin.tag.list.title">
+                <source>networking_init_cms.admin.tag.list.title</source>
+                <target>Media Tag</target>
+            </trans-unit>
+            <trans-unit id="networking_init_cms.admin.tag.list.text">
+                <source>networking_init_cms.admin.tag.list.text</source>
+                <target><![CDATA[
+                        <p>A media tag is a word or phrase, which you can freely create and associate to your media items. Media tags can then be used to filter all the media that is managed in the media library, you can then use the media tags to filter and find your way through large amounts of media quickly and easily</p>
+
+                        <p>Example tags might be &ldquo;holiday&rdquo; or &ldquo;portrait images&rdquo;. A media item can be associated with as many tags as you like.</p>
+                ]]></target>
+            </trans-unit>
+            <trans-unit id="networking_init_cms.admin.tag.create.title">
+                <source>networking_init_cms.admin.tag.create.title</source>
+                <target>Create media tag</target>
+            </trans-unit>
+            <trans-unit id="networking_init_cms.admin.tag.create.text">
+                <source>networking_init_cms.admin.tag.create.text</source>
+                <target>
+                    <![CDATA[<p>Just enter the tag name, which will be visible in the media search and the media create/new forms</p>]]></target>
+            </trans-unit>
+            <trans-unit id="networking_init_cms.admin.tag.edit.title">
+                <source>networking_init_cms.admin.tag.edit.title</source>
+                <target>Edit media tag</target>
+            </trans-unit>
+            <trans-unit id="networking_init_cms.admin.tag.edit.text">
+                <source>networking_init_cms.admin.tag.edit.text</source>
+                <target>
+                    <![CDATA[<p>Just enter the tag name, which will be visible in the media search and the media create/new forms</p>]]></target>
+            </trans-unit>
+
+            <!-- user -->
+
+            <trans-unit id="sonata.user.admin.user.list.title">
+                <source>sonata.user.admin.user.list.title</source>
+                <target>User overview</target>
+            </trans-unit>
+            <trans-unit id="sonata.user.admin.user.list.text">
+                <source>sonata.user.admin.user.list.text</source>
+                <target><![CDATA[
+                    <p>A user can login into the system with a username/email and a password. Users have different rights to interact with the website, e.g. an admin can create and publish new pages, but an extranet user could be restricted to have only read access for a certain webpage. The user can be given specific roles (permissions) by being assigned to one or more user groups. Read the groups help to get a more detailed understanding of user permissions.</p>
+
+                    <h2>List of users</h2>
+
+                    <p>The list of users offers an overview of information or actions. Every new row describes a new user. The following list explains the columns from left to right.</p>
+
+                    <p><strong>Username</strong><br />
+                    The name of the user. The name will be used to login into the system.</p>
+
+                    <p><strong>Email Address</strong><br />
+                    An email address of the user. This will be used to notify the user if she/he lost her/his password.</p>
+
+                    <p><strong>Groups</strong><br />
+                    A list of groups that this user belongs to. A group contains one or more roles, so that it is easy to add the right permission to your users.</p>
+
+                    <p><strong>Enabled</strong><br />
+                    This signalizes if the user account is enabled (activated) or not. Only enabled users can log into the system.</p>
+
+                    <p><strong>Impersonate User</strong><br />
+                    This is a feature to login quickly as the chosen user, just by clicking on the icon. This is useful for customer support because you see the same thing as this user does. You must have special rights to impersonate as another user.</p>
+
+                    <p><strong>Edit Button</strong><br />
+                    The edit button has a pencil icon. Click to edit the user details.</p>
+
+                    <p><strong>Delete Button</strong><br />
+                    The delete button has a trashcan icon. Click it to delete a user completely.</p>
+
+                    <h2>Filter users</h2>
+
+                    <p>The list of users can be filtered with several parameters. You can change these parameters and click on the &quot;Filter&quot; button to find users that match your filters. If you click on &quot;Clear&quot; the filters will be reset. By Clicking on &quot;More filter options&quot; all the available options for filtering will be shown.</p>
+
+                    <p><strong>Username</strong><br />
+                    The first filter searches for a username that matches your entry.</p>
+
+                    <p><strong>Locked</strong><br />
+                    Sort which users accounts have been locked. A user can be locked, which means locked out of the application. This may be implemented for security reasons.</p>
+
+                    <p><strong>Email Address</strong><br />
+                    Enter an email address or a part of it to find the corresponding users.</p>
+
+                    <p><strong>Groups</strong><br />
+                    Select a group name to include or exclude for the search. The result filters the users additionally by groups.</p>
+
+                    <h2>Add a new user</h2>
+
+                    <p>To add a new user, start by clicking the &quot;+ Add User&quot; button. You will then see a form with a lot of data fields, don&#39;t worry only the following fields are mandatory.</p>
+
+                    <p><strong>Username</strong><br />
+                    The name of the user used for login.</p>
+
+                    <p><strong>Email Address</strong><br />
+                    The email address of the user, used for contact and notifications.</p>
+
+                    <p><strong>Password</strong><br />
+                    The password field is only mandatory when creating a user (this may vary depending on the setup for your specific website).</p>
+
+                    <p>The user has a lot of additional fields like groups, roles,  and some security related fields. Just use the ones you want and leave the other empty.</p>
+                 ]]></target>
+            </trans-unit>
+            <trans-unit id="sonata.user.admin.user.create.title">
+                <source>sonata.user.admin.user.create.title</source>
+                <target>Create user</target>
+            </trans-unit>
+            <trans-unit id="sonata.user.admin.user.create.text">
+                <source>sonata.user.admin.user.create.text</source>
+                <target><![CDATA[<p>A user is someone saved in the DB with specific permissions to view certain content or carry out specific operations.</p>
+
+                <p>The fields available are:</p>
+
+                <p><strong>General</strong><br />
+                Username: this is the name that will be used to log into the admin interface<br />
+                E-Mail-Address: used for communications with the user<br />
+                Plain password: the field where you can enter the password, once saved the password is encrypted and not shown in the form</p>
+
+                <p><strong>Groups</strong><br />
+                Groups: here you can assign a user to one or more user groups or create a new user group</p>
+
+                <p><strong>Profile</strong><br />
+                Firstname: text field for the users first name (optional)<br />
+                Lastname: text field for the users family name (optional)<br />
+                Locale:  the users language preference, used in the admin interface to display a language if possible, german and english are currently supported completely (optional)</p>
+
+                <p>Management</p>
+
+                <p>Here you can add roles to user, these roles, in combination with those from the user group will set up what permissions the user has in the CMS</p>
+
+                <p>Locked: a locked user can not login into the CMS until the lock is removed<br />
+                Expired: similar to a locked user, a user with expired set can also not login to the CMS<br />
+                Enabled: if set the user can login to the CMS<br />
+                Credentials expired: if set the user will be logged out of the system</p>
+
+                <p>After you have finished configuring your user you can:</p>
+
+                <ul>
+                	<li>Add item and edit it</li>
+                	<li>Add item and return to list</li>
+                	<li>Add item and create another</li>
+                </ul>
+
+                <p>With &#39;Cancel&#39; your changes will not be saved and you will be returned to the user list view.</p>
+
+                ]]></target>
+            </trans-unit>
+            <trans-unit id="sonata.user.admin.user.edit.title">
+                <source>sonata.user.admin.user.edit.title</source>
+                <target>Edit user</target>
+            </trans-unit>
+            <trans-unit id="sonata.user.admin.user.edit.text">
+                <source>sonata.user.admin.user.edit.text</source>
+                <target><![CDATA[<p>By clicking on the edit button next to a user you can edit the user, including changing their password</p>
+
+                <p>The fields available are:</p>
+
+                <p><strong>General</strong><br />
+                Username: this is the name that will be used to log into the admin interface<br />
+                E-Mail-Address: used for communications with the user<br />
+                Plain password: the field where you can enter the password, once saved the password is encrypted and not shown in the form</p>
+
+                <p><strong>Groups</strong><br />
+                Groups: here you can assign a user to one or more user groups or create a new user group</p>
+
+                <p><strong>Profile</strong><br />
+                Firstname: text field for the users first name (optional)<br />
+                Lastname: text field for the users family name (optional)<br />
+                Locale:  the users language preference, used in the admin interface to display a language if possible, german and english are currently supported completely (optional)</p>
+
+                <p>Management</p>
+
+                <p>Here you can add roles to user, these roles, in combination with those from the user group will set up what permissions the user has in the CMS</p>
+
+                <p>Locked: a locked user can not login into the CMS until the lock is removed<br />
+                Expired: similar to a locked user, a user with expired set can also not login to the CMS<br />
+                Enabled: if set the user can login to the CMS<br />
+                Credentials expired: if set the user will be logged out of the system</p>
+
+                <p>After you have finished configuring your user you can:</p>
+
+                <ul>
+                	<li>Add item and edit it</li>
+                	<li>Add item and return to list</li>
+                	<li>Add item and create another</li>
+                </ul>
+
+                <p>With &#39;Cancel&#39; your changes will not be saved and you will be returned to the user list view.</p>
+                ]]></target>
+            </trans-unit>
+            <trans-unit id="sonata.user.admin.group.list.title">
+                <source>sonata.user.admin.group.list.title</source>
+                <target>Group Overview</target>
+            </trans-unit>
+            <trans-unit id="sonata.user.admin.group.list.text">
+                <source>sonata.user.admin.group.list.text</source>
+                <target><![CDATA[
+                     <p>The user groups provide a way of maintaining user &quot;roles&quot; (permissions). As mentioned in the user overview, a user may belong to one or many user groups.</p>
+
+                     <p>A &quot;role&quot; allows a user to carry out a specific action, for example, a user that has the role &quot;ROLE_ADMIN&quot; can log into the back end of the application, a user that has the role &quot;ROLE_NETWORKING_INIT_CMS_PAGE_ADMIN_PAGE_EDITOR&quot;, is allowed to create pages, and delete his/her own pages&quot;.</p>
+
+                     <p>By assigning a user group specific roles, you need only care later about assigning a user the correct user groups, rather than assigning single roles to each and every user. Also if a role should change, one change in the user group will affect all users who belong to that group.</p>
+
+                     <h2>List of Groups</h2>
+
+                     <p><strong>Name</strong><br />
+                     This is the name of the user group, e.g. &quot;Publisher&quot; or &quot;Editor&quot;</p>
+
+                     <p><strong>Roles</strong><br />
+                     This is a list of the roles associated to this user group, often the list is too long to list visually in the list view</p>
+
+                     <h2>Filter groups</h2>
+
+                     <p><strong>Name</strong><br />
+                     Filter groups by the name of the group.</p>
+
+                     <h2>Add a new user group</h2>
+
+                     <p>To add a new user group, start by clicking the &quot;+ Add Group&quot; button. The form shown contains a name field, followed by a list of checkboxes for all the available roles (permissions).</p>
+
+                     <p>If you are unclear what the roles actually mean, ask your Webmaster for help, or better yet, to set up the groups that you need for your application.</p>
+
+                 ]]></target>
+            </trans-unit>
+            <trans-unit id="sonata.user.admin.group.create.title">
+                <source>sonata.user.admin.group.create.title</source>
+                <target>Create user group</target>
+            </trans-unit>
+            <trans-unit id="sonata.user.admin.group.create.text">
+                <source>sonata.user.admin.group.create.text</source>
+                <target><![CDATA[<p>A user group allows you to assign a group of users the same permissions without having to assign the same permissions to each individual user. In most cases your webmaster will setup the roles a group can use.</p>
+
+                <p><strong>Fields</strong></p>
+
+                <p>Name: The internal reference to a group</p>
+
+                <p>Roles: Per module/object you have the ability to assign a permission they are</p>
+
+                <ul>
+                	<li>ROLE_XYZ_GUEST: a guest that is allowed to VIEW an object and a LIST of objects</li>
+                	<li>ROLE_XYZ_STAFF: probably the biggest part of the users, a staff user has the same permissions as guests and is additionally allowed to EDIT and CREATE new objects;</li>
+                	<li>ROLE_XYZ_EDITOR: an editor is granted all access and, compared to the staff users, is allowed to DELETE; </li>
+                	<li>ROLE_XYZ_ADMIN: an administrative user is granted all access and on top of that, the user is allowed to grant other users access.</li>
+                	<li>ROLE_XYZ_PUBLISHER: as the the same rights as Admin but in the case of the the Pages, can publish pages to be viewed in the frontend</li>
+                </ul>
+
+                <p>Owner:</p>
+
+                <ul>
+                	<li>when an object is created, the currently logged in user is set as owner for that object and is granted all access for that object;</li>
+                	<li>this means the user owning the object is always allowed to DELETE the object, even when it only has the staff role.</li>
+                </ul>
+
+                <p>In order for a user to be able to use the backend you will need to assign the role &#39;ROLE_ADMIN&#39;</p>
+
+                <p>The role &#39;ROLE_ALLOWED_TO_SWITCH&#39; allows the user, if they have access to the user admin area, to impersonate another user to see what they would see.</p>
+
+                <p>Only super admin users can select the role ROLE_SUPER_ADMIN.</p>
+
+                <p>After you have finished configuring your group you can:</p>
+
+                <ul>
+                	<li>Add item and edit it</li>
+                	<li>Add item and return to list</li>
+                	<li>Add item and create another</li>
+                </ul>
+
+                <p>With &#39;Cancel&#39; your changes will not be saved and you will be returned to the group list view.</p>
+                ]]></target>
+            </trans-unit>
+            <trans-unit id="sonata.user.admin.group.edit.title">
+                <source>sonata.user.admin.group.edit.title</source>
+                <target>Edit user group</target>
+            </trans-unit>
+            <trans-unit id="sonata.user.admin.group.edit.text">
+                <source>sonata.user.admin.group.edit.text</source>
+                <target><![CDATA[<p>By clicking on the &#39;Edit&#39; button in the group list you can edit an existing user group.</p>
+
+                <p>A user group allows you to assign a group of users the same permissions without having to assign the same permissions to each individual user. In most cases your webmaster will setup the roles a group can use.</p>
+
+                <p><strong>Fields</strong></p>
+
+                <p>Name: The internal reference to a group</p>
+
+                <p>Roles: Per module/object you have the ability to assign a permission they are</p>
+
+                <ul>
+                	<li>ROLE_XYZ_GUEST: a guest that is allowed to VIEW an object and a LIST of objects</li>
+                	<li>ROLE_XYZ_STAFF: probably the biggest part of the users, a staff user has the same permissions as guests and is additionally allowed to EDIT and CREATE new objects;</li>
+                	<li>ROLE_XYZ_EDITOR: an editor is granted all access and, compared to the staff users, is allowed to DELETE; </li>
+                	<li>ROLE_XYZ_ADMIN: an administrative user is granted all access and on top of that, the user is allowed to grant other users access.</li>
+                	<li>ROLE_XYZ_PUBLISHER: as the the same rights as Admin but in the case of the the Pages, can publish pages to be viewed in the frontend</li>
+                </ul>
+
+                <p>Owner:</p>
+
+                <ul>
+                	<li>when an object is created, the currently logged in user is set as owner for that object and is granted all access for that object;</li>
+                	<li>this means the user owning the object is always allowed to DELETE the object, even when it only has the staff role.</li>
+                </ul>
+
+                <p>In order for a user to be able to use the backend you will need to assign the role &#39;ROLE_ADMIN&#39;</p>
+
+                <p>The role &#39;ROLE_ALLOWED_TO_SWITCH&#39; allows the user, if they have access to the user admin area, to impersonate another user to see what they would see.</p>
+
+                <p>Only super admin users can select the role ROLE_SUPER_ADMIN.</p>
+
+                <p>After you have finished configuring your group you can:</p>
+
+                <ul>
+                	<li>Add item and edit it</li>
+                	<li>Add item and return to list</li>
+                	<li>Add item and create another</li>
+                </ul>
+
+                <p>With &#39;Cancel&#39; your changes will not be saved and you will be returned to the group list view.</p>]]></target>
+            </trans-unit>
+            <!-- default -->
+
+            <trans-unit id="not_found.title">
+                <source>not_found.title</source>
+                <target>Sorry, no specific help text available!</target>
+            </trans-unit>
+            <trans-unit id="not_found.text">
+                <source>not_found.text</source>
+                <target>
+                    <![CDATA[ <strong>We did not found a specific help text. Hopefully you will find some helpful information from the left navigation menu. We are trying to improve the help section and we are sorry for the inconvenience.</strong> ]]></target>
+            </trans-unit>
+            <trans-unit id="help_text.admin_menu_label">
+                <source>help_text.admin_menu_label</source>
+                <target>Testi di aiuto</target>
+            </trans-unit>
+            <trans-unit id="help_text.title">
+                <source>help_text.title</source>
+                <target>Help Texts</target>
+            </trans-unit>
+            <trans-unit id="help_text.label">
+                <source>help_text.label</source>
+                <target>Help Texts</target>
+            </trans-unit>
+            <trans-unit id="action._publish">
+                <source>action._publish</source>
+                <target>Publish</target>
+            </trans-unit>
+            <trans-unit id="action._delete">
+                <source>action._delete</source>
+                <target>Delete</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,57 @@
+networking_init_cms:
+    class:
+        page: "Application\\Networking\\InitCmsBundle\\Entity\\Page"
+        user: "Application\\Networking\\InitCmsBundle\\Entity\\User"
+    languages:
+        - {label: Italiano, locale: it_IT}
+        - {label: English, locale: en_US}
+    templates:
+        'Sandbox_one_column_template':
+            template: "ApplicationNetworkingInitCmsBundle:Default:one_column.html.twig"
+            name: "Single Column"
+            icon: "bundles/applicationnetworkinginitcms/img/template_header_one_column.png"
+            zones:
+                - { name: header, class: 'col-md-12' }
+                - { name: main_content, class: 'col-md-12'}
+        'Sandbox_two_column_template':
+            template: "ApplicationNetworkingInitCmsBundle:Default:two_column.html.twig"
+            name: "Two Column"
+            icon: "bundles/applicationnetworkinginitcms/img/template_header_two_column.png"
+            zones:
+                - { name: header , class: 'col-md-12'}
+                - { name: advertising , class: 'col-md-12', max_content_items: -1 }
+                - { name: left , class: 'col-md-6'}
+                - { name: right , class: 'col-md-6'}
+        'Sandbox_three_column_template':
+            template: "ApplicationNetworkingInitCmsBundle:Default:three_column.html.twig"
+            name: "Three Column"
+            icon: "bundles/applicationnetworkinginitcms/img/template_header_three_column.png"
+            zones:
+                - { name: header , class: 'col-md-12'}
+                - { name: advertising , class: 'col-md-12', max_content_items: -1 }
+                - { name: left , class: 'col-md-3'}
+                - { name: center, class: 'col-md-6'}
+                - { name: right , class: 'col-md-3'}
+        'Sandbox_homepage_template':
+            template: "ApplicationNetworkingInitCmsBundle:Default:homepage.html.twig"
+            name: "Homepage"
+            icon: "bundles/applicationnetworkinginitcms/img/template_header_three_column.png"
+            zones:
+                - { name: header , class: 'col-md-12'}
+                - { name: left , class: 'col-md-6'}
+                - { name: right , class: 'col-md-6'}
+                - { name: advertising , class: 'col-md-12', max_content_items: -1 }
+                - { name: bottom_left , class: 'col-md-6'}
+                - { name: bottom_right , class: 'col-md-6'}
+
+    admin_menu_groups:
+        big:
+          items: [pages, menu, products, media]
+        small:
+          items: [users, help_text, translation]
+
+    content_types:
+        - { name: 'Testo' , class: 'Networking\InitCmsBundle\Entity\Text'}
+        - { name: 'Galleria' , class: 'Networking\InitCmsBundle\Entity\GalleryView'}
+        - { name: 'Media' , class: 'Lzdv\InitCmsExtensionBundle\Entity\MediaView'}
+        - { name: 'Card' , class: 'Lzdv\InitCmsExtensionBundle\Entity\CardView'}

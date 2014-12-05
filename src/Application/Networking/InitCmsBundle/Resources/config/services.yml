@@ -1,0 +1,70 @@
+services:
+    sandbox_init_cms.menu.frontend_menu_builder:
+        class: Networking\InitCmsBundle\Menu\FrontendMenuBuilder
+        scope: request
+        arguments:
+            - @knp_menu.factory
+            - @security.context
+            - @request
+            - @router
+            - @networking_init_cms.menu_item_manager
+            - @translator
+            - @knp_menu.matcher
+
+
+    # Create the left main menu and right main menu for the frontend
+    sandbox_init_cms.menu.frontend_main_menu_left:
+        class: Knp\Menu\MenuItem
+        factory_service: sandbox_init_cms.menu.frontend_menu_builder
+        factory_method: createMainMenu
+        arguments: [menu_name: "Main menu", "nav nav-tabs nav-main" ]
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: mainMenu }
+
+    sandbox_init_cms.menu.frontend_main_menu_language:
+        class: Knp\Menu\MenuItem
+        factory_service: sandbox_init_cms.menu.frontend_menu_builder
+        factory_method: createFrontendLangMenu
+        arguments: [ '@request', %networking_init_cms.page.languages%, "nav nav-pills pull-right" ]
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: langMenu }
+
+
+    # Create the side menu for the frontend
+    sandbox_init_cms.menu.frontend_sub_menu:
+        class: Knp\Menu\MenuItem
+        factory_service: sandbox_init_cms.menu.frontend_menu_builder
+        factory_method: createSubnavMenu
+        arguments: [ "Main menu", 'nav nav-pills']
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: subMenu }
+
+
+
+    sandbox_init_cms.menu.frontend_footer_menu:
+        class: Knp\Menu\MenuItem
+        factory_service: sandbox_init_cms.menu.frontend_menu_builder
+        factory_method: createFooterMenu
+        arguments: ['Footer menu', 'nav nav-pills']
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: footerMenu }
+
+    # ADMIN
+
+#    sonata.product.admin.product:
+#        class: Application\Sonata\ProductBundle\Admin\ProductAdmin
+#        arguments: 
+#            - ~
+#            #- %networking_init_cms.admin.product.class%
+#            - Application\Sonata\ProductBundle\Admin\ProductAdmin
+#            - ApplicationSonataProductBundle:ProductAdmin
+#        calls:
+#            - [setTranslationDomain, [ProductAdmin]]
+#            #- [setlanguages, ["%networking_init_cms.page.languages%"]]
+#            #- [setPageManager, ["@networking_init_cms.page_manager"]]
+#        tags:
+#            - { name: sonata.admin, manager_type: orm, label: products.title, label_translator_strategy: sonata.admin.label.strategy.underscore }

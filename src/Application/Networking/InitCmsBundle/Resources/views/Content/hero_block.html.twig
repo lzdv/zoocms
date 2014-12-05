@@ -1,0 +1,48 @@
+{#
+
+This file is part of the Networking package.
+
+(c) net working AG <info@networking.ch>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+{% from 'NetworkingInitCmsBundle:GalleryView:macro.html.twig' import lightbox, carousel, carousel_full_width %}
+{% from 'LzdvInitCmsExtensionBundle:MediaView:macro.html.twig' import image,video %}
+
+{% set body_id = app.request.attributes.get('_route')|trim('/')|replace({ '/': '-' }) %}
+{% if not body_id %}{% set body_id = 'homepage-page' %}{% else %}{% set body_id = body_id~'-page' %}{% endif %}
+{% set body_class = app.request.attributes.get('_route')|trim('/')|replace({ '/': ' ' }) %}
+{% if not body_class %}{% set body_class = 'homepage' %}{% endif %}
+
+
+{% if text is defined %}
+<div class="text">
+    {{ text | raw }}
+</div>
+{% endif %}
+
+{% if galleryView is defined %}
+<div class="gallery">
+    {% if galleryView.galleryType == 'lightbox' %}
+        {{ lightbox(galleryView.mediaGallery) }}
+    {% endif %}
+    {% if galleryView.galleryType == 'carousel' %}
+        {% set h = '300px' %}
+        {% if body_id == 'homepage-page' %}{% set h = '460px' %}{% endif %}
+        {{ carousel_full_width(galleryView.mediaGallery, 'heroCarousel', null, 'medium', h) }}
+    {% endif %}
+</div>
+{% endif %}
+
+{% if mediaView is defined %}
+<div class="media">
+    {% if mediaView.mediaType == 'image' %}
+        {{ image(mediaView.media, "relName", "full", "small", "") }}
+    {% endif %}
+    {% if mediaView.mediaType == 'video' %}
+        {{ video(mediaView, 'heroCarousel', null, 'medium', '460px') }}
+    {% endif %}
+</div>
+{% endif %}

@@ -1,0 +1,7 @@
+parameters:
+#    lzdv_init_cms_extension.example.class: Lzdv\InitCmsExtensionBundle\Example
+
+services:
+#    lzdv_init_cms_extension.example:
+#        class: %lzdv_init_cms_extension.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

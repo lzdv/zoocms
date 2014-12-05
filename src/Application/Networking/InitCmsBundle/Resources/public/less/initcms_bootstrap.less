@@ -1,0 +1,63 @@
+@import "../../../../../../../web/bundles/mopabootstrap/less/mopabootstrapbundle";
+@import "../../../../../../../web/bundles/networkinginitcms/less/initcms_variables.less";
+@import "../../../../../../../web/bundles/networkinginitcms/less/variables.less";
+@import "../../../../../../../web/bundles/networkinginitcms/less/admin.less";
+@import "../../../../../../../web/bundles/networkinginitcms/less/forms.less";
+.initcms{
+  @import "../../../../../../../web/bundles/networkinginitcms/less/admin-navbar.less";
+}
+input.cke_dialog_ui_input_text{
+    height:24px;
+}
+.content_preview {
+    overflow: hidden;
+}
+#logo img {
+    height: 40px;
+    width: 40px;
+    margin: 5px 10px 5px 0;
+}
+.modal.in .modal-dialog {
+    z-index: 4010;
+}
+
+.content_preview {
+    box-shadow: 2px 2px 4px grey;
+    
+    & > div {
+        position: relative;
+    }
+    
+    hr {
+        margin: 5px 0px;
+    }
+
+    .layout_controls {
+        background-color: #f7f7f7;
+        border-color: -moz-use-text-color -moz-use-text-color #d5d5d5 white;
+        border-image: none;
+        border-style: none none solid solid;
+        border-width: 0 0 1px;
+        margin: -5px -5px 15px;
+        padding: 2px;
+    
+        i {
+            background-color: transparent;
+            cursor: pointer;
+            
+            &:hover {
+                color: black;
+            }
+        }
+    }
+    
+    .block-title {
+        padding: 2px 5px;
+        position: absolute;
+        right: 0px;
+        top: -52px;
+        line-height: 21px;
+        height: 25px;
+        font-size: 10px;
+    }
+}

@@ -1,0 +1,14 @@
+{% from 'LzdvInitCmsExtensionBundle:MediaView:macro.html.twig' import admin_image, admin_video %}
+{% if mediaView.hasMedia %}
+    {#{% thumbnail mediaItem.media, 'small' with {'class': 'img-polaroid'} %}#}
+
+    {% if mediaView.mediaType == 'image' %}
+        {{ admin_image(mediaView.media) }}
+    {% endif %}
+    {% if mediaView.mediaType == 'video' %}
+        {{ admin_video(mediaView.media, 'heroCarousel', null, 'admin') }}
+    {% endif %}
+{% else %}
+    New Media
+{% endif %}
+<div style="clear: both;">&nbsp;</div>

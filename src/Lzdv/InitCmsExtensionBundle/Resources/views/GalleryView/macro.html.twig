@@ -1,0 +1,11 @@
+{% macro gallery_list(gallery, relName, largeFormat, thumbFormat, shownName ) %}
+    {#
+    <ul class="">
+        {% for galleryMedia in gallery.galleryHasMedias %}
+            <li>
+                {% media galleryMedia.media, thumbFormat|default(gallery.defaultFormat) %}
+            </li>
+        {% endfor %}
+    </ul>
+    #}
+{% endmacro %}

@@ -1,0 +1,75 @@
+{
+    "autoload":{
+        "psr-0":{
+            "":"src/",
+            "Application": "app/" 
+        }
+    },
+    "config":{
+        "bin-dir":"bin"
+    },
+    "description":"the \"Symfony Standard Edition\" distribution with the networking init CMS bundle configured",
+    "extra":{
+        "symfony-app-dir":"app",
+        "symfony-web-dir":"web",
+        "symfony-assets-install": "symlink",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        }
+    },
+    "minimum-stability":"dev",
+    "name":"networking/init-cms-sandbox",
+    "license": "MIT",
+    "require":{
+        "php":">=5.3.3",
+        "symfony/symfony": ">=2.3,<2.6-dev",
+        "symfony/assetic-bundle": "~2.3",
+        "symfony/swiftmailer-bundle": "~2.3",
+        "symfony/monolog-bundle": "~2.4",
+        
+        "doctrine/orm": "~2.2,>=2.2.3",
+        "doctrine/doctrine-bundle": "~1.2",
+        "doctrine/doctrine-migrations-bundle": "~2.0dev",
+        "doctrine/migrations":  "~1.0@dev",
+        
+        "sensio/distribution-bundle": "~3.0",
+        "sensio/framework-extra-bundle": "~3.0",
+        "sensio/generator-bundle": "2.3.*",
+        
+        "jms/security-extra-bundle": "1.5.1",
+        
+        "twig/extensions": "~1.0",
+
+        "twbs/bootstrap-sass": "3.3.*",
+        "oyejorge/less.php": "1.7.*",
+        "networking/init-cms-bundle": "2.5.*",
+        
+        "drinky78/shortcode-bundle": "dev-master",
+        "lzdv/ecommerce": "~2.3@dev",
+        
+        "sonata-project/classification-bundle": "2.2.*"
+
+    },
+    "scripts":{
+        "post-install-cmd":[
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ],
+        "post-install-cmd-comment":[
+            "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallMirrorTwitterBootstrap" 
+        ],
+        "post-update-cmd":[
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ],
+        "post-update-cmd-comment":[
+            "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallMirrorTwitterBootstrap" 
+        ]
+    }
+}

@@ -1,0 +1,102 @@
+sonata_media:
+    # if you don't use default namespace configuration
+    class:
+#        media:              Networking\InitCmsBundle\Entity\Media
+#        gallery:            Application\Networking\InitCmsBundle\Entity\Gallery
+#        gallery_has_media:  Application\Networking\InitCmsBundle\Entity\GalleryHasMedia
+    default_context: default
+    db_driver: doctrine_orm # or doctrine_mongodb, doctrine_phpcr
+    contexts:
+        default:  # the default context is mandatory
+            providers:
+#                - sonata.media.provider.dailymotion
+#                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+                - sonata.media.provider.file
+
+            formats:
+                small: { width: 100 , quality: 70}
+                big:   { width: 500 , quality: 70}
+                full:  { width: 1920 , quality: 70}
+                
+        advertising:
+            providers:
+              - sonata.media.provider.image
+
+            formats:
+                small:    { width: 100, quality: 70}
+                wide:    { width: 1920, quality: 100}
+                
+        company:
+            providers:
+              - sonata.media.provider.image
+
+            formats:
+                small:    { width: 100, quality: 70}
+                big:    { width: 220, height: 220, quality: 100}
+                full:    { width: 1920, quality: 100}
+                
+        sonata_collection:
+            providers:
+              - sonata.media.provider.image
+
+            formats:
+                preview: { width: 100, quality: 70}
+                wide:    { width: 1920, quality: 100}
+
+        sonata_category:
+            providers:
+              - sonata.media.provider.image
+
+            formats:
+                preview: { width: 100, quality: 70}
+                wide:    { width: 1920, quality: 100}
+
+        sonata_product:
+            providers:
+              - sonata.media.provider.image
+
+            formats:
+                preview: { width: 100, quality: 70}
+                small:   { width: 100, quality: 70}
+                wide:    { width: 820, quality: 100}
+                
+    cdn:
+        server:
+            path: /uploads/media # http://media.sonata-project.org/
+
+    filesystem:
+        local:
+            directory:  %kernel.root_dir%/../web/uploads/media
+            create:     false
+
+    providers:
+        # ...
+        file:
+            # the resizer must be set to false, otherwhise this can delete icon files from the fs
+            resizer:    false
+        image:
+           thumbnail: sonata.media.thumbnail.format          # default value
+#           thumbnail: sonata.media.thumbnail.consumer.format # can be used to dispatch the resize action to async task
+#            thumbnail: sonata.media.thumbnail.liip_imagine    # use the LiipImagineBundle to resize the image
+        vimeo:
+            thumbnail: sonata.media.thumbnail.format          # default value
+#           thumbnail: sonata.media.thumbnail.consumer.format # can be used to dispatch the resize action to async task
+#           thumbnail: sonata.media.thumbnail.liip_imagine    # use the LiipImagineBundle to resize the image
+        youtube:
+            thumbnail: sonata.media.thumbnail.format          # default value
+#           thumbnail: sonata.media.thumbnail.consumer.format # can be used to dispatch the resize action to async task
+#           thumbnail: sonata.media.thumbnail.liip_imagine    # use the LiipImagineBundle to resize the image
+        dailymotion:
+            thumbnail: sonata.media.thumbnail.format          # default value
+#           thumbnail: sonata.media.thumbnail.consumer.format # can be used to dispatch the resize action to async task
+#           thumbnail: sonata.media.thumbnail.liip_imagine    # use the LiipImagineBundle to resize the image
+
+    pixlr:
+        enabled:  true
+        referrer: Zoo CMS
+
+    resizer:
+        simple:
+#            mode:  outbound
+            mode:  inset

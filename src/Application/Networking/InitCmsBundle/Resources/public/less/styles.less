@@ -1,0 +1,512 @@
+@import "web/bundles/mopabootstrap/less/mopabootstrapbundle";
+
+html body {
+    background-color: #edf0f2;
+    font-family: @font-family-serif;
+    font-size: 13pt;
+    color: grey;
+}
+
+html body a {
+    &:hover, &:visited {
+        color: #eb3200;
+    }
+}
+
+html body h1 {
+    font-family: @font-family-serif;
+    font-size: 20pt;
+    text-transform: uppercase;
+    color: black;
+    margin-top: 0;
+}
+
+html body h2 {
+    font-family: @font-family-serif;
+    font-size: 18pt;
+    color: black;
+}
+
+html body h3 {
+    font-size: 34px;
+    font-weight: 200;
+    font-size: 14pt;
+}
+
+hr {
+    background-image: url("/bundles/applicationnetworkinginitcms/img/hr.png");
+    margin: 0 0 10pt !important;
+    height: 5px !important;
+    background-repeat: repeat-x;
+    clear: both;
+    
+    &.light {
+        background-image: url("/bundles/applicationnetworkinginitcms/img/hr-light.png");
+    }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+figcaption {
+    font-family: @font-family-serif;
+} 
+
+.modal-dialog {
+    z-index: 1050;
+}
+
+.container {
+    background-image: url(/bundles/applicationnetworkinginitcms/img/big_face.png);
+    background-repeat: no-repeat;
+    background-position: 72% 22%;
+    padding: 0 !important;
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+.eat-padding {
+   margin-left: -10px !important;
+   margin-right: -10px !important;
+}
+
+/* Custom container */
+.container-narrow {
+    background-color: #edf0f2;
+    width: 100% !important;
+    padding: 0 !important;
+    
+    .row {
+        max-width: 960px;
+        margin: 0px auto;
+        background-color: transparent;
+        &.full {
+            max-width: 100%;
+            background-color: transparent;
+        }
+    }
+}
+
+.header {
+    margin-bottom: 40px;
+}
+
+.gallery {
+    width: 100%;
+    overflow: hidden;
+}
+
+#initcmsnavadmin {
+    display: none !important;
+}
+
+#logo {
+    width: 60px;
+    height: 60px;
+    padding: 0;
+}
+
+#header-logo-container {
+    position: relative;
+    
+    #header-logo {
+        position: absolute;
+        bottom: 0px;
+        left: 10px;
+    }
+    
+}
+
+.nav-pills  {
+    display: none;
+    & > li.active > a, .nav-pills > li.active > a:hover {
+        background-color: #eb3200;
+    }
+}
+
+.nav-main-container {
+    background-color: white !important;
+    .navbar-nav {
+        font-family: @font-family-serif;
+        font-size: @font-size-base;
+        li {
+            a,
+            a:visited {
+                height: 60px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                font-size: 12pt;
+                line-height: 30px !important;
+                text-transform: uppercase;
+                color: grey;
+                &.active,
+                &:hover,
+                &:focus {
+                    background-color: black;
+                    color: white;
+                }
+            }
+            &.active > a,
+            &.open > a {
+                background-color: black;
+                color: white;
+            }
+        }
+        .dropdown-menu {
+            li {
+                border-bottom: 1px solid @gray-lighter;
+                &.last {
+                    border-color: transparent;
+                }
+                a {
+                    padding: 15px 40px;
+                }
+            }
+        }
+    }
+}
+
+
+.carousel-inner {
+    overflow: visible;
+    .item {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        width: 100%;
+        height: 460px;
+        img {
+            display: none;
+        }
+    }
+    
+    .carousel-caption {
+        width: 360px;
+        height: 360px;
+        padding: 30px;
+        background: url(/bundles/applicationnetworkinginitcms/img/carousel/box.png) center center no-repeat;
+        margin: 50px auto;
+        img {
+            
+        }
+        h2 {
+            font-family: @font-family-serif;
+            font-family: @font-size-large*1.2;
+            font-size: 18pt;
+            line-height: 20pt;
+            color: white;
+        }
+        h3 {
+            font-family: @font-family-serif;
+            font-size: 14pt;
+            margin: 10pt 0 20pt;
+        }
+        p {
+            font-family: @font-family-sans-serif;
+            font-size: @font-size-small*0.85;
+            color: #c3c3c3;
+        }
+    }
+}
+
+.carousel-indicators {
+    bottom: 87px;
+    margin: 0 -100px;
+    padding: 10px 0 0;
+    width: 200px;
+    background: url(/bundles/applicationnetworkinginitcms/img/carousel/line.png) top center no-repeat;
+}
+
+.carousel-control {
+    display: none;
+}
+
+.media {
+    text-align: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.textbox {
+    margin: 20px !important;
+}
+
+.card {
+    margin-bottom: 20px;
+    width: 100%;
+
+    .card-left {
+        position: relative;
+        padding: 30px 20px 20px;
+        float: left;
+        width: 50%;
+        height: 100%;
+    }
+    .card-right {
+        position: relative;
+        padding: 30px 20px 20px;
+        float: left;
+        width: 50%;
+        height: 100%;
+    }
+
+    .card-media.no-padding {
+        text-align: center;
+        padding: 0;
+
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    h1 {
+        text-align: center;
+        font-family: @font-family-serif;
+        font-size: 16pt;
+        display: inline-block;
+        text-transform: uppercase;
+        margin-bottom: 0.5em;
+        margin-top: 0.5em;
+    }
+    h3 {
+        font-family: @font-family-sans-serif;
+        font-size: 10pt;
+        display: inline-block;
+        width: 50%;
+        text-transform: uppercase;
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+
+        strong {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15pt;
+            display: inline-block;
+            font-size: 10pt;
+            height: 30pt !important;
+            line-height: 10pt !important;
+            margin-right: 10px;
+            padding: 10pt;
+            width: 30pt !important;
+        }
+    }
+    p {
+        font-size: 10pt;
+        line-height: 12pt;
+        display: inline-block;
+        text-transform: uppercase;
+    }
+    
+}
+
+.left { /* left column for the central chunk of the homepage */
+    
+    .nav {
+        display: block;
+        margin: -20px 0 20px;
+        width: 100%;
+        
+        li {
+            width: 100%;
+            background-color: #c6cfd2;
+            margin: 0 0 1px !important;
+            display: inline-block;
+            
+            &.active {
+                background-color: black;
+            }
+            
+            a {
+                padding: 20px;
+                width: 100% !important;
+                height: 100% !important;
+                background-color: transparent !important;
+                
+                font-family: @font-family-serif;
+                font-size: 13pt !important;
+                text-transform: uppercase;
+                line-height: 13pt !important;
+                color: white !important;
+            }
+        }
+    }
+    
+    .gallery {
+        height: auto;
+        
+        .gallery-list {
+            li {
+                display: inline;
+            }
+        }
+    }
+}
+ 
+.center {
+    padding-top: 20px;
+    .left {
+        .card {
+            color: white;
+            height: 220px;
+
+            .card-media {
+                &::after {
+                    background-color: black;
+                    bottom: 0;
+                    color: white;
+                    content: "+";
+                    display: block;
+                    font-size: 30px;
+                    height: 40px;
+                    line-height: 35px;
+                    padding: 0px;
+                    position: absolute;
+                    right: 0;
+                    width: 40px;
+                    text-align: center;
+                    margin: 0;
+                } 
+            }
+
+        }
+    }
+    .right {
+        .card {
+            .card-media {
+                text-align: center;
+            }
+        }
+    }
+}
+
+.advertising {
+    height: 331px;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 20px !important;
+    img {
+        width: 1920px;
+    }
+}
+
+.bottom {
+    padding-top: 20px !important;
+}
+
+.bottom {
+    padding-top: 20px !important;
+}
+
+footer {
+    background-color: #c6cfd2;
+}
+
+/*
+ * HOMEPAGE PERSONAL STYLES
+ */
+#homepage-page {
+    
+    font-size: 10pt;
+    
+    .textbox {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    h1 {
+        font-size: 18pt;
+        color: black;
+    }
+    
+    .row.links {
+        margin-bottom: 20px;
+        
+        img {
+            width: 100% !important;
+        }
+    }
+    
+    .row.news {
+        .row.news * {
+            color: grey;
+        }
+        .card-left {
+            background-color: white;
+            height: 211px;
+ 
+            & > h1 {
+                color: white !important;
+                text-align: left;
+            }
+            
+            p {
+                margin-top: 70px;
+                line-height: 14pt;
+            }
+        }
+        .card-right {
+            height: 211px;
+            position: relative;
+            
+            .news-pages {
+                
+                a {
+                    background-color: black;
+                    color: white !important;
+                    width: 40px;
+                    height: 40px;
+                    padding: 10px;
+                    font-size: 20px;
+                    font-weight: bold;
+                    line-height: 20px;
+                    text-align: center;
+                    display: block;
+                    float: left;
+                    margin-left: 1px;
+                }
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+        }
+        
+    }
+}
+
+#homepage-page .card-left > h1 {
+    color: inherit;
+    text-align: left;
+}
+
+#azienda-le-rocche-malatestiane-page {
+    .gallery-list {
+        
+        li {
+            margin-bottom: 20px;
+        }
+        
+        figure {
+            position: relative;
+
+            figcaption {
+                position: absolute;
+                bottom: 24px;
+                display: block;
+
+                text-align: center;
+                width: 100%;
+                height: 53px;
+                line-height: 47px;
+                padding: 3px 10px;
+            }
+        }
+    }
+}

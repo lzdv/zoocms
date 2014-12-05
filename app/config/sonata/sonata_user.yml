@@ -1,0 +1,23 @@
+sonata_user:
+    security_acl: true
+    impersonating:
+        route:                networking_init_cms_admin
+        parameters:           { path: /}
+    class:
+        user: Application\Networking\InitCmsBundle\Entity\User
+        group: Networking\InitCmsBundle\Entity\Group
+    admin:                  # Admin Classes
+        user:
+            class:          Networking\InitCmsBundle\Admin\Entity\UserAdmin
+            controller:     NetworkingInitCmsBundle:CRUD
+            translation:    SonataUserBundle
+
+        group:
+            class:          Networking\InitCmsBundle\Admin\Entity\GroupAdmin
+            controller:     NetworkingInitCmsBundle:CRUD
+            translation:    SonataUserBundle
+    profile:
+        menu:
+            - { route: 'sonata_user_profile_edit', label: 'link_edit_profile', domain: 'SonataUserBundle'}
+            - { route: 'sonata_user_profile_edit_authentication', label: 'link_edit_authentication', domain: 'SonataUserBundle'}
+            - { route: 'sonata_order_index', label: 'order_list', domain: 'SonataOrderBundle'}

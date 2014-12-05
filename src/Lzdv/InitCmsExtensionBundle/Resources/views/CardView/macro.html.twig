@@ -1,0 +1,46 @@
+{% from 'LzdvInitCmsExtensionBundle:MediaView:macro.html.twig' import image, video %}
+
+{% macro card(cardView) %}
+    {% if cardView.title %}
+        <h1>{{ cardView.title }}</h1>
+        <hr>
+    {% endif %}
+    {% if cardView.mediaSide == 'left' %}
+        <div class="card-left card-media">
+            {% if cardView.mediaType == 'image' %}
+                {% if cardView.getLink %}
+                    <a href="{{ cardView.getLink }}" title="{{ cardView.media.name }}" target="{{ cardView.getTarget|default('_self') }}">
+                        {% media cardView.media, "big" %}
+                    </a>
+                {% else %}
+                    {% media cardView.media, "big" %}
+                {% endif %}
+            {% endif %}
+            {% if cardView.mediaType == 'video' %}
+                {{ video(cardView.media, 'heroCarousel', null, 'medium', '460px') }}
+            {% endif %}
+        </div>
+        <div class="card-right card-text">
+            {{ cardView.text | raw }}
+        </div>
+    {% endif %}
+    {% if cardView.mediaSide == 'right' %}
+        <div class="card-left card-text">
+            {{ cardView.text | raw }}
+        </div>
+        <div class="card-right card-media {% if not cardView.mediaPadding %}no-padding{% endif %}">
+            {% if cardView.mediaType == 'image' %}
+                {% if cardView.getLink %}
+                    <a href="{{ cardView.getLink }}" title="{{ cardView.media.name }}" target="{{ cardView.getTarget|default('_self') }}">
+                        {% media cardView.media, "big" %}
+                    </a>
+                {% else %}
+                    {% media cardView.media, "big" %}
+                {% endif %}
+            {% endif %}
+            {% if cardView.mediaType == 'video' %}
+                {{ video(cardView.media, 'heroCarousel', null, 'medium', '460px') }}
+            {% endif %}
+        </div>
+    {% endif %}
+{% endmacro %}

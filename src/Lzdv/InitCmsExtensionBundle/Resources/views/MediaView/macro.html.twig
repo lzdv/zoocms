@@ -1,0 +1,38 @@
+{% macro image(media, relName, largeFormat, thumbFormat, shownName ) %}
+    <div class="thumbnail">
+        <a href="{% path media, largeFormat|default(gallery.defaultFormat) %}"
+           rel="{{ relName|default('prettyPhoto') }}[{{ media.name }}]">
+            {% thumbnail media, thumbFormat|default(gallery.defaultFormat) %}
+        </a>
+        {% if  media.name is defined and shownName|default(false) %}
+            <h5>{{ media.name }}</h5>
+        {% endif %}
+        {% if  media.description is defined and shownName|default(false) %}
+            <p>{{ media.description }}</p>
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% macro video(media, id, transition, format, height ) %}
+    <div id="{{ id|default('video') }}" class="video" style="height: {{ height|default('100%') }}">
+        {% media media, format|default(media.defaultFormat) with { 'style': 'max-height:' ~ height|default('auto')} %}
+    </div>
+{% endmacro %}
+
+{% macro admin_image(media) %}
+    <div>
+        <h4 class="block-title">Media - image</h4>
+        <div class="thumbnail">
+            {% media media, 'admin' %}
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro admin_video(media) %}
+    <div>
+        <h4 class="block-title">Media - video</h4>
+        <div class="thumbnail">
+            {% media media, 'admin' %}
+        </div>
+    </div>
+{% endmacro %}

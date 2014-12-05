@@ -1,0 +1,111 @@
+{#
+
+This file is part of the Networking package.
+
+(c) net working AG <info@networking.ch>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+{% extends 'ApplicationNetworkingInitCmsBundle::layout.html.twig' %}
+
+{% block title %}{{ page.metaTitle }}{% endblock %}
+
+{% block content %}
+    {% if page.layoutBlock('header') is not empty %}
+        <div class="row full">
+            {% set headerBlockCount = page.layoutBlock('header')|length %}
+
+            {% for layoutBlock in page.layoutBlock('header') %}
+               <div class="span{{ 16/headerBlockCount }}">
+                   {{ render_initcms_block('ApplicationNetworkingInitCmsBundle:Content:hero_block.html.twig', layoutBlock) }}
+               </div>
+           {% endfor %}
+        </div>
+        <div class="clearfix"></div>
+    {% endif %}
+        <div class="row center">
+            <div class="col-md-8">
+                <div class="left row">
+                    {% for layoutBlock in page.layoutBlock('left') %}
+                        {{ render_initcms_block('ApplicationNetworkingInitCmsBundle:Content:home_left_block.html.twig', layoutBlock) }}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="right row">
+                    {% for layoutBlock in page.layoutBlock('right') %}
+                        {{ render_initcms_block('ApplicationNetworkingInitCmsBundle:Content:home_right_block.html.twig', layoutBlock) }}
+                    {% endfor %}
+                    {#
+                    {% for layoutBlock in page.layoutBlock('right') %}
+                        {{ render_initcms_block('ApplicationNetworkingInitCmsBundle:Content:cms_block.html.twig', layoutBlock) }}
+                    {% endfor %}
+                    #}
+                </div>
+                <div class="row news">
+                    <div class="card">
+                        <div class="card-left card-text">
+                            <time>- 01.12.2014 -</time>
+
+                            <p>Titolo della news su varie righe, massimo 4</p>
+                        </div>
+                        <div class="card-right card-media no-padding">
+                            <a target="_self" title="riquadro-04.jpg" href="#">
+                                <img width="500" height="458" src="/uploads/media/default/0001/01/thumb_6_default_big.jpeg" title="riquadro-04.jpg" alt="riquadro-04.jpg">
+                            </a>
+                            <div class="news-pages">
+                                <a class="prev">&lt;</a>
+                                <a class="next">&gt;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row advertising full">
+            <img src="uploads/media/advertising/0001/01/thumb_17_advertising_wide.jpeg" />
+        </div>
+        <div class="row bottom">
+            <div class="col-md-8">
+                <div class="left">
+                    {% for layoutBlock in page.layoutBlock('bottom_left') %}
+                        {{ render_initcms_block('ApplicationNetworkingInitCmsBundle:Content:home_left_block.html.twig', layoutBlock) }}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="right">
+                    {# % for layoutBlock in page.layoutBlock('bottom_right') %}
+                        {{ render_initcms_block('ApplicationNetworkingInitCmsBundle:Content:home_right_block.html.twig', layoutBlock) }}
+                    {% endfor % #}
+                    <div class="row links">
+                        <a class="col-md-8" href="http://www.facebook.com/pages/Le-Rocche-Malatestiane/1380664198826871" target="_blank" title="Visitaci su Facebook"><img src="/bundles/applicationnetworkinginitcms/img/links/facebook.png" alt="facebook link" /></a>
+                        <a class="col-md-4" href="mailto:info@rocchemalatestiane.it" target="_blank" title="Inviaci una email"><img src="/bundles/applicationnetworkinginitcms/img/links/email.png" alt="email link" /></a>
+                        <a class="col-md-4" href="/news/" title="Leggi le nostre novità"><img src="/bundles/applicationnetworkinginitcms/img/links/feedrss.png" alt="rss feed link" /></a>
+                    </div>
+                    <div class="row links">
+                        <a class="col-md-16" href="/newsletter/" title="Iscriviti alla nostra newsletter"><img src="/bundles/applicationnetworkinginitcms/img/links/newsletter.png" alt="newsletter link" /></a>
+                    </div>
+                    <div class="row links">
+                        <a class="col-md-16" href="/rivenditori/" title="Cerca i nostri rivenditori"><img src="/bundles/applicationnetworkinginitcms/img/links/resellers.jpg" alt="reseller link" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock content %}
+
+
+{% block foot_script %}
+    {{ parent() }}
+
+    <script type="text/javascript">
+ 	(function ($) {
+ 		$('.carousel').carousel();
+ 		$("a[rel^='prettyPhoto']").prettyPhoto();
+ 	})(jQuery);
+    </script>
+ {% endblock %}

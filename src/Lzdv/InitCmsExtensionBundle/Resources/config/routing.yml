@@ -1,0 +1,3 @@
+lzdv_init_cms_extension_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: LzdvInitCmsExtensionBundle:Default:index }

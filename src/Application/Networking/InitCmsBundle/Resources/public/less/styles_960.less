@@ -1,0 +1,86 @@
+@import "../../../../../../../vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/less/mopabootstrapbundle";
+
+body {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    background-color: #dadada;
+    font-family: Helvetica;
+}
+
+a {
+    &:hover, &:visited {
+        color: #eb3200;
+    }
+}
+
+h3 {
+    font-size: 34px;
+    font-weight: 200;
+}
+
+/* Custom container */
+.container-narrow {
+    max-width: 960px;
+    background-color: #fff;
+}
+
+.header {
+    margin-bottom: 40px;
+}
+
+#logo {
+    width: 60px;
+    height: 60px;
+    padding: 0;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover {
+    background-color: #eb3200;
+}
+
+.navbar-nav {
+    font-family: @font-family-serif;
+    font-size: @font-size-base;
+    li {
+        a {
+            text-transform: uppercase;
+            &.active,
+            &.open,
+            &:hover {
+                background-color: black;
+                color: white;
+            }
+        }
+    }
+    .dropdown-menu {
+        li {
+            a {
+                padding: 15px 40px;
+                border-bottom: 1px solid @gray-lighter;
+            }
+            &.last a {
+                border-color: transparent;
+            }
+        }
+    }
+}
+
+.carousel-inner {
+    overflow: visible;
+    .item {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        height: 460px;
+        left: 50%;
+        margin-left: -960px;
+        width: 1920px;
+        img {
+            display: none;
+        }
+    }
+}
+
+.carousel-control {
+    display: none;
+}

@@ -1,0 +1,58 @@
+{#
+
+This file is part of the Networking package.
+
+(c) net working AG <info@networking.ch>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+{% from 'NetworkingInitCmsBundle:GalleryView:macro.html.twig' import lightbox, carousel, carousel_full_width %}
+{% from 'LzdvInitCmsExtensionBundle:MediaView:macro.html.twig' import image, video %}
+{% from 'LzdvInitCmsExtensionBundle:CardView:macro.html.twig' import card %}
+
+{% if text is defined %}
+    <div class="textbox row">
+        {{ text | shortcodes | raw }}
+    </div>
+{% endif %}
+
+{% if mediaView is defined %}
+<div class="media">
+    {% if mediaView.mediaType == 'image' %}
+        {% set h = 'height: '~mediaView.media.height~'px;' %}
+        {% set w = 'width: '~mediaView.media.width~'px;' %}
+        {% media mediaView.media, 'big' with {'style': h~w} %}
+    {% endif %}
+    {% if mediaView.mediaType == 'video' %}
+        {{ carousel(mediaView.media, 'heroCarousel', null, 'medium', '460px') }}
+    {% endif %}
+</div>
+{% endif %}
+
+{% if cardView is defined %}
+<div class="card" style="{% if cardView.backgroundColor != '' %}background-color: {{ cardView.backgroundColor }};{% endif %} {% if cardView.textColor  != '' %}color: {{ cardView.textColor }};{% endif %}">
+    {{ card(cardView) }}
+</div>
+{% endif %}
+
+{% if galleryView is defined %}
+<div class="gallery">
+    {% if galleryView.galleryType == 'lightbox' %}
+        {{ lightbox(galleryView.mediaGallery) }}
+    {% endif %}
+    {% if galleryView.galleryType == 'carousel' %}
+        {{ carousel_full_width(galleryView.mediaGallery, 'heroCarousel', null, 'medium', '460px') }}
+    {% endif %}
+    {% if galleryView.galleryType == 'list' %}
+        <ul class="gallery-list">
+            {% for media in mediaItems %}
+                <li>
+                    {% media media.media, gallery.defaultFormat with {'class': 'auto-resize'} %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+{% endif %}

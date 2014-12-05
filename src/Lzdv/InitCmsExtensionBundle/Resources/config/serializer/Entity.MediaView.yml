@@ -1,0 +1,14 @@
+Lzdv\InitCmsExtensionBundle\Entity\MediaView:
+    properties:
+        id:
+            type: integer
+        layoutBlock:
+            exclude: true
+        media:
+            type: Networking\InitCmsBundle\Entity\Media
+        mediaType:
+            type: string
+        createdAt:
+            type: DateTime
+        updatedAt:
+            type: DateTime

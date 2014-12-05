@@ -1,0 +1,7 @@
+application_lzdv_init_cms_extension:
+    resource: "@LzdvInitCmsExtensionBundle/Resources/config/routing.yml"
+    prefix:   /
+
+NetworkingInitCmsBundle:
+    resource: "@NetworkingInitCmsBundle/Resources/config/routing/routing.yml"
+    prefix:   /

@@ -1,0 +1,120 @@
+
+{% macro carousel_full_width(gallery, id, transition, format, height ) %}
+    <div id="{{ id|default('carousel') }}" class="carousel {{ transition|default('slide') }}"
+         style="height: {{ height|default('100%') }}">
+        {% if gallery.galleryHasMedias|length > 1 %}
+        <ol class="carousel-indicators">
+            {% for galleryMedia in gallery.galleryHasMedias %}
+                <li data-target="#{{ id|default('carousel') }}" data-slide-to="{{ loop.index -1 }}"
+                    {% if loop.first %}class="active"{% endif %}></li>
+            {% endfor %}
+        </ol>
+        {% endif %}
+        
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+            {% for galleryMedia in gallery.galleryHasMedias %}
+                <div class="{% if loop.first %}active {% endif %}item" style="background-image: url('{% path galleryMedia.media, 'reference' %}')">
+                    {% if galleryMedia.media.getDescription %}
+                        <div class="carousel-caption">
+                            {{ galleryMedia.media.getDescription|raw }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        <!-- Carousel nav -->
+        <a class="carousel-control left" href="#{{ id|default('carousel') }}" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#{{ id|default('carousel') }}" data-slide="next">&rsaquo;</a>
+    </div>
+{% endmacro %}
+
+
+{% macro lightbox(gallery, relName, largeFormat, thumbFormat, shownName ) %}
+    <ul class="thumbnails">
+        {% for galleryMedia in gallery.galleryHasMedias %}
+
+            <li>
+                <div class="thumbnail">
+                    <a href="{% path galleryMedia.media, largeFormat|default(gallery.defaultFormat) %}"
+                       rel="{{ relName|default('prettyPhoto') }}[{{ gallery.name }}]">
+                        {% thumbnail galleryMedia.media, thumbFormat|default(gallery.defaultFormat) %}
+                    </a>
+                    {% if  galleryMedia.media.name is defined and shownName|default(false) %}
+                        <h5>{{ galleryMedia.media.name }}</h5>
+                    {% endif %}
+                    {% if  galleryMedia.media.description is defined and shownName|default(false) %}
+                        <p>{{ galleryMedia.media.description }}</p>
+                    {% endif %}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
+
+{% macro carousel(gallery, id, transition, format, height ) %}
+    <div id="{{ id|default('carousel') }}" class="carousel {{ transition|default('slide') }}"
+         style="height: {{ height|default('100%') }}">
+        <ol class="carousel-indicators">
+            {% for galleryMedia in gallery.galleryHasMedias %}
+                <li data-target="#{{ id|default('carousel') }}" data-slide-to="{{ loop.index -1 }}"
+                    {% if loop.first %}class="active"{% endif %}></li>
+            {% endfor %}
+        </ol>
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+            {% for galleryMedia in gallery.galleryHasMedias %}
+                <div class="{% if loop.first %}active {% endif %}item">
+                    {% media galleryMedia.media, format|default(gallery.defaultFormat) with { 'style': 'max-height:' ~ height|default('auto')} %}
+                    {% if galleryMedia.media.getDescription %}
+                        <div class="carousel-caption">
+                            <p>{{ galleryMedia.media.getDescription }}</p>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        <!-- Carousel nav -->
+        <a class="carousel-control left" href="#{{ id|default('carousel') }}" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#{{ id|default('carousel') }}" data-slide="next">&rsaquo;</a>
+    </div>
+{% endmacro %}
+
+{% macro admin_lightbox(gallery) %}
+    <div>
+        <h4>Lightbox</h4>
+        <ul class="thumbnails">
+            {% for galleryMedia in gallery.galleryHasMedias %}
+                <li>
+                    <div class="thumbnail">
+                        {% media galleryMedia.media, 'admin' %}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endmacro %}
+
+{% macro admin_carousel(gallery ) %}
+    <div>
+        <h4>Carousel</h4>
+
+        <div class="thumbnail">
+            {% media gallery.galleryHasMedias[0].media, 'admin' %}
+        </div>
+    </div>
+{% endmacro %}
+{% macro admin_list(gallery ) %}
+    <div>
+        <h4>List</h4>
+        <ul class="thumbnails">
+            {% for galleryMedia in gallery.galleryHasMedias %}
+                <li>
+                    <div class="thumbnail">
+                        {% media galleryMedia.media, 'admin' %}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endmacro %}
