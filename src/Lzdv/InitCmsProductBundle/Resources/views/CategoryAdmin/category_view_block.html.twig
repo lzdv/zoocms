@@ -1,0 +1,18 @@
+{% from 'LzdvInitCmsProductBundle:CategoryView:macro.html.twig' import admin_category %}
+    <h4 class="block-title">Category</h4>
+
+    {% if categoryView.title %}
+        <h4>{{ categoryView.title }}</h4>
+        <hr>
+    {% endif %}
+    <div>
+        <div class="thumbnail">
+            {# % media categoryView.media, 'admin' % #}
+            Category Block Coming Soon
+        </div>
+    </div>
+    
+    {% if categoryView.text %}
+        {{ categoryView.text|raw }}
+    {% endif %}
+<div style="clear: both;">&nbsp;</div>

@@ -96,7 +96,7 @@ class AppKernel extends Kernel
             
             // CONTENT SHORTCODES
             new drinky78\Bundle\ShortcodeBundle\ShortcodeBundle(),
-
+            new Lzdv\InitCmsProductBundle\LzdvInitCmsProductBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

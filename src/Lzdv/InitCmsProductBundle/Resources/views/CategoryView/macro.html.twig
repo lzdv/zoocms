@@ -1,0 +1,23 @@
+{% from 'LzdvInitCmsProductBundle:CategoryView:macro.html.twig' import category %}
+
+{% macro category(categoryView) %}
+    {% if categoryView.title %}
+        <h1>{{ categoryView.title }}</h1>
+        <hr>
+    {% endif %}
+    <div class="category">
+        {# % category categoryView.category, "big" % #}
+        Category Macro Coming Soon
+    </div>
+{% endmacro %}
+
+
+{% macro admin_category(category) %}
+    <div>
+        <h4 class="block-title">Media - image</h4>
+        <div class="thumbnail">
+            {# % category category, 'admin' % #}
+            Category Admin Macro Coming Soon
+        </div>
+    </div>
+{% endmacro %}
