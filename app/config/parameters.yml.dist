@@ -2,9 +2,9 @@ parameters:
     database_driver:   pdo_mysql
     database_host:     localhost
     database_port:     ~
-    database_name:     admin_rocche
-    database_user:     admin_rocche
-    database_password: admin_rocche
+    database_name:     initcms
+    database_user:     initcms
+    database_password: initcms
     mailer_transport:  smtp
     mailer_host:       localhost
     mailer_user:       ~
