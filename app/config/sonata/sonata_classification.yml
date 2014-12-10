@@ -1,8 +1,9 @@
 sonata_classification:
-#      class:
+    class:
 #          tag:          Application\Sonata\ClassificationBundle\Entity\Tag
-#          category:     Application\Sonata\ClassificationBundle\Entity\Category
+        category:     Application\Sonata\ClassificationBundle\Entity\Category
 #          collection:   Application\Sonata\ClassificationBundle\Entity\Collection
+        media:     Networking\InitCmsBundle\Entity\Media
         
     admin:
 #          tag:

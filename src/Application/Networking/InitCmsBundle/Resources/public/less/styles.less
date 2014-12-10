@@ -1,5 +1,7 @@
 @import "web/bundles/mopabootstrap/less/mopabootstrapbundle";
 
+@nav-hover-color: #333340;
+
 html body {
     background-color: #edf0f2;
     font-family: @font-family-serif;
@@ -108,6 +110,15 @@ figcaption {
     width: 60px;
     height: 60px;
     padding: 0;
+
+    &:hover {
+        padding: 60px 60px 0 0;
+        background: @nav-hover-color url(/bundles/applicationnetworkinginitcms/img/logo_white.png) no-repeat center center;
+    }
+}
+body#homepage-page #logo {
+    padding: 60px 60px 0 0;
+    background: black url(/bundles/applicationnetworkinginitcms/img/logo_white.png) no-repeat center center;
 }
 
 #header-logo-container {
@@ -143,33 +154,75 @@ figcaption {
                 line-height: 30px !important;
                 text-transform: uppercase;
                 color: grey;
-                &.active,
-                &:hover,
                 &:focus {
                     background-color: black;
                     color: white;
                 }
-            }
-            &.active > a,
-            &.open > a {
-                background-color: black;
-                color: white;
-            }
-        }
-        .dropdown-menu {
-            li {
-                border-bottom: 1px solid @gray-lighter;
-                &.last {
-                    border-color: transparent;
+                &:hover {
+                    background-color: @nav-hover-color !important;
+                    color: white !important;
                 }
+                b.caret {
+                    left: 45%;
+                    position: absolute;
+                    top: 50px;
+                    z-index: 2000;
+                    -o-transition: top 0.3s; /* For Safari 3.1 to 6.0 */
+                    -moz-transition: top 0.3s; /* For Safari 3.1 to 6.0 */
+                    -webkit-transition: top 0.3s; /* For Safari 3.1 to 6.0 */
+                    transition: top 0.3s;
+                }
+            }
+            &.active > a {
+                background-color: black !important;
+                color: white !important;
+            }
+            &.open {
                 a {
-                    padding: 15px 40px;
+                    overflow: visible;
+                }
+                b.caret {
+                    border-left: 14px solid transparent;
+                    border-right: 14px solid transparent;
+                    border-top: 14px solid black;
+                    top: 60px !important;
+                    margin-left: -6px;
+                }
+            }
+            
+            &.dropdown {
+                position: relative;
+                .dropdown-menu {
+                    min-width: 350px;
+                    li {
+                        border-bottom: 1px solid @gray-lighter;
+                        &.last {
+                            border-color: transparent;
+                        }
+                        a {
+                            font-family: @font-family-sans-serif;
+                            padding: 10px 40px;
+                            height: 50px;
+                            text-align: center;
+                        }
+                    }
                 }
             }
         }
+        
     }
 }
 
+.big-caret {
+    border-left: 14px solid rgba(0, 0, 0, 0);
+    border-right: 14px solid rgba(0, 0, 0, 0);
+    border-top: 14px solid;
+    display: inline-block;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    width: 0;
+}
 
 .carousel-inner {
     overflow: visible;
@@ -373,7 +426,24 @@ figcaption {
                     width: 40px;
                     text-align: center;
                     margin: 0;
-                } 
+                    
+                }
+                
+                background-color: white !important;
+
+                img {
+                    -webkit-transition: all 0.2s; /* Safari and Chrome */
+                    -moz-transition: all 0.2s; /* Firefox */
+                    -o-transition: all 0.2s; /* IE 9 */
+                    -ms-transition: all 0.2s; /* Opera */
+                    transition: all 0.2s;
+                }
+                
+                &:hover {
+                    img {
+                        opacity: 0.8;
+                    }
+                }
             }
 
         }
@@ -486,7 +556,7 @@ footer {
     text-align: left;
 }
 
-#azienda-le-rocche-malatestiane-page {
+body.azienda {
     .gallery-list {
         
         li {

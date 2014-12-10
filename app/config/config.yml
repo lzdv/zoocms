@@ -99,7 +99,7 @@ doctrine:
                     ApplicationSonataProductBundle: ~
                     SonataProductBundle: ~
                     ApplicationSonataClassificationBundle: ~
-                    SonataClassificationBundle: ~
+                    #SonataClassificationBundle: ~
                     SonataMediaBundle: 
                     gedmo_translatable:
                         type: annotation

@@ -35,19 +35,20 @@ class CategoryAdmin extends Admin
             ->with('Options', array('class' => 'col-md-6'))
                 ->add('enabled')
                 ->add('position', 'integer', array('required' => false, 'data' => 0))
-
-//                ->if_true($this->getSubject()->getParent() !== null || $this->getSubject()->getId() === null) // root category cannot have a parent
-                    ->add('parent', 'sonata_category_selector', array(
-                        'category'      => $this->getSubject() ?: null,
-                        'model_manager' => $this->getModelManager(),
-                        'class'         => $this->getClass(),
-                        'required'      => false,
-//                        'context'       => $this->getSubject()->getContext()
-                    ))
-//                ->end_if()
-
             ->end()
         ;
+  
+        if ($this->getSubject()->getParent() !== null || $this->getSubject()->getId() === null) {
+            $formMapper
+                ->add('parent', 'sonata_category_selector', array(
+                    'category'      => $this->getSubject() ?: null,
+                    'model_manager' => $this->getModelManager(),
+                    'class'         => $this->getClass(),
+                    'required'      => false/*,
+                    'context'       => $this->getSubject()->getContext()*/
+                ));
+        }
+/**/
         if (interface_exists('Sonata\MediaBundle\Model\MediaInterface')) {
             $formMapper
                 ->with('General')
@@ -62,6 +63,7 @@ class CategoryAdmin extends Admin
                     )
                 ->end();
         }
+//*/
     }
 
     /**

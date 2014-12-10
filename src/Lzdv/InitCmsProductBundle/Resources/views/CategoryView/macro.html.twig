@@ -1,13 +1,17 @@
 {% from 'LzdvInitCmsProductBundle:CategoryView:macro.html.twig' import category %}
 
-{% macro category(categoryView) %}
+{% macro category(categoryView, categories) %}
     {% if categoryView.title %}
         <h1>{{ categoryView.title }}</h1>
         <hr>
     {% endif %}
     <div class="category">
         {# % category categoryView.category, "big" % #}
-        Category Macro Coming Soon
+        Category Macro Coming Soon "{{ categoryView.category.name }}"
+        <pre style="font-size: 10px;">
+        {# { dump(categoryView.category.parent) } #}
+        {{ dump(categoryView.category.children) }}
+        </pre>
     </div>
 {% endmacro %}
 

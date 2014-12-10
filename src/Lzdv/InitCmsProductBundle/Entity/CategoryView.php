@@ -31,7 +31,7 @@ class CategoryView implements CategoryViewInterface
     /**
      * @var Category $category
      *
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\ClassificationBundle\Entity\Category", cascade={"merge"})
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\ClassificationBundle\Entity\Category", cascade={"merge"}, fetch="EAGER")
      * @ORM\JoinColumn( name="category_id", onDelete="CASCADE" )
      *
      * @Sonata\FormMapper(name="category", type="entity", options={"label" = "form.label_category","data_class"=null,"class"="Application\Sonata\ClassificationBundle\Entity\Category"})
@@ -222,7 +222,7 @@ class CategoryView implements CategoryViewInterface
     public function getTemplateOptions($params = array())
     {
         return array(
-            'category' => $this->getCategory(),
+            'categories' => $this->getCategory()->getChildren(),
             'categoryView' => $this
         );
     }
@@ -232,6 +232,7 @@ class CategoryView implements CategoryViewInterface
      */
     public function getAdminContent()
     {
+        $this->category->setChildren( $this->category->getChildren() );
         return array(
             'content' => array('categoryView' => $this),
             'template' => 'LzdvInitCmsProductBundle:CategoryAdmin:category_view_block.html.twig'

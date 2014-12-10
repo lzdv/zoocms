@@ -5,15 +5,15 @@ sonata_admin:
         use_select2: false
         
     dashboard:
-        blocks:
-            - { position: top, type: networking_init_cms.block.service.translatable_text, settings: { translation_key: "info.welcome_text", translation_domain: 'NetworkingInitCmsBundle'} }
-            - { position: left, type: networking_init_cms.block.service.pages}
-            - { position: right, type: networking_init_cms.block.service.online_users}
+#        blocks:
+#            - { position: top, type: networking_init_cms.block.service.translatable_text, settings: { translation_key: "info.welcome_text", translation_domain: 'NetworkingInitCmsBundle'} }
+#            - { position: left, type: networking_init_cms.block.service.pages}
+#            - { position: right, type: networking_init_cms.block.service.online_users}
 
         groups:
             products:
                 label: "products.admin_menu_label"
-                items: [sonata.product.admin.product]
+                items: [sonata.product.admin.product, sonata.classification.admin.category, sonata.classification.admin.collection, sonata.classification.admin.tag]
 #            pages:
 #                label: "pages.admin_menu_label"
 #                items: [networking_init_cms.admin.page]

@@ -11,6 +11,7 @@ file that was distributed with this source code.
 {% from 'NetworkingInitCmsBundle:GalleryView:macro.html.twig' import lightbox, carousel, carousel_full_width %}
 {% from 'LzdvInitCmsExtensionBundle:MediaView:macro.html.twig' import image, video %}
 {% from 'LzdvInitCmsExtensionBundle:CardView:macro.html.twig' import card %}
+{% from 'LzdvInitCmsProductBundle:CategoryView:macro.html.twig' import category %}
 
 {% if text is defined %}
     <div class="textbox row">
@@ -55,4 +56,9 @@ file that was distributed with this source code.
         </ul>
     {% endif %}
 </div>
+{% endif %}
+
+{% if categoryView is defined %}
+    {# create a lightbox view #}
+    {{ category(categoryView, categories) }}
 {% endif %}
