@@ -1,9 +1,9 @@
 sonata_media:
     # if you don't use default namespace configuration
     class:
-#        media:              Networking\InitCmsBundle\Entity\Media
-#        gallery:            Application\Networking\InitCmsBundle\Entity\Gallery
-#        gallery_has_media:  Application\Networking\InitCmsBundle\Entity\GalleryHasMedia
+        media:              Networking\InitCmsBundle\Entity\Media
+        gallery:            Networking\InitCmsBundle\Entity\Gallery
+        gallery_has_media:  Networking\InitCmsBundle\Entity\GalleryHasMedia
     default_context: default
     db_driver: doctrine_orm # or doctrine_mongodb, doctrine_phpcr
     contexts:

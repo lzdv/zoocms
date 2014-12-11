@@ -30,7 +30,9 @@
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "~1.2",
         "doctrine/doctrine-migrations-bundle": "~2.0dev",
+        "sonata-project/doctrine-orm-admin-bundle": ">=2.2.4,<2.3-dev",
         "doctrine/migrations":  "~1.0@dev",
+        "stof/doctrine-extensions-bundle": "v1.1.0",
         
         "sensio/distribution-bundle": "~3.0",
         "sensio/framework-extra-bundle": "~3.0",
@@ -42,8 +44,8 @@
 
         "twbs/bootstrap-sass": "3.3.*",
         "oyejorge/less.php": "1.7.*",
-        "networking/init-cms-bundle": "2.5.*",
         
+        "lzdv/init-cms-bundle": "~2.3@dev",
         "drinky78/shortcode-bundle": "dev-master",
         "lzdv/ecommerce": "~2.3@dev",
         

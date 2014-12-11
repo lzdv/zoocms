@@ -4,6 +4,11 @@ sonata_admin:
     options:
         use_select2: false
         
+    extensions:
+        lzdv_init_cms_extension.admin.gallery_has_media.extension:
+            admins:
+                - sonata.admin.gallery_has_media
+
     dashboard:
 #        blocks:
 #            - { position: top, type: networking_init_cms.block.service.translatable_text, settings: { translation_key: "info.welcome_text", translation_domain: 'NetworkingInitCmsBundle'} }
