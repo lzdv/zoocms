@@ -35,6 +35,9 @@ html body h3 {
     font-size: 14pt;
 }
 
+html body p {
+    font-family: @font-family-sans-serif;
+}
 hr {
     background-image: url("/bundles/applicationnetworkinginitcms/img/hr.png");
     margin: 0 0 10pt !important;
@@ -44,6 +47,7 @@ hr {
     
     &.light {
         background-image: url("/bundles/applicationnetworkinginitcms/img/hr-light.png");
+        margin: 0 !important;
     }
 }
 
@@ -398,6 +402,13 @@ body#homepage-page #logo {
         .gallery-list {
             li {
                 display: inline;
+                
+                figure {
+
+                    figcaption {
+                        display: inline;
+                    }
+                }
             }
         }
     }
@@ -504,6 +515,12 @@ footer {
         }
     }
     
+    .right {
+        .media {
+            padding: 0;
+        }
+    }
+    
     .row.news {
         .row.news * {
             color: grey;
@@ -556,6 +573,7 @@ footer {
     text-align: left;
 }
 
+body.zonazione,
 body.azienda {
     .gallery-list {
         

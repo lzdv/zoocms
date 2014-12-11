@@ -15,9 +15,9 @@
         <div class="carousel-inner">
             {% for galleryMedia in gallery.galleryHasMedias %}
                 <div class="{% if loop.first %}active {% endif %}item" style="background-image: url('{% path galleryMedia.media, 'reference' %}')">
-                    {% if galleryMedia.media.getDescription %}
+                    {% if galleryMedia.getCaption %}
                         <div class="carousel-caption">
-                            {{ galleryMedia.media.getDescription|raw }}
+                            {{ galleryMedia.getCaption|raw }}
                         </div>
                     {% endif %}
                 </div>
@@ -66,9 +66,9 @@
             {% for galleryMedia in gallery.galleryHasMedias %}
                 <div class="{% if loop.first %}active {% endif %}item">
                     {% media galleryMedia.media, format|default(gallery.defaultFormat) with { 'style': 'max-height:' ~ height|default('auto')} %}
-                    {% if galleryMedia.media.getDescription %}
+                    {% if galleryMedia.getCaption %}
                         <div class="carousel-caption">
-                            <p>{{ galleryMedia.media.getDescription }}</p>
+                            <p>{{ galleryMedia.getCaption }}</p>
                         </div>
                     {% endif %}
                 </div>

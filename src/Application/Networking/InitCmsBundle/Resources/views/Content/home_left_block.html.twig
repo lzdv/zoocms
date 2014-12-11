@@ -48,9 +48,14 @@ file that was distributed with this source code.
     {% endif %}
     {% if galleryView.galleryType == 'list' %}
         <ul class="gallery-list">
-            {% for media in mediaItems %}
+            {% for galleryMedia in galleryView.mediaGallery.galleryHasMedias %}
                 <li>
-                    {% media media.media, gallery.defaultFormat with {'class': 'auto-resize'} %}
+                    {% if galleryMedia.getLink %}<a href="{{ galleryMedia.getLink }}">{% endif %}
+                        <figure>
+                            {% media galleryMedia.media, gallery.defaultFormat with {'class': 'auto-resize'} %}
+                            {% if galleryMedia.getCaption %}<figcaption>{{ galleryMedia.getCaption }}</figcaption>{% endif %}
+                        </figure>
+                    {% if galleryMedia.getLink %}</a>{% endif %}
                 </li>
             {% endfor %}
         </ul>
