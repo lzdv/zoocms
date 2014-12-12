@@ -38,6 +38,16 @@ html body h3 {
 html body p {
     font-family: @font-family-sans-serif;
 }
+
+html body a {
+    color: grey;
+    text-decoration: none;
+    
+    &:hover {
+        color: #333340;
+    }
+}
+
 hr {
     background-image: url("/bundles/applicationnetworkinginitcms/img/hr.png");
     margin: 0 0 10pt !important;
@@ -56,8 +66,12 @@ ul {
     padding: 0;
 }
 
+figure {
+    display: inline-block;
+} 
 figcaption {
-    font-family: @font-family-serif;
+    font-family: @font-family-sans-serif;
+    display: inline-block;
 } 
 
 .modal-dialog {
@@ -105,6 +119,13 @@ figcaption {
     width: 100%;
     overflow: hidden;
 }
+
+.gallery-list {
+     li {
+         display: inline;                
+     }
+ }
+
 
 #initcmsnavadmin {
     display: none !important;
@@ -396,22 +417,6 @@ body#homepage-page #logo {
         }
     }
     
-    .gallery {
-        height: auto;
-        
-        .gallery-list {
-            li {
-                display: inline;
-                
-                figure {
-
-                    figcaption {
-                        display: inline;
-                    }
-                }
-            }
-        }
-    }
 }
  
 .center {
@@ -515,6 +520,23 @@ footer {
         }
     }
     
+    .left {
+        .gallery-list {
+            li {
+                float: left;
+                margin: 0;
+                padding: 0;
+                width: 25%;                
+                
+                a,
+                figcaption {
+                    text-align: center;
+                }
+                
+            }
+        }
+    }
+    
     .right {
         .media {
             padding: 0;
@@ -596,7 +618,7 @@ body.azienda {
                 width: 100%;
                 height: 53px;
                 line-height: 47px;
-                padding: 3px 10px;
+                padding: 3px 3px;
             }
         }
     }
