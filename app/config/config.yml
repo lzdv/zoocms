@@ -25,7 +25,8 @@ framework:
     validation:      { enable_annotations: true }
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
     default_locale:  %locale%
-    session: ~
+    session: 
+        handler_id:  session.handler.pdo
 
 # Twig Configuration
 twig:
@@ -156,3 +157,16 @@ fos_user:
             address:        webmaster@example.com
             sender_name:    net working Team
 
+services:
+    pdo:
+        class: PDO
+        arguments:
+            - "mysql:host=%database_host%;port=%database_port%;dbname=%database_name%"
+            - "%database_user%"
+            - "%database_password%"
+        calls:
+            - [setAttribute, [3, 2]] # \PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION
+
+    session.handler.pdo:
+        class:     Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
+        arguments: ["@pdo", "%pdo.db_options%"]

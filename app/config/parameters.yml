@@ -1,7 +1,7 @@
 parameters:
     database_driver:   pdo_mysql
     database_host:     localhost
-    database_port:     ~
+    database_port:     3306
     database_name:     initcms
     database_user:     initcms
     database_password: initcms
@@ -11,3 +11,9 @@ parameters:
     mailer_password:   ~
     locale:            it_IT
     secret:            Liejrgp<@4>twnmae.ogaisygfnk<4g_us<4fghw4i
+
+    pdo.db_options:
+        db_table:    session
+        db_id_col:   session_id
+        db_data_col: session_value
+        db_time_col: session_time
