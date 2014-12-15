@@ -64,4 +64,5 @@ networking_init_cms:
         - { name: 'Galleria' , class: 'Networking\InitCmsBundle\Entity\GalleryView'}
         - { name: 'Media' , class: 'Lzdv\InitCmsExtensionBundle\Entity\MediaView'}
         - { name: 'Card' , class: 'Lzdv\InitCmsExtensionBundle\Entity\CardView'}
-        - { name: 'Category' , class: 'Lzdv\InitCmsProductBundle\Entity\CategoryView'}
+        - { name: 'Categoria' , class: 'Lzdv\InitCmsProductBundle\Entity\CategoryView'}
+        - { name: 'Lista Prodotti' , class: 'Lzdv\InitCmsProductBundle\Entity\ProductsListView'}

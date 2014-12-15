@@ -12,6 +12,7 @@ file that was distributed with this source code.
 {% from 'LzdvInitCmsExtensionBundle:MediaView:macro.html.twig' import image, video %}
 {% from 'LzdvInitCmsExtensionBundle:CardView:macro.html.twig' import card %}
 {% from 'LzdvInitCmsProductBundle:CategoryView:macro.html.twig' import category %}
+{% from 'LzdvInitCmsProductBundle:ProductsListView:macro.html.twig' import products_list %}
 
 {% if text is defined %}
 <div class="textbox">
@@ -85,4 +86,9 @@ file that was distributed with this source code.
 {% if categoryView is defined %}
     {# create a lightbox view #}
     {{ category(categoryView) }}
+{% endif %}
+
+{% if productsListView is defined %}
+    {# create a lightbox view #}
+    {{ products_list(productsListView) }}
 {% endif %}

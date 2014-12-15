@@ -1,0 +1,32 @@
+{% from 'LzdvInitCmsProductBundle:CategoryView:macro.html.twig' import products_list %}
+
+{% macro products_list(productsListView) %}
+    {% if productsListView.title %}
+        <h1>{{ productsListView.title }}</h1>
+    {% endif %}
+    <div class="products-list">
+        <header class="filters">
+            <ul>
+                <li>categoria: {% if productsListView.category is not null %}{{ productsListView.category.name }}{% else %}nessuna{% endif %}</li>
+                <li>collezione: {% if productsListView.collection is not null %}{{ productsListView.collection.name }}{% else %}nessuna{% endif %}</li>
+            </ul>
+        </header>
+        <ul>
+        {% for product in productsListView.products %}
+            <li><a href="/prodotti/{{ product.slug }}/">{{ product.name }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endmacro %}
+
+
+{% macro admin_products_list(productsListView) %}
+    <div class="category">
+        <header class="filters">
+            <ul>
+                <li>categoria: {% if productsListView.category is not null %}{{ productsListView.category.name }}{% else %}nessuna{% endif %}</li>
+                <li>collezione: {% if productsListView.collection is not null %}{{ productsListView.collection.name }}{% else %}nessuna{% endif %}</li>
+            </ul>
+        </header>
+    </div>
+{% endmacro %}

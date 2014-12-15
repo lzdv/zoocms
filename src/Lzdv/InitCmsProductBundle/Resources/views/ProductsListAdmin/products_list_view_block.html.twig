@@ -1,0 +1,14 @@
+{% from 'LzdvInitCmsProductBundle:ProductsListView:macro.html.twig' import products_list, admin_products_list %}
+    <h4 class="block-title">Products List - {% if categoryView.category.dynamic is defined and categoryView.category.dynamic %}dinamica{% else %}statica{% endif %}</h4>
+    
+    {% if productsListView.title %}
+        <h4>{{ productsListView.title }}</h4>
+        <hr>
+    {% endif %}
+    <div>
+        {{ admin_products_list(productsListView, '') }}
+    </div>
+    
+    {% if productsListView.text %}
+        {{ productsListView.text|raw }}
+    {% endif %}
