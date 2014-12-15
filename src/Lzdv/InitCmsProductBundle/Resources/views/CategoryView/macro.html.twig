@@ -15,12 +15,13 @@
 {% endmacro %}
 
 
-{% macro admin_category(category) %}
-    <div>
-        <h4 class="block-title">Media - image</h4>
-        <div class="thumbnail">
-            {# % category category, 'admin' % #}
-            Category Admin Macro Coming Soon
-        </div>
+{% macro admin_category(categoryView, categories) %}
+    <div class="category">
+        <h2>Categoria "{{ categoryView.category.name }}"</h2>
+        <ul>
+        {% for category in categoryView.category.children %}
+            <li><a href="/prodotti/{{ category.slug }}/">{{ category.name }}</a></li>
+        {% endfor %}
+        </ul>
     </div>
 {% endmacro %}

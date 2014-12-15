@@ -7,6 +7,7 @@ use Ibrows\Bundle\SonataAdminAnnotationBundle\Annotation as Sonata;
 
 use Networking\InitCmsBundle\Model\ContentInterface;
 use Lzdv\InitCmsProductBundle\Entity\CategoryViewInterface;
+use Networking\InitCmsBundle\Entity\DynamicLayoutBlockInterface;
 
 use Application\Sonata\ClassificationBundle\Entity\Category;
 
@@ -17,7 +18,7 @@ use Application\Sonata\ClassificationBundle\Entity\Category;
  * @ORM\Table(name="category_view")
  * @ORM\Entity
  */
-class CategoryView implements CategoryViewInterface
+class CategoryView implements CategoryViewInterface, DynamicLayoutBlockInterface
 {
     /**
      * @var integer
@@ -76,6 +77,18 @@ class CategoryView implements CategoryViewInterface
      * @ORM\Column(name="updated_at", type="datetime")
      */
     protected $updatedAt;
+
+    /**
+     * @var boolean $dynamic
+     *
+     * @ORM\Column(name="dynamic", type="boolean", options={"default"=0})
+     * @Sonata\FormMapper(
+     *      name="dynamic",
+     *      type="choice",
+     *      options={"label" = "form.label_media_type", "choices" = {"0" = "statico", "1" = "dinamico"}}
+     * )
+     */
+    protected $dynamic;
     
     /**
      *
@@ -216,6 +229,26 @@ class CategoryView implements CategoryViewInterface
     }
 
     /**
+     * Get dynamic
+     *
+     * @param boolean $isDynamic
+     * @return $this
+     */
+    public function setDynamic($isDynamic)
+    {
+        $this->dynamic = ($isDynamic==true);
+    }
+    
+    /**
+     * Get dynamic
+     *
+     * @return \boolean
+     */
+    public function getDynamic()
+    {
+        return $this->dynamic;
+    }
+    /**
      * @param array $params
      * @return array
      */
@@ -246,4 +279,5 @@ class CategoryView implements CategoryViewInterface
     {
         return 'Category Viewer';
     }
+    
 }
