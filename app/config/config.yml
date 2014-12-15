@@ -10,6 +10,7 @@ imports:
     - { resource: sonata/sonata_formatter.yml }
     #- { resource: sonata/sonata_news.yml }
     - { resource: initcms/initcms.yml }
+    - { resource: initcms/jms_serializer.yml }
     #- { resource: @LzdvInitCmsExtensionBundle/Resources/config/services.yml }
 
 

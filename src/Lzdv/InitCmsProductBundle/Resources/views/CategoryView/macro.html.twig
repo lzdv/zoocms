@@ -3,15 +3,14 @@
 {% macro category(categoryView, categories) %}
     {% if categoryView.title %}
         <h1>{{ categoryView.title }}</h1>
-        <hr>
     {% endif %}
     <div class="category">
-        {# % category categoryView.category, "big" % #}
-        Category Macro Coming Soon "{{ categoryView.category.name }}"
-        <pre style="font-size: 10px;">
-        {# { dump(categoryView.category.parent) } #}
-        {{ dump(categoryView.category.children) }}
-        </pre>
+        <h2>Categoria "{{ categoryView.category.name }}"</h2>
+        <ul>
+        {% for category in categoryView.category.children %}
+            <li><a href="/prodotti/{{ category.slug }}/">{{ category.name }}</a></li>
+        {% endfor %}
+        </ul>
     </div>
 {% endmacro %}
 

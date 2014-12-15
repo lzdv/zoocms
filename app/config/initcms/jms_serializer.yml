@@ -1,0 +1,22 @@
+jms_serializer:
+    metadata:
+        directories:
+            # FE broken, BE broken
+#            SonataClassificationBundle:
+#                namespace_prefix: "Sonata\\ClassificationBundle"
+#                path: "@ApplicationSonataClassificationBundle/Resources/config/serializer"
+
+            # FE ok, BE broken
+#            ApplicationSonataClassificationBundle:
+#                namespace_prefix: "Application\\Sonata\\ClassificationBundle"
+#                path: "@ApplicationSonataClassificationBundle/Resources/config/serializer"
+
+            # FE ok, BE broken
+#            SonataClassificationBundle:
+#                namespace_prefix: "Application\\Sonata\\ClassificationBundle"
+#                path: "@ApplicationSonataClassificationBundle/Resources/config/serializer"
+                
+            # FE broken, BE ok
+            ApplicationSonataClassificationBundle:
+                namespace_prefix: "Sonata\\ClassificationBundle"
+                path: "@ApplicationSonataClassificationBundle/Resources/config/serializer"

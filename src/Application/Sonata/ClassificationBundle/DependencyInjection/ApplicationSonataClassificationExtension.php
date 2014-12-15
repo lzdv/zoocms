@@ -11,7 +11,7 @@
 
 namespace Application\Sonata\ClassificationBundle\DependencyInjection;
 
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\Config\FileLocator;
@@ -42,18 +42,6 @@ class ApplicationSonataClassificationExtension extends Extension
         $configuration = new Configuration();
         $config = $processor->processConfiguration($configuration, $configs);
         $bundles = $container->getParameter('kernel.bundles');
-
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-/*        
-        $loader->load('orm.xml');
-        $loader->load('form.xml');
-        $loader->load('serializer.xml');
-        $loader->load('api_controllers.xml');
-        $loader->load('api_form.xml');
-        if (isset($bundles['SonataAdminBundle'])) {
-            $loader->load('admin.xml');
-        }
-*/
 
         $this->registerDoctrineMapping($config, $container);
         $this->configureClass($config, $container);
