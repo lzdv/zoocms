@@ -8,7 +8,7 @@
 
         <!-- Wine -->
 
-        <service id="sonata.initcms.product.wine.manager" class="Sonata\ProductBundle\Entity\ProductManager">
+        <service id="sonata.initcms.product.wine.manager" class="Application\Sonata\ProductBundle\Entity\ProductManager">
             <argument>Application\Sonata\ProductBundle\Entity\Wine</argument>
             <argument type="service" id="doctrine" />
         </service>

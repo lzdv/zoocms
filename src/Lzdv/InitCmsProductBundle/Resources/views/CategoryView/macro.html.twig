@@ -6,11 +6,17 @@
     {% endif %}
     <div class="category">
         <h2>Categoria "{{ categoryView.category.name }}"</h2>
-        <ul>
-        {% for category in categoryView.category.children %}
-            <li><a href="/prodotti/{{ category.slug }}/">{{ category.name }}</a></li>
-        {% endfor %}
-        </ul>
+        <form name="cat_filter" method="GET" action="">
+            <ul>
+            {% set selected = app.request.get('cat') %}
+            {% for category in categoryView.category.children %}
+                <li>
+                    <label><input name="cat[]" type="checkbox" value="{{ category.id }}" {% if category.id in selected %}checked="checked"{% endif %} />{{ category.name }}</label>
+                </li>
+            {% endfor %}
+            </ul>
+            <input type="submit" value="filtra" />
+        </form>
     </div>
 {% endmacro %}
 

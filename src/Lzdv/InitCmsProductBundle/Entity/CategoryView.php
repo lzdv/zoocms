@@ -248,6 +248,24 @@ class CategoryView implements CategoryViewInterface, DynamicLayoutBlockInterface
     {
         return $this->dynamic;
     }
+    
+    /**
+     * Get dynamic data
+     *
+     * @return \string
+     */
+    public function getDynamicDataManagerName()
+    {
+        return '';
+    }
+    
+    /**
+     * 
+     */
+    public function setDynamicData($data)
+    {
+    }
+    
     /**
      * @param array $params
      * @return array

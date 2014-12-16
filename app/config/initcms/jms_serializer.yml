@@ -20,3 +20,7 @@ jms_serializer:
             ApplicationSonataClassificationBundle:
                 namespace_prefix: "Sonata\\ClassificationBundle"
                 path: "@ApplicationSonataClassificationBundle/Resources/config/serializer"
+                
+            ApplicationSonataProductBundle:
+                namespace_prefix: "Sonata\\ProductBundle"
+                path: "@ApplicationSonataProductBundle/Resources/config/serializer"

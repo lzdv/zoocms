@@ -5,6 +5,8 @@ namespace Lzdv\InitCmsProductBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Ibrows\Bundle\SonataAdminAnnotationBundle\Annotation as Sonata;
 
+use JMS\Serializer\Annotation\Type;
+
 use Networking\InitCmsBundle\Model\ContentInterface;
 use Lzdv\InitCmsProductBundle\Entity\ProductsListViewInterface;
 use Networking\InitCmsBundle\Entity\DynamicLayoutBlockInterface;
@@ -29,6 +31,13 @@ class ProductsListView implements ProductsListViewInterface, DynamicLayoutBlockI
      */
     private $id;
 
+    
+    /**
+     * @var ProductsList $product
+     * @Type("array<Application\Sonata\ProductBundle\Entity\Wine>")
+     */
+    private $products;    
+    
     /**
      * @var ProductsList $category
      *
@@ -99,6 +108,8 @@ class ProductsListView implements ProductsListViewInterface, DynamicLayoutBlockI
      * )
      */
     protected $dynamic;
+
+    protected $em;
     
     /**
      *
@@ -277,24 +288,42 @@ class ProductsListView implements ProductsListViewInterface, DynamicLayoutBlockI
     {
         return $this->dynamic;
     }
+    
+    public function getProducts() 
+    {
+        //die(get_class($this->productsManager));
+        // get the block view class
+        return $this->products;
+    }
+    
+    public function setProducts() 
+    {
+        return;
+    }
+    
+    /**
+     * 
+     */
+    public function getDynamicDataManagerName()
+    {
+        return 'sonata.initcms.product.wine.manager';
+    }
+    
+    /**
+     * 
+     */
+    public function setDynamicData($data)
+    {
+        //die(var_dump(array_keys($data)));
+        $this->products = $data;
+    }
+    
     /**
      * @param array $params
      * @return array
      */
     public function getTemplateOptions($params = array())
     {
-        $this->products = array(
-            array(
-                'id' => 1,
-                'slug' => 'test-1',
-                'name' => 'test 1'
-            ),
-            array(
-                'id' => 2,
-                'slug' => 'test-2',
-                'name' => 'test 2'
-            )
-        );
         return array(
             'productsListView' => $this
         );
