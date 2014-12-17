@@ -12,31 +12,33 @@ file that was distributed with this source code.
 {% from 'LzdvInitCmsExtensionBundle:MediaView:macro.html.twig' import image, video %}
 {% from 'LzdvInitCmsExtensionBundle:CardView:macro.html.twig' import card %}
 {% from 'LzdvInitCmsProductBundle:CategoryView:macro.html.twig' import category %}
+{% from 'LzdvInitCmsProductBundle:CollectionView:macro.html.twig' import collection %}
 {% from 'LzdvInitCmsProductBundle:ProductsListView:macro.html.twig' import products_list %}
+{% from 'LzdvInitCmsProductBundle:ProductsFilterView:macro.html.twig' import products_filter %}
 
 {% if text is defined %}
-<div class="textbox">
-    {{ text | shortcodes | raw }}
-</div>
+    <div class="textbox">
+        {{ text | shortcodes | raw }}
+    </div>
 {% endif %}
 
 {% if mediaView is defined %}
-<div class="media">
-    {% if mediaView.mediaType == 'image' %}
-        {% set h = 'height: '~mediaView.media.height~'px;' %}
-        {% set w = 'width: '~mediaView.media.width~'px;' %}
-        {% media mediaView.media, 'big' with {'style': h~w} %}
-    {% endif %}
-    {% if mediaView.mediaType == 'video' %}
-        {{ carousel(mediaView.media, 'heroCarousel', null, 'medium', '460px') }}
-    {% endif %}
-</div>
+    <div class="media row">
+        {% if mediaView.mediaType == 'image' %}
+            {% set h = 'height: '~mediaView.media.height~'px;' %}
+            {% set w = 'width: '~mediaView.media.width~'px;' %}
+            {% media mediaView.media, 'big' with {'style': h~w} %}
+        {% endif %}
+        {% if mediaView.mediaType == 'video' %}
+            {{ carousel(mediaView.media, 'heroCarousel', null, 'medium', '460px') }}
+        {% endif %}
+    </div>
 {% endif %}
 
 {% if cardView is defined %}
-<div class="card" style="{% if cardView.backgroundColor != '' %}background-color: {{ cardView.backgroundColor }};{% endif %} {% if cardView.textColor  != '' %}color: {{ cardView.textColor }};{% endif %}">
-    {{ card(cardView) }}
-</div>
+    <div class="card row" style="{% if cardView.backgroundColor != '' %}background-color: {{ cardView.backgroundColor }};{% endif %} {% if cardView.textColor  != '' %}color: {{ cardView.textColor }};{% endif %}">
+        {{ card(cardView) }}
+    </div>
 {% endif %}
 
 {% if galleryView is defined %}
@@ -84,11 +86,25 @@ file that was distributed with this source code.
 {% endif %}
 
 {% if categoryView is defined %}
-    {# create a lightbox view #}
-    {{ category(categoryView) }}
+    <div class="category row">
+        {{ category(categoryView) }}
+    </div>
+{% endif %}
+
+{% if collectionView is defined %}
+    <div class="collection row">
+        {{ collection(collectionView) }}
+    </div>
 {% endif %}
 
 {% if productsListView is defined %}
-    {# create a lightbox view #}
-    {{ products_list(productsListView) }}
+    <div class="products-list row">
+        {{ products_list(productsListView) }}
+    </div>
+{% endif %}
+
+{% if productsFilterView is defined %}
+    <div class="products-filter row">
+        {{ products_filter(productsFilterView) }}
+    </div>
 {% endif %}

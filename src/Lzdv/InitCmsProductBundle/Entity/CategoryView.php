@@ -49,7 +49,7 @@ class CategoryView implements CategoryViewInterface, DynamicLayoutBlockInterface
 
     /**
      * @var string $text
-     * @ORM\Column(name="text", type="text")
+     * @ORM\Column(name="text", type="text", nullable=true)
      * @Sonata\FormMapper(
      *      name="text",
      *      type="ckeditor",

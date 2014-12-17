@@ -1,28 +1,28 @@
 {% macro products_list(productsListView) %}
-    {% if productsListView.title %}
-        <h1>{{ productsListView.title }}</h1>
-    {% endif %}
-    <div class="products-list">
-        <header class="filters">
-            <ul>
-                <li>categoria: {% if productsListView.category is not null %}{{ productsListView.category.name }}{% else %}nessuna{% endif %}</li>
-                <li>collezione: {% if productsListView.collection is not null %}{{ productsListView.collection.name }}{% else %}nessuna{% endif %}</li>
-            </ul>
-        </header>
+    <header class="filters">
+        {% if productsListView.title %}
+            <h1>{{ productsListView.title }}</h1>
+        {% endif %}
         <ul>
-        {% for product in productsListView.products %}
-            <li>
-                <a href="/prodotti/dettaglio/{{ product.slug }}/">
-                    <figure>
-                        {% media product.image, 'small' %}
-                        <figcaption>{{ product.name }}</figcaption>
-                    </figure>
-                    
-                </a>
-            </li>
-        {% endfor %}
+            <li>categoria: {% if productsListView.category is not null %}{{ productsListView.category.name }}{% else %}nessuna{% endif %}</li>
+            <li>collezione: {% if productsListView.collection is not null %}{{ productsListView.collection.name }}{% else %}nessuna{% endif %}</li>
         </ul>
-    </div>
+    </header>
+    <ul>
+    {% for product in productsListView.products %}
+        <li>
+            <a href="/prodotti/dettaglio/{{ product.slug }}/">
+                <figure>
+                    {% media product.image, 'small' %}
+                    <figcaption>{{ product.name }}</figcaption>
+                </figure>
+
+            </a>
+                
+            {# { product.rawDescription | markdown } #}
+        </li>
+    {% endfor %}
+    </ul>
 {% endmacro %}
 
 

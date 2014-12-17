@@ -1,0 +1,14 @@
+{% from 'LzdvInitCmsProductBundle:CollectionView:macro.html.twig' import collection, admin_collection %}
+    <h4 class="block-title">Collection</h4>
+    
+    {% if collectionView.title %}
+        <h4>{{ collectionView.title }}</h4>
+        <hr>
+    {% endif %}
+    <div>
+        {{ admin_collection(collectionView, '') }}
+    </div>
+    
+    {% if collectionView.text %}
+        {{ collectionView.text|raw }}
+    {% endif %}

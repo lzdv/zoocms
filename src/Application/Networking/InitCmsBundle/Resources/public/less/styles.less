@@ -305,8 +305,10 @@ body#homepage-page #logo {
 
 .media {
     text-align: center;
+/*
     padding-top: 12px;
     padding-bottom: 12px;
+*/
 }
 
 .textbox {
@@ -663,4 +665,104 @@ body#rivenditori-page {
             }
         }
     }
+}
+
+body.prodotti {
+    .content .center {
+        .left {
+            div.row:first-child {
+                display:none
+            }
+            div.media:first-child {
+                margin-top: 0;
+            }
+            .category {
+                header {
+                    display: none;
+                }
+                ul {
+                    li {
+                        display: inline-block;
+                        background-color: #c6cfd2;
+                        margin: 0 0 1px !important;
+                        
+                        width: 100%;
+                        height: 100% !important;
+                        
+                        label {
+                            display: inline-block;
+                            width: 100%;
+                            height: 100% !important;
+                            
+                            padding: 10px 20px;
+                            margin: 0;
+                            box-sizing: border-box;
+
+                            color: white !important;
+                            text-shadow: 2px 2px 1px #999999;
+                            font-size: 13pt !important;
+                            line-height: 13pt !important;
+                            text-transform: uppercase;
+                            
+                            cursor: pointer;
+                        }
+                        
+                        &:not(#foo) > input[type=checkbox] {
+                            position: absolute;
+                            clip: rect(1px, 1px, 1px, 1px);
+                        }
+                        
+                        &:not(#foo) > input[type='radio']:checked + label,
+                        &:not(#foo) > input[type='checkbox']:checked + label {
+                            background-color: black;
+                            text-shadow: 0px 0px 0px transparent;
+                        }                        
+                    }
+                }
+            }
+        }
+        .right {
+            .products-list {
+                header {
+                    display: none;
+                }
+                ul {
+                    li {
+                        display: block;
+                        float: left;
+                        width: 33%;
+                        height: 500px;
+                        box-sizing: border-box;
+
+                        text-align: center;
+                        padding: 3%;
+                        
+                        figure {
+                            position: relative;
+                            display: block !important;
+                            height: 100% !important;
+                            width: 100%;
+                            margin: 0;
+                            img {
+                                clear: both;
+                                display: block;
+                                margin: 0 auto;
+                            }
+                            figcaption {
+                                position: absolute;
+                                bottom: 0;
+                                display: block;
+                                
+                                font-family: @font-family-serif;
+                                text-align: center;
+                                width: 100%;                            
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
 }

@@ -1,0 +1,56 @@
+{% from 'LzdvInitCmsProductBundle:CategoryView:macro.html.twig' import category %}
+
+{% macro products_filter(productsFilterView, categories) %}
+    <header>
+        {% if productsFilterView.title %}
+            <h1 class="title">{{ productsFilterView.title }}</h1>
+        {% endif %}
+    </header>
+    <form name="cat_filter" method="GET" action="">
+        {% if productsFilterView.category is not null %}
+            <div class="category btn-group-vertical" role="group" aria-label="">
+                <header>
+                    <h2 class="name">{{ productsFilterView.category.name }}</h2>
+                </header>
+                <ul>
+                {% set selected = app.request.get('cat') %}
+                {% for category in productsFilterView.category.children %}
+                    <li>
+                        <input id="input-cat-{{ category.id }}" name="cat[]" type="checkbox" value="{{ category.id }}" {% if category.id in selected %}checked="checked"{% endif %} />
+                        <label for="input-cat-{{ category.id }}">{{ category.name }}</label>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        {% if productsFilterView.collection is not null %}
+            <div class="collection btn-group-vertical" role="group" aria-label="">
+                <header>
+                    <h2 class="name">{{ productsFilterView.collection.name }}</h2>
+                </header>
+                <ul>
+                {% set selected = app.request.get('cat') %}
+                {% for collection in productsFilterView.collection.children %}
+                    <li>
+                        <input id="input-cat-{{ collection.id }}" name="cat[]" type="checkbox" value="{{ collection.id }}" {% if collection.id in selected %}checked="checked"{% endif %} />
+                        <label for="input-cat-{{ collection.id }}">{{ collection.name }}</label>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        <input type="submit" value="filtra" />
+    </form>
+{% endmacro %}
+
+
+{% macro admin_products_filter(productsFilterView, categories) %}
+    <div class="products-filter">
+        <header class="filters">
+            <ul>
+                <li>categoria: {% if productsFilterView.category is not null %}{{ productsFilterView.category.name }}{% else %}nessuna{% endif %}</li>
+                <li>collezione: {% if productsFilterView.collection is not null %}{{ productsFilterView.collection.name }}{% else %}nessuna{% endif %}</li>
+            </ul>
+        </header>
+    </div>
+{% endmacro %}

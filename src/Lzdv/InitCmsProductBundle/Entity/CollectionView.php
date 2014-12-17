@@ -5,22 +5,20 @@ namespace Lzdv\InitCmsProductBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Ibrows\Bundle\SonataAdminAnnotationBundle\Annotation as Sonata;
 
-use JMS\Serializer\Annotation\Type;
-
 use Networking\InitCmsBundle\Model\ContentInterface;
-use Lzdv\InitCmsProductBundle\Entity\ProductsListViewInterface;
+use Lzdv\InitCmsProductBundle\Entity\CollectionViewInterface;
 use Networking\InitCmsBundle\Entity\DynamicLayoutBlockInterface;
 
-use Application\Sonata\ClassificationBundle\Entity\ProductsList;
+use Application\Sonata\ClassificationBundle\Entity\Collection;
 
 /**
- * ProductsListView
+ * CollectionView
  *
  * @ORM\HasLifecycleCallbacks()
- * @ORM\Table(name="products_list_view")
+ * @ORM\Table(name="collection_view")
  * @ORM\Entity
  */
-class ProductsListView implements ProductsListViewInterface, DynamicLayoutBlockInterface
+class CollectionView implements CollectionViewInterface, DynamicLayoutBlockInterface
 {
     /**
      * @var integer
@@ -31,30 +29,13 @@ class ProductsListView implements ProductsListViewInterface, DynamicLayoutBlockI
      */
     private $id;
 
-    
     /**
-     * @var ProductsList $product
-     * @Type("array<Application\Sonata\ProductBundle\Entity\Wine>")
-     */
-    private $products;    
-    
-    /**
-     * @var ProductsList $category
-     *
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\ClassificationBundle\Entity\Category", cascade={"merge"}, fetch="EAGER")
-     * @ORM\JoinColumn( name="category_id", onDelete="CASCADE", nullable=true )
-     *
-     * @Sonata\FormMapper(name="category", type="entity", options={"required" = false, "empty_data" = null, "label" = "form.label_category","data_class"=null,"class"="Application\Sonata\ClassificationBundle\Entity\Category"})
-     */
-    protected $category;
-
-    /**
-     * @var ProductsList $collection
+     * @var Collection $collection
      *
      * @ORM\ManyToOne(targetEntity="Application\Sonata\ClassificationBundle\Entity\Collection", cascade={"merge"}, fetch="EAGER")
-     * @ORM\JoinColumn( name="collection_id", onDelete="CASCADE", nullable=true )
+     * @ORM\JoinColumn( name="collection_id", onDelete="CASCADE" )
      *
-     * @Sonata\FormMapper(name="collection", type="entity", options={"required" = false, "empty_data" = null, "label" = "form.label_collection","data_class"=null,"class"="Application\Sonata\ClassificationBundle\Entity\Collection"})
+     * @Sonata\FormMapper(name="collection", type="entity", options={"label" = "form.label_collection","data_class"=null,"class"="Application\Sonata\ClassificationBundle\Entity\Collection"})
      */
     protected $collection;
 
@@ -108,8 +89,6 @@ class ProductsListView implements ProductsListViewInterface, DynamicLayoutBlockI
      * )
      */
     protected $dynamic;
-
-    protected $em;
     
     /**
      *
@@ -145,25 +124,6 @@ class ProductsListView implements ProductsListViewInterface, DynamicLayoutBlockI
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @param  \Application\Sonata\ClassificationBundle\Entity\Category $category
-     * @return $this
-     */
-    public function setCategory($category)
-    {
-        $this->category= $category;
-
-        return $this;
-    }
-
-    /**
-     * @return \Application\Sonata\ClassificationBundle\Entity\Category
-     */
-    public function getCategory()
-    {
-        return $this->category;
     }
 
     /**
@@ -289,24 +249,14 @@ class ProductsListView implements ProductsListViewInterface, DynamicLayoutBlockI
         return $this->dynamic;
     }
     
-    public function getProducts() 
-    {
-        //die(get_class($this->productsManager));
-        // get the block view class
-        return $this->products;
-    }
-    
-    public function setProducts() 
-    {
-        return;
-    }
-    
     /**
-     * 
+     * Get dynamic data
+     *
+     * @return \string
      */
     public function getDynamicDataManagerName()
     {
-        return 'sonata.initcms.product.wine.manager';
+        return '';
     }
     
     /**
@@ -314,8 +264,6 @@ class ProductsListView implements ProductsListViewInterface, DynamicLayoutBlockI
      */
     public function setDynamicData($data)
     {
-        //die(var_dump(array_keys($data)));
-        $this->products = $data;
     }
     
     /**
@@ -325,7 +273,8 @@ class ProductsListView implements ProductsListViewInterface, DynamicLayoutBlockI
     public function getTemplateOptions($params = array())
     {
         return array(
-            'productsListView' => $this
+            'categories' => $this->getCollection()->getChildren(),
+            'collectionView' => $this
         );
     }
 
@@ -334,9 +283,10 @@ class ProductsListView implements ProductsListViewInterface, DynamicLayoutBlockI
      */
     public function getAdminContent()
     {
+        $this->collection->setChildren( $this->collection->getChildren() );
         return array(
-            'content' => array('productsListView' => $this),
-            'template' => 'LzdvInitCmsProductBundle:ProductsListAdmin:products_list_view_block.html.twig'
+            'content' => array('collectionView' => $this),
+            'template' => 'LzdvInitCmsProductBundle:CollectionAdmin:collection_view_block.html.twig'
         );
     }
 
@@ -345,7 +295,7 @@ class ProductsListView implements ProductsListViewInterface, DynamicLayoutBlockI
      */
     public function getContentTypeName()
     {
-        return 'ProductsList Viewer';
+        return 'Collection Viewer';
     }
     
 }

@@ -1,0 +1,36 @@
+{% from 'LzdvInitCmsProductBundle:CollectionView:macro.html.twig' import collection %}
+
+{% macro collection(collectionView, categories) %}
+    <header>
+        {% if collectionView.title %}
+            <h1 class="title">{{ collectionView.title }}</h1>
+        {% endif %}
+        <h2 class="name">{{ collectionView.collection.name }}</h2>
+    </header>
+    <form name="cat_filter" method="GET" action="">
+        <div class="btn-group-vertical" role="group" aria-label="...">
+        <ul>
+        {% set selected = app.request.get('cat') %}
+        {% for collection in collectionView.collection.children %}
+            <li>
+                <input id="input-cat-{{ collection.id }}" name="cat[]" type="checkbox" value="{{ collection.id }}" {% if collection.id in selected %}checked="checked"{% endif %} />
+                <label for="input-cat-{{ collection.id }}">{{ collection.name }}</label>
+            </li>
+        {% endfor %}
+        </ul>
+        </div>
+        <input type="submit" value="filtra" />
+    </form>
+{% endmacro %}
+
+
+{% macro admin_collection(collectionView, categories) %}
+    <div class="collection">
+        <h5>Categoria "{{ collectionView.collection.name }}"</h5>
+        <ul>
+        {% for collection in collectionView.collection.children %}
+            <li><a href="/prodotti/{{ collection.slug }}/">{{ collection.name }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endmacro %}

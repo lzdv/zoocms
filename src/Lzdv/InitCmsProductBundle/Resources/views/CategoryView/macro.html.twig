@@ -1,29 +1,32 @@
 {% from 'LzdvInitCmsProductBundle:CategoryView:macro.html.twig' import category %}
 
 {% macro category(categoryView, categories) %}
-    {% if categoryView.title %}
-        <h1>{{ categoryView.title }}</h1>
-    {% endif %}
-    <div class="category">
-        <h2>Categoria "{{ categoryView.category.name }}"</h2>
-        <form name="cat_filter" method="GET" action="">
-            <ul>
-            {% set selected = app.request.get('cat') %}
-            {% for category in categoryView.category.children %}
-                <li>
-                    <label><input name="cat[]" type="checkbox" value="{{ category.id }}" {% if category.id in selected %}checked="checked"{% endif %} />{{ category.name }}</label>
-                </li>
-            {% endfor %}
-            </ul>
-            <input type="submit" value="filtra" />
-        </form>
-    </div>
+    <header>
+        {% if categoryView.title %}
+            <h1 class="title">{{ categoryView.title }}</h1>
+        {% endif %}
+        <h2 class="name">{{ categoryView.category.name }}</h2>
+    </header>
+    <form name="cat_filter" method="GET" action="">
+        <div class="btn-group-vertical" role="group" aria-label="...">
+        <ul>
+        {% set selected = app.request.get('cat') %}
+        {% for category in categoryView.category.children %}
+            <li>
+                <input id="input-cat-{{ category.id }}" name="cat[]" type="checkbox" value="{{ category.id }}" {% if category.id in selected %}checked="checked"{% endif %} />
+                <label for="input-cat-{{ category.id }}">{{ category.name }}</label>
+            </li>
+        {% endfor %}
+        </ul>
+        </div>
+        <input type="submit" value="filtra" />
+    </form>
 {% endmacro %}
 
 
 {% macro admin_category(categoryView, categories) %}
     <div class="category">
-        <h2>Categoria "{{ categoryView.category.name }}"</h2>
+        <h5>Categoria "{{ categoryView.category.name }}"</h5>
         <ul>
         {% for category in categoryView.category.children %}
             <li><a href="/prodotti/{{ category.slug }}/">{{ category.name }}</a></li>
