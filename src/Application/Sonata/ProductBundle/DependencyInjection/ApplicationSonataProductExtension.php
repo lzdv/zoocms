@@ -28,4 +28,6 @@ class ApplicationSonataProductExtension extends Extension
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('products.xml');
     }
+    
+    
 }

@@ -1,5 +1,3 @@
-{% from 'LzdvInitCmsProductBundle:CategoryView:macro.html.twig' import products_list %}
-
 {% macro products_list(productsListView) %}
     {% if productsListView.title %}
         <h1>{{ productsListView.title }}</h1>
@@ -13,7 +11,15 @@
         </header>
         <ul>
         {% for product in productsListView.products %}
-            <li><a href="/prodotti/{{ product.slug }}/">{{ product.name }}</a></li>
+            <li>
+                <a href="/prodotti/dettaglio/{{ product.slug }}/">
+                    <figure>
+                        {% media product.image, 'small' %}
+                        <figcaption>{{ product.name }}</figcaption>
+                    </figure>
+                    
+                </a>
+            </li>
         {% endfor %}
         </ul>
     </div>
