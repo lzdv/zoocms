@@ -55,7 +55,9 @@
     <div class="container {% block container_class %}container-fluid{% endblock container_class %}">
 
         {% block navbar %}
+            <div class="navbar-container row full">
             {% include 'ApplicationNetworkingInitCmsBundle:Navbar:navbar.html.twig' %}
+            </div>
         {% endblock navbar %}
         
         {% block header %}

@@ -6,38 +6,44 @@
             <h1 class="title">{{ productsFilterView.title }}</h1>
         {% endif %}
     </header>
-    <form name="cat_filter" method="GET" action="">
-        {% if productsFilterView.category is not null %}
-            <div class="category btn-group-vertical" role="group" aria-label="">
+    <form name="product-filter-form" method="GET" action="">
+        {% if productsFilterView.collections is not null %}
+            <div id="filter-collection" class="collection row btn-group-vertical" role="group" aria-label="">
                 <header>
-                    <h2 class="name">{{ productsFilterView.category.name }}</h2>
+                    <h2 class="name">Filtra per Linea</h2>
                 </header>
                 <ul>
-                {% set selected = app.request.get('cat') %}
-                {% for category in productsFilterView.category.children %}
+                {% set selected = app.request.get('col') %}
+                {% for collection in productsFilterView.collections %}
                     <li>
-                        <input id="input-cat-{{ category.id }}" name="cat[]" type="checkbox" value="{{ category.id }}" {% if category.id in selected %}checked="checked"{% endif %} />
-                        <label for="input-cat-{{ category.id }}">{{ category.name }}</label>
+                        <input id="input-col-{{ collection.id }}" name="col[]" type="radio" value="{{ collection.id }}" {% if collection.id in selected %}checked="checked"{% endif %} />
+                        <label for="input-col-{{ collection.id }}">{{ collection.name }}</label>
                     </li>
                 {% endfor %}
+                <li>
+                    <input id="input-col-0" name="col[]" type="radio" value="" {% if 0 in selected %}checked="checked"{% endif %} />
+                    <label for="input-col-0">Nessuna</label>
+                </li>
                 </ul>
             </div>
         {% endif %}
-        {% if productsFilterView.collection is not null %}
-            <div class="collection btn-group-vertical" role="group" aria-label="">
-                <header>
-                    <h2 class="name">{{ productsFilterView.collection.name }}</h2>
-                </header>
-                <ul>
-                {% set selected = app.request.get('cat') %}
-                {% for collection in productsFilterView.collection.children %}
-                    <li>
-                        <input id="input-cat-{{ collection.id }}" name="cat[]" type="checkbox" value="{{ collection.id }}" {% if collection.id in selected %}checked="checked"{% endif %} />
-                        <label for="input-cat-{{ collection.id }}">{{ collection.name }}</label>
-                    </li>
-                {% endfor %}
-                </ul>
-            </div>
+        {% if productsFilterView.categories is not null %}
+            {% for category in productsFilterView.categories %}
+                <div id="filter-category-{{ category.slug }}" class="category row btn-group-vertical" role="group" aria-label="">
+                    <header>
+                        <h2 class="name">Filtra per {{ category.name }}</h2>
+                    </header>
+                    <ul>
+                    {% set selected = app.request.get('cat') %}
+                    {% for subcategory in category.children %}
+                        <li>
+                            <input id="input-cat-{{ subcategory.id }}" name="cat[]" type="checkbox" value="{{ subcategory.id }}" {% if subcategory.id in selected %}checked="checked"{% endif %} />
+                            <label for="input-cat-{{ subcategory.id }}">{{ subcategory.name }}</label>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
         {% endif %}
         <input type="submit" value="filtra" />
     </form>
@@ -48,8 +54,8 @@
     <div class="products-filter">
         <header class="filters">
             <ul>
-                <li>categoria: {% if productsFilterView.category is not null %}{{ productsFilterView.category.name }}{% else %}nessuna{% endif %}</li>
-                <li>collezione: {% if productsFilterView.collection is not null %}{{ productsFilterView.collection.name }}{% else %}nessuna{% endif %}</li>
+                <li>categorie: {% if productsFilterView.categories is not null %}coming soon{% else %}nessuna{% endif %}</li>
+                <li>collezioni: {% if productsFilterView.collections is not null %}coming soon{#{ productsFilterView.collections }#}{% else %}nessuna{% endif %}</li>
             </ul>
         </header>
     </div>

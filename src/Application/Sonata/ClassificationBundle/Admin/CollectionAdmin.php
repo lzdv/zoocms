@@ -40,8 +40,8 @@ class CollectionAdmin extends Admin
   
         if ($this->getSubject()->getParent() !== null || $this->getSubject()->getId() === null) {
             $formMapper
-                ->add('parent', 'sonata_category_selector', array(
-                    'category'      => $this->getSubject() ?: null,
+                ->add('parent', 'sonata_collection_selector', array(
+                    'collection'      => $this->getSubject() ?: null,
                     'model_manager' => $this->getModelManager(),
                     'class'         => $this->getClass(),
                     'required'      => false/*,
@@ -57,7 +57,7 @@ class CollectionAdmin extends Admin
                         array(
                             'link_parameters' => array(
                                 'provider' => 'sonata.media.provider.image',
-                                'context'  => 'sonata_category',
+                                'context'  => 'sonata_collection',
                             )
                         )
                     )

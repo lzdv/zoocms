@@ -4,7 +4,7 @@
 
 html body {
     background-color: #edf0f2;
-    font-family: @font-family-serif;
+    font-family: @font-family-sans-serif;
     font-size: 13pt;
     color: grey;
 }
@@ -44,7 +44,7 @@ html body a {
     text-decoration: none;
     
     &:hover {
-        color: #333340;
+        color: @nav-hover-color;
     }
 }
 
@@ -64,6 +64,7 @@ hr {
 ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 figure {
@@ -102,7 +103,7 @@ figcaption {
     
     .row {
         max-width: 960px;
-        margin: 0px auto;
+        margin: 0px auto 20px;
         background-color: transparent;
         &.full {
             max-width: 100%;
@@ -131,6 +132,7 @@ figcaption {
     display: none !important;
 }
 
+/*
 #logo {
     width: 60px;
     height: 60px;
@@ -145,7 +147,6 @@ body#homepage-page #logo {
     padding: 60px 60px 0 0;
     background: black url(/bundles/applicationnetworkinginitcms/img/logo_white.png) no-repeat center center;
 }
-
 #header-logo-container {
     position: relative;
     
@@ -156,6 +157,7 @@ body#homepage-page #logo {
     }
     
 }
+*/
 
 .nav-pills  {
     display: none;
@@ -166,7 +168,17 @@ body#homepage-page #logo {
 
 .nav-main-container {
     background-color: white !important;
+    width: 100%;
+    max-width: 100% !important;
+
+    .nav-container {
+        max-width: 960px;
+        margin: 0px auto;
+        float: none;
+    }
+
     .navbar-nav {
+        
         font-family: @font-family-serif;
         font-size: @font-size-base;
         li {
@@ -198,6 +210,25 @@ body#homepage-page #logo {
                     transition: top 0.3s;
                 }
             }
+            
+            &.first {
+                background-image: url("/bundles/applicationnetworkinginitcms/img/logo_color.png");
+                width: 60px;
+                height: 60px;
+                
+                &:hover {
+                    background-image: url("/bundles/applicationnetworkinginitcms/img/logo_white.png") !important;
+                    background-color: @nav-hover-color !important;
+                    a {
+                        color: transparent !important;
+                        background-color: transparent !important;
+                    }
+                }
+                a {
+                    color: transparent !important;
+                }
+            }
+            
             &.active > a {
                 background-color: black !important;
                 color: white !important;
@@ -422,7 +453,6 @@ body#homepage-page #logo {
 }
  
 .center {
-    padding-top: 20px;
     .left {
         .card {
             color: white;
@@ -670,15 +700,33 @@ body#rivenditori-page {
 body.prodotti {
     .content .center {
         .left {
-            div.row:first-child {
+            & > div.row:first-child {
                 display:none
             }
             div.media:first-child {
                 margin-top: 0;
             }
+            
+            .collection,
             .category {
                 header {
-                    display: none;
+                    display: inline-block;
+                    width: 100%;
+                    
+                    padding: 10px 20px 16px;
+                    margin: 0;
+                    box-sizing: border-box;
+
+                    background: white url("/bundles/applicationnetworkinginitcms/img/hr.png") repeat-x bottom left;
+                    
+                    h2 {
+                        color: #999999;
+                        font-size: 10pt !important;
+                        line-height: 13pt !important;
+                        font-weight: normal;
+                        text-transform: uppercase;
+                        margin: 0;
+                    }
                 }
                 ul {
                     li {
@@ -687,26 +735,47 @@ body.prodotti {
                         margin: 0 0 1px !important;
                         
                         width: 100%;
-                        height: 100% !important;
                         
                         label {
                             display: inline-block;
+                            position: relative;
                             width: 100%;
-                            height: 100% !important;
                             
                             padding: 10px 20px;
                             margin: 0;
                             box-sizing: border-box;
 
                             color: white !important;
-                            text-shadow: 2px 2px 1px #999999;
-                            font-size: 13pt !important;
+                            text-shadow: 1px 1px 1px #999999;
+                            font-size: 10pt !important;
                             line-height: 13pt !important;
+                            font-weight: normal;
                             text-transform: uppercase;
                             
                             cursor: pointer;
+
+                            &::after {
+                                display: block;
+
+                                position: absolute;
+                                bottom: 0;
+                                right: 0;
+
+                                height: 38px;
+                                width: 35px;
+                                margin: 0;
+                                padding: 0;
+
+                                content: "+";
+                                font-size: 30px;
+                                font-weight: normal;
+                                line-height: 35px;
+                                color: white;
+                                text-align: center;
+                            }                            
                         }
                         
+                        &:not(#foo) > input[type=radio],
                         &:not(#foo) > input[type=checkbox] {
                             position: absolute;
                             clip: rect(1px, 1px, 1px, 1px);
@@ -716,8 +785,24 @@ body.prodotti {
                         &:not(#foo) > input[type='checkbox']:checked + label {
                             background-color: black;
                             text-shadow: 0px 0px 0px transparent;
+                            
+                            &::after {
+                                content: "-";
+                            }                            
                         }                        
                     }
+                }
+            }
+            
+            #filter-collection {
+                label {
+                    font-family: @font-family-serif !important;
+                    font-size: 13pt !important;
+                    text-shadow: 2px 2px 1px #999999;
+
+                    &::after {
+                        content: "" !important;
+                    }                            
                 }
             }
         }
@@ -743,6 +828,9 @@ body.prodotti {
                             height: 100% !important;
                             width: 100%;
                             margin: 0;
+                            
+                            background: white url("/bundles/applicationnetworkinginitcms/img/hr-bw.png") repeat-x 400px left;
+
                             img {
                                 clear: both;
                                 display: block;
@@ -754,6 +842,8 @@ body.prodotti {
                                 display: block;
                                 
                                 font-family: @font-family-serif;
+                                font-size: 16pt;
+                                color: #65322E !important;
                                 text-align: center;
                                 width: 100%;                            
                             }

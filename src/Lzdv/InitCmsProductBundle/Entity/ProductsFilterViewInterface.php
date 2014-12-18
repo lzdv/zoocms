@@ -5,6 +5,12 @@ namespace Lzdv\InitCmsProductBundle\Entity;
 use Networking\InitCmsBundle\Model\ContentInterface;
 use Ibrows\Bundle\SonataAdminAnnotationBundle\Annotation as Sonata;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
+use Application\Sonata\ClassificationBundle\Entity\Category;
+use Application\Sonata\ClassificationBundle\Entity\Collection;
+
+
 /**
  * Networking\CategoryBundle\Entity\CategoryViewInterface
  *
@@ -12,26 +18,46 @@ use Ibrows\Bundle\SonataAdminAnnotationBundle\Annotation as Sonata;
 interface ProductsFilterViewInterface extends ContentInterface
 {
     /**
-     * @param  \Application\Sonata\ClassificationBundle\Entity\Category $media
+     * @param  \ArrayCollection $categories
      * @return $this
      */
-    public function setCategory($media);
+    public function setCategories(ArrayCollection $categories);
+
+    /**
+     * @return \ArrayCollection
+     */
+    public function getCategories();
 
     /**
      * @return \Application\Sonata\ClassificationBundle\Entity\Category
      */
-    public function getCategory();
+    public function addCategory(Category $category);
+
+    /**
+     * @return \Application\Sonata\ClassificationBundle\Entity\Category
+     */
+    public function removeCategory(Category $category);
 
     /**
      * @param  \Application\Sonata\ClassificationBundle\Entity\Collection $media
      * @return $this
      */
-    public function setCollection($media);
+    public function setCollections(ArrayCollection $collections);
 
     /**
      * @return \Application\Sonata\ClassificationBundle\Entity\Collection
      */
-    public function getCollection();
+    public function getCollections();
+
+    /**
+     * @return \Application\Sonata\ClassificationBundle\Entity\Collection
+     */
+    public function addCollection(Collection $collection);
+
+    /**
+     * @return \Application\Sonata\ClassificationBundle\Entity\Collection
+     */
+    public function removeCollection(Collection $collection);
 
     /**
      * @param  string $media

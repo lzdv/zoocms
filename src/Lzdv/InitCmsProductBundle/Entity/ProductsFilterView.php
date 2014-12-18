@@ -9,6 +9,8 @@ use Networking\InitCmsBundle\Model\ContentInterface;
 use Lzdv\InitCmsProductBundle\Entity\ProductsFilterViewInterface;
 use Networking\InitCmsBundle\Entity\DynamicLayoutBlockInterface;
 
+use Doctrine\Common\Collections\ArrayCollection;
+ 
 use Application\Sonata\ClassificationBundle\Entity\Category;
 use Application\Sonata\ClassificationBundle\Entity\Collection;
 
@@ -31,24 +33,26 @@ class ProductsFilterView implements ProductsFilterViewInterface, DynamicLayoutBl
     private $id;
 
     /**
-     * @var Category $category
+     * @ORM\ManyToMany(targetEntity="Application\Sonata\ClassificationBundle\Entity\Category")
+     * @ORM\JoinTable(name="products_filter_categories",
+     *      joinColumns={@ORM\JoinColumn(name="products_filter_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="category_id", referencedColumnName="id")}
+     *      )
      *
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\ClassificationBundle\Entity\Category", cascade={"merge"}, fetch="EAGER")
-     * @ORM\JoinColumn( name="category_id", onDelete="CASCADE", nullable=true )
-     *
-     * @Sonata\FormMapper(name="category", type="entity", options={"required" = false, "empty_data" = null, "label" = "form.label_category","data_class"=null,"class"="Application\Sonata\ClassificationBundle\Entity\Category"})
+     * @Sonata\FormMapper(name="categories", options={"required" = false, "empty_data" = null, "label" = "form.label_categories","data_class"=null,"class"="Application\Sonata\ClassificationBundle\Entity\Category"})
      */
-    protected $category;
-
+    protected $categories;
+    
     /**
-     * @var Collection $collection
+     * @ORM\ManyToMany(targetEntity="Application\Sonata\ClassificationBundle\Entity\Collection")
+     * @ORM\JoinTable(name="products_filter_collections",
+     *      joinColumns={@ORM\JoinColumn(name="products_filter_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="collection_id", referencedColumnName="id")}
+     *      )
      *
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\ClassificationBundle\Entity\Collection", cascade={"merge"}, fetch="EAGER")
-     * @ORM\JoinColumn( name="collection_id", onDelete="CASCADE", nullable=true )
-     *
-     * @Sonata\FormMapper(name="collection", type="entity", options={"required" = false, "empty_data" = null, "label" = "form.label_collection","data_class"=null,"class"="Application\Sonata\ClassificationBundle\Entity\Collection"})
-     */
-    protected $collection;
+     * @Sonata\FormMapper(name="collections", options={"required" = false, "empty_data" = null, "label" = "form.label_collections","data_class"=null,"class"="Application\Sonata\ClassificationBundle\Entity\Collection"})
+     **/
+    private $collections;
 
     /**
      * @var string $title
@@ -101,6 +105,11 @@ class ProductsFilterView implements ProductsFilterViewInterface, DynamicLayoutBl
      */
     protected $dynamic;
     
+    public function __construct()
+    {
+        $this->collections = new ArrayCollection();
+    }
+    
     /**
      *
      */
@@ -141,9 +150,9 @@ class ProductsFilterView implements ProductsFilterViewInterface, DynamicLayoutBl
      * @param  \Application\Sonata\ClassificationBundle\Entity\Category $category
      * @return $this
      */
-    public function setCategory($category)
+    public function setCategories(ArrayCollection $categories)
     {
-        $this->category= $category;
+        $this->categories= $categories;
 
         return $this;
     }
@@ -151,28 +160,60 @@ class ProductsFilterView implements ProductsFilterViewInterface, DynamicLayoutBl
     /**
      * @return \Application\Sonata\ClassificationBundle\Entity\Category
      */
-    public function getCategory()
+    public function getCategories()
     {
-        return $this->category;
+        return $this->categories;
     }
 
     /**
-     * @param  \Application\Sonata\ClassificationBundle\Entity\Collection $collection
+     * @return \Application\Sonata\ClassificationBundle\Entity\Category
+     */
+    public function addCategory(Category $category)
+    {
+        return $this->categories[] = $category;
+    }
+
+    /**
+     * @return \Application\Sonata\ClassificationBundle\Entity\Category
+     */
+    public function removeCategory(Category $category)
+    {
+        return $this->categories->removeElement($category);
+    }
+    
+    /**
+     * @param  \ArrayCollection
      * @return $this
      */
-    public function setCollection($collection)
+    public function setCollections(ArrayCollection $collections)
     {
-        $this->collection= $collection;
+        $this->collections = $collections;
 
         return $this;
     }
 
     /**
+     * @return \ArrayCollection
+     */
+    public function getCollections()
+    {
+        return $this->collections;
+    }
+
+    /**
      * @return \Application\Sonata\ClassificationBundle\Entity\Collection
      */
-    public function getCollection()
+    public function addCollection(Collection $collection)
     {
-        return $this->collection;
+        return $this->collections[] = $collection;
+    }
+
+    /**
+     * @return \Application\Sonata\ClassificationBundle\Entity\Collection
+     */
+    public function removeCollection(Collection $collection)
+    {
+        return $this->collections->removeElement($collection);
     }
 
     /**
@@ -303,8 +344,8 @@ class ProductsFilterView implements ProductsFilterViewInterface, DynamicLayoutBl
     public function getTemplateOptions($params = array())
     {
         return array(
-            'categories' => ($this->category) ? $this->getCategory()->getChildren() : array(),
-            'collections' => ($this->collection) ? $this->getCollection()->getChildren() : array(),
+            'categories' => $this->getCategories(),
+            'collections' => $this->getCollections(),
             'productsFilterView' => $this
         );
     }
@@ -316,8 +357,8 @@ class ProductsFilterView implements ProductsFilterViewInterface, DynamicLayoutBl
     {
         if (!empty($this->category))
             $this->category->setChildren( $this->category->getChildren() );
-        if (!empty($this->collection))
-            $this->collection->setChildren( $this->collection->getChildren() );
+
+//        $this->collections->setCollections( $this->collections );
         return array(
             'content' => array('productsFilterView' => $this),
             'template' => 'LzdvInitCmsProductBundle:ProductsFilterAdmin:products_filter_view_block.html.twig'
