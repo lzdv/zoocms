@@ -57,6 +57,12 @@ file that was distributed with this source code.
         (function ($) {
             $('.carousel').carousel();
             $("a[rel^='prettyPhoto']").prettyPhoto();
+            $('.product-filter-form').each(function(idx,el){
+                $(el).children('.submit').hide();
+                $(el).find('input').on('click', function() {
+                    $(el).submit();
+                })
+            });
         })(jQuery);
     </script>
 {% endblock %}

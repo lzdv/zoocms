@@ -11,7 +11,8 @@
     <ul>
     {% for product in productsListView.products %}
         <li>
-            <a href="/prodotti/dettaglio/{{ product.slug }}/">
+            {#<a href="/prodotti/dettaglio/{{ product.slug }}/">#}
+            <a href="#">
                 <figure>
                     {% media product.image, 'small' %}
                     <figcaption>{{ product.name }}</figcaption>

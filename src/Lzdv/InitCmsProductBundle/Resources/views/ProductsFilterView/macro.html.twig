@@ -6,7 +6,7 @@
             <h1 class="title">{{ productsFilterView.title }}</h1>
         {% endif %}
     </header>
-    <form name="product-filter-form" method="GET" action="">
+    <form class="product-filter-form" name="product-filter-form" method="GET" action="">
         {% if productsFilterView.collections is not null %}
             <div id="filter-collection" class="collection row btn-group-vertical" role="group" aria-label="">
                 <header>
@@ -28,16 +28,16 @@
             </div>
         {% endif %}
         {% if productsFilterView.categories is not null %}
+            {% set selected = app.request.get('cat') %}
             {% for category in productsFilterView.categories %}
                 <div id="filter-category-{{ category.slug }}" class="category row btn-group-vertical" role="group" aria-label="">
                     <header>
                         <h2 class="name">Filtra per {{ category.name }}</h2>
                     </header>
                     <ul>
-                    {% set selected = app.request.get('cat') %}
                     {% for subcategory in category.children %}
                         <li>
-                            <input id="input-cat-{{ subcategory.id }}" name="cat[]" type="checkbox" value="{{ subcategory.id }}" {% if subcategory.id in selected %}checked="checked"{% endif %} />
+                            <input id="input-cat-{{ subcategory.id }}" name="cat[{{ category.id }}][]" type="checkbox" value="{{ subcategory.id }}" {% if selected[category.id] is defined and subcategory.id in selected[category.id] %}checked="checked"{% endif %} />
                             <label for="input-cat-{{ subcategory.id }}">{{ subcategory.name }}</label>
                         </li>
                     {% endfor %}
@@ -45,8 +45,8 @@
                 </div>
             {% endfor %}
         {% endif %}
-        <input type="submit" value="filtra" />
-    </form>
+        <input type="submit" class="submit" value="filtra" />
+    </form>        
 {% endmacro %}
 
 

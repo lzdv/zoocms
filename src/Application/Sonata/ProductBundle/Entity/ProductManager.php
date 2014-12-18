@@ -38,20 +38,40 @@ class ProductManager extends BaseProductManager implements ProductManagerInterfa
         $colls = $params['request']->query->getDigits('col');
         $tags = $params['request']->query->getDigits('tag');
 
+        $k = 0;
+//die(var_dump($colls));
+        
         $queryBuilder = $this->getRepository()->createQueryBuilder('p')
             ->leftJoin('p.image', 'i')
             ->leftJoin('p.gallery', 'g');
 
-        if (!empty($cats) && is_array($cats))
+        if (!empty($colls) && is_array($colls) && !empty($colls[0]))
         {
             $queryBuilder
-                ->leftJoin('p.productCategories', 'pc');
+                ->leftJoin('p.productCollections', 'pl');
             $expr = $queryBuilder->expr()->orX();
-            foreach ($cats as $k => $cat) {
-                $expr->add('pc.category = :categoryId_'.$k);
-                $queryBuilder->setParameter('categoryId_'.$k, $cat);
+            foreach ($colls as $col) {
+                $expr->add('pl.collection = :collectionId_'.$k);
+                $queryBuilder->setParameter('collectionId_'.$k, $col);
+                ++$k;
             }
             $queryBuilder->andWhere($expr);
+        }
+
+        if (!empty($cats) && is_array($cats))
+        {
+            foreach($cats as $j => $cat)
+            {
+                $queryBuilder
+                    ->leftJoin('p.productCategories', 'pc'.$j);
+                $expr = $queryBuilder->expr()->orX();
+                foreach ($cat as $subcat) {
+                    $expr->add('pc'.$j.'.category = :categoryId_'.$k);
+                    $queryBuilder->setParameter('categoryId_'.$k, $subcat);
+                    ++$k;
+                }
+                $queryBuilder->andWhere($expr);
+            }
         }
         
 //        echo $queryBuilder->getDQL();
