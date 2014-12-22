@@ -211,24 +211,6 @@ body#homepage-page #logo {
                 }
             }
             
-            &.first {
-                background-image: url("/bundles/applicationnetworkinginitcms/img/logo_color.png");
-                width: 60px;
-                height: 60px;
-                
-                &:hover {
-                    background-image: url("/bundles/applicationnetworkinginitcms/img/logo_white.png") !important;
-                    background-color: @nav-hover-color !important;
-                    a {
-                        color: transparent !important;
-                        background-color: transparent !important;
-                    }
-                }
-                a {
-                    color: transparent !important;
-                }
-            }
-            
             &.active > a {
                 background-color: black !important;
                 color: white !important;
@@ -263,6 +245,25 @@ body#homepage-page #logo {
                         }
                     }
                 }
+            }
+            
+        }
+        & > li.first {
+            background-image: url("/bundles/applicationnetworkinginitcms/img/logo_color.png") !important;
+            width: 60px;
+            height: 60px;
+
+            &:hover {
+                background-image: url("/bundles/applicationnetworkinginitcms/img/logo_white.png") !important;
+                background-color: @nav-hover-color !important;
+                a {
+                    color: transparent !important;
+                    background-color: transparent !important;
+                }
+            }
+            a {
+                background-color: transparent !important;
+                color: transparent !important;
             }
         }
         
@@ -820,7 +821,7 @@ body.prodotti {
                         box-sizing: border-box;
 
                         text-align: center;
-                        padding: 3%;
+                        padding: 10px;
                         
                         figure {
                             position: relative;
@@ -832,17 +833,24 @@ body.prodotti {
                             background: url("/bundles/applicationnetworkinginitcms/img/hr-bw.png") repeat-x scroll 0 360px transparent;
 
                             img {
+                                bottom: 55px;
                                 clear: both;
                                 display: block;
-                                margin: 0 auto;
+                                left: 50%;
+                                margin: 0 -50px;
+                                position: absolute;
                             }
+                            
                             figcaption {
                                 position: absolute;
                                 bottom: 0;
                                 display: block;
                                 
+                                height: 50px;
+                                
                                 font-family: @font-family-serif;
                                 font-size: 16pt;
+                                line-height: 16pt;
                                 color: #65322E !important;
                                 text-align: center;
                                 width: 100%;                            

@@ -36,13 +36,21 @@ sonata_media:
                 big:    { width: 220, height: 220, quality: 100}
                 full:    { width: 1920, quality: 100}
                 
+        internal_left_column:
+            providers:
+              - sonata.media.provider.image
+
+            formats:
+                small:    { width: 100, quality: 70}
+                big:    { width: 220, quality: 100}
+                
         internal_right_column:
             providers:
               - sonata.media.provider.image
 
             formats:
                 small:    { width: 100, quality: 70}
-                big:    { width: 667, height: 200, quality: 100}
+                big:    { width: 698, quality: 100}
                 
         sonata_collection:
             providers:
@@ -67,7 +75,7 @@ sonata_media:
             formats:
                 preview: { width: 100, quality: 70}
                 small:   { width: 100, quality: 70}
-                wide:    { width: 820, quality: 100}
+                wide:    { width: 220, quality: 100} 
                 
     cdn:
         server:
