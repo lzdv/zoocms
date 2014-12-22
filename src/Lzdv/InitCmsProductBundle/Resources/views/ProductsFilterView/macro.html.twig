@@ -22,7 +22,7 @@
                 {% endfor %}
                 <li>
                     <input id="input-col-0" name="col[]" type="radio" value="" {% if 0 in selected %}checked="checked"{% endif %} />
-                    <label for="input-col-0">Nessuna</label>
+                    <label for="input-col-0">Tutti i vini</label>
                 </li>
                 </ul>
             </div>
@@ -47,6 +47,8 @@
         {% endif %}
         <input type="submit" class="submit" value="filtra" />
     </form>        
+    <a id="products-back-button" href="#" onclick="backToProductsList()">Indietro</a>
+    <a id="product-attachment-button" onclick="alert('attualmente non disponibile')">Scheda</a>
 {% endmacro %}
 
 

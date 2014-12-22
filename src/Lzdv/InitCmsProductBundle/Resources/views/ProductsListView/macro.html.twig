@@ -8,22 +8,59 @@
             <li>collezione: {% if productsListView.collection is not null %}{{ productsListView.collection.name }}{% else %}nessuna{% endif %}</li>
         </ul>
     </header>
-    <ul>
+    <article id="product-details" style="display: none;"></article>
+    <ul id="products-list" style="display: block;">
     {% for product in productsListView.products %}
         <li>
             {#<a href="/prodotti/dettaglio/{{ product.slug }}/">#}
-            <a href="#">
+            <a href="#" onclick="showProduct({{ product.id }});">
                 <figure>
                     {% media product.image, 'small' %}
                     <figcaption>{{ product.name }}</figcaption>
                 </figure>
-
+                <detail id="product-{{ product.id }}" style="display: none;">
+                    <figure>
+                        <img src="{% path product.image, "wide" %}" />
+                    </figure>
+                    <h1>{{ product.name }}</h1>
+                    <h3>{% if productsListView.category is not null %}{{ productsListView.category.name }}{% endif %} {% if productsListView.collection is not null %}{{ productsListView.collection.name }}{% endif %}</h3>
+                    <div class='description'>{{ product.description | markdown }}</div>
+                </detail>
             </a>
                 
             {# { product.rawDescription | markdown } #}
         </li>
     {% endfor %}
     </ul>
+    <script>
+        function backToProductsList() {
+            $('#products-back-button').hide();
+            $('#product-attachment-button').show();
+            $('#product-details').hide();
+            $('#products-list').show(); 
+            $('.products-filter').children().show();
+            $('#product-details').html( "" );
+            $(body).removeClass('prodotti-dettaglio');
+//            window.history.pushState('elenco-prodotti', 'Prodotti', '/../');
+            return false;
+        }
+        function showProduct(id) {
+            $('#product-details').html( $('#product-'+id).html() );
+            $('#products-list').hide(); 
+            $('.products-filter').children().hide();
+            $('#products-back-button').show();
+            $('#product-attachment-button').show();
+            $('#product-details').show();
+            $(body).addClass('prodotti-dettaglio');
+//                window.history.pushState('dettaglio-prodotto', '{{ product.name }}', 'prodotti/{{ product.slug }}');
+            return false;
+        }
+        
+        if ({% if app.request.get('p') %}true{% else %}false{% endif %}) {
+            window.addEventListener('load', function() { showProduct({{ app.request.get('p') }}); }, false )
+        }
+        
+    </script>
 {% endmacro %}
 
 

@@ -1,0 +1,39 @@
+{% macro products_list(productDetailsView) %}
+    <header class="filters">
+        {% if productDetailsView.title %}
+            <h1>{{ productDetailsView.title }}</h1>
+        {% endif %}
+        <ul>
+            <li>categoria: {% if productDetailsView.category is not null %}{{ productDetailsView.category.name }}{% else %}nessuna{% endif %}</li>
+            <li>collezione: {% if productDetailsView.collection is not null %}{{ productDetailsView.collection.name }}{% else %}nessuna{% endif %}</li>
+        </ul>
+    </header>
+    <ul>
+    {% for product in productDetailsView.products %}
+        <li>
+            {#<a href="/prodotti/dettaglio/{{ product.slug }}/">#}
+            <a href="#">
+                <figure>
+                    {% media product.image, 'small' %}
+                    <figcaption>{{ product.name }}</figcaption>
+                </figure>
+
+            </a>
+                
+            {# { product.rawDescription | markdown } #}
+        </li>
+    {% endfor %}
+    </ul>
+{% endmacro %}
+
+
+{% macro admin_products_list(productDetailsView) %}
+    <div class="category">
+        <header class="filters">
+            <ul>
+                <li>categoria: {% if productDetailsView.category is not null %}{{ productDetailsView.category.name }}{% else %}nessuna{% endif %}</li>
+                <li>collezione: {% if productDetailsView.collection is not null %}{{ productDetailsView.collection.name }}{% else %}nessuna{% endif %}</li>
+            </ul>
+        </header>
+    </div>
+{% endmacro %}

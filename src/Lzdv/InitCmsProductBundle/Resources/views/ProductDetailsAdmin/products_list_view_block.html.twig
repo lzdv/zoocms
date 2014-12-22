@@ -1,0 +1,14 @@
+{% from 'LzdvInitCmsProductBundle:ProductDetailsView:macro.html.twig' import products_list, admin_products_list %}
+    <h4 class="block-title">Product Details</h4>
+    
+    {% if productDetailsView.title %}
+        <h4>{{ productDetailsView.title }}</h4>
+        <hr>
+    {% endif %}
+    <div>
+        {{ admin_products_list(productDetailsView, '') }}
+    </div>
+    
+    {% if productDetailsView.text %}
+        {{ productDetailsView.text|raw }}
+    {% endif %}

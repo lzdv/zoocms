@@ -11,7 +11,7 @@ html body {
 
 html body a {
     &:hover, &:visited {
-        color: #eb3200;
+        color: grey !important;
     }
 }
 
@@ -82,7 +82,7 @@ figcaption {
 .container {
     background-image: url(/bundles/applicationnetworkinginitcms/img/big_face.png);
     background-repeat: no-repeat;
-    background-position: 72% 22%;
+    background-position: 72% 200px;
     padding: 0 !important;
 }
 
@@ -105,6 +105,7 @@ figcaption {
         max-width: 960px;
         margin: 0px auto 20px;
         background-color: transparent;
+        
         &.full {
             max-width: 100%;
             background-color: transparent;
@@ -114,6 +115,10 @@ figcaption {
 
 .header {
     margin-bottom: 40px;
+}
+
+.footer {
+    
 }
 
 .gallery {
@@ -147,8 +152,11 @@ body#homepage-page #logo {
     padding: 60px 60px 0 0;
     background: black url(/bundles/applicationnetworkinginitcms/img/logo_white.png) no-repeat center center;
 }
+*/
 #header-logo-container {
     position: relative;
+    margin-top: -20px;
+    padding: 0;
     
     #header-logo {
         position: absolute;
@@ -157,7 +165,6 @@ body#homepage-page #logo {
     }
     
 }
-*/
 
 .nav-pills  {
     display: none;
@@ -170,6 +177,7 @@ body#homepage-page #logo {
     background-color: white !important;
     width: 100%;
     max-width: 100% !important;
+    margin-bottom: 0px !important;
 
     .nav-container {
         max-width: 960px;
@@ -699,6 +707,11 @@ body#rivenditori-page {
 }
 
 body.prodotti {
+    
+    .nav-main-container {
+        margin-bottom: 20px;
+    }
+    
     .content .center {
         .left {
             & > div.row:first-child {
@@ -798,13 +811,38 @@ body.prodotti {
             #filter-collection {
                 label {
                     font-family: @font-family-serif !important;
-                    font-size: 13pt !important;
-                    text-shadow: 2px 2px 1px #999999;
+                    font-size: 14pt !important;
+                    line-height: 15pt !important;
 
                     &::after {
                         content: "" !important;
                     }                            
                 }
+            }
+            #product-attachment-button,
+            #products-back-button {
+                box-sizing: border-box;
+                color: grey !important;
+                cursor: pointer;
+                display: inline-block;
+                font-family: @font-family-serif !important;
+                font-size: 13pt !important;
+                font-weight: normal;
+                line-height: 15pt !important;
+                margin: 0 0 20px;
+                padding: 15px 20px;
+                border: 10px solid white;
+                position: relative;
+                background-color: white;
+                text-transform: uppercase;
+                width: 100%;
+                text-decoration: none;
+            }
+            #product-attachment-button {
+                background-color: #9DA5A8;
+                color: white !important;
+                border: 10px solid #8C9497;
+                text-decoration: none;
             }
         }
         .right {
@@ -830,10 +868,10 @@ body.prodotti {
                             width: 100%;
                             margin: 0;
                             
-                            background: url("/bundles/applicationnetworkinginitcms/img/hr-bw.png") repeat-x scroll 0 360px transparent;
+                            background: url("/bundles/applicationnetworkinginitcms/img/hr-bw.png") repeat-x scroll 0 350px transparent;
 
                             img {
-                                bottom: 55px;
+                                bottom: 65px;
                                 clear: both;
                                 display: block;
                                 left: 50%;
@@ -853,9 +891,32 @@ body.prodotti {
                                 line-height: 16pt;
                                 color: #65322E !important;
                                 text-align: center;
+                                text-transform: uppercase;
                                 width: 100%;                            
                             }
                         }
+                    }
+                }
+            }
+            #product-details {
+                & > figure {
+                    float: right;
+                    text-align: center;
+                    width: 200px;
+                    margin: 0px 0px 20px 20px;
+                }
+                & > h1 {
+                    font-size: 28pt;
+                    color: #65322E;
+                    text-transform: none;
+                }
+                .description p {
+                    strong {
+                        clear: both;
+                        color: black;
+                        font-size: 11pt;
+                        font-style: italic;
+                        font-weight: normal;
                     }
                 }
             }
@@ -863,4 +924,11 @@ body.prodotti {
     }
     
     
+}
+
+
+body.prodotti-dettaglio {
+    .container {
+        background-position: 27% 350px;
+    }   
 }
