@@ -117,8 +117,120 @@ figcaption {
     margin-bottom: 40px;
 }
 
-.footer {
-    
+.footer .row {
+    margin-bottom:0;
+}
+.footer h3 {
+    display:block;
+    padding:0 20px;
+    margin:0;
+    color:#FFF;
+    text-transform:uppercase;
+    font-size:22px;
+    line-height:50px;
+    text-shadow:1px 1px 1px rgba(106,138,136,1);
+    font-family:Lora,"Times New Roman",Times,serif;
+    background:transparent url(/bundles/applicationnetworkinginitcms/img/sep-white.png) 0 100% repeat-x;
+}
+.footer .body {
+    display:block;
+    padding:20px;
+    color:#555;
+    font-size:12px;
+    font-weight:bold;
+}
+.footer .body.malatesta {
+    background:transparent url(/bundles/applicationnetworkinginitcms/img/footer-malatesta.png) 90% 50% no-repeat;
+}
+.footer li a, .footer li a:visited {
+    text-transform:uppercase;
+    font-weight:bold;
+    color:#555;
+}
+.footer .footer-sep {
+    display:block;
+    height:4px;
+    background:transparent url(/bundles/applicationnetworkinginitcms/img/sep-white.png) 0 100% repeat-x;
+    margin:0 0 20px 0;
+}
+.footer .footer-info-left {
+    display:block;
+    padding:0 20px;
+    color:#FFF;
+    font-family:Lora,"Times New Roman",Times,serif;
+    font-size:16px;
+    line-height:50px;
+    text-transform:uppercase;
+    background-color:#98A5AB;
+}
+.footer .footer-info-left span {
+    display:block;
+    position:absolute;
+    top:0;
+    right:0;
+    width:50px;
+    height:50px;
+    background:transparent url(/bundles/applicationnetworkinginitcms/img/footer-sprite.png) -100px 0 no-repeat;
+}
+.footer .footer-info-right {
+    display:block;
+    position:relative;
+}
+.footer .footer-info-right input[type=text] {
+    display:block;
+    width:100%;
+    border:none;
+    height:50px;
+    color:#FFF;
+    font-family:Lora,"Times New Roman",Times,serif;
+    font-size:16px;
+    background-color:#98A5AB;
+    padding:0 20px;
+}
+.footer .footer-info-right input::-webkit-input-placeholder,
+.footer .footer-info-right input::-moz-placeholder,
+.footer .footer-info-right input:-ms-input-placeholder {
+    color:#000;
+}
+.footer .footer-info-right a {
+    display:block;
+    position:absolute;
+    top:0;
+    right:0;
+    width:50px;
+    height:50px;
+    background-image:url(/bundles/applicationnetworkinginitcms/img/footer-sprite.png);
+    background-repeat:no-repeat;
+    overflow:hidden;
+    text-indent:-9999px;
+}
+.footer .footer-info-right a.fb {
+    right:50px;
+    background-position:0 0;
+}
+.footer .footer-info-right a.rss {
+    right:0;
+    background-position:-50px 0;
+}
+
+.locator-filter {
+    display:block;
+    padding:0 10px 10px 10px;
+}
+.locator-filter a {
+    display:block;
+    padding:10px;
+    margin-bottom:1px;
+    text-align:center;
+    font-family:Lora,"Times New Roman",Times,serif;
+    color:#FFF;
+    text-transform:uppercase;
+    background-color:#C6CFD2;
+    text-shadow:1px 1px 1px rgba(106,138,136,1);
+}
+.locator-filter a.selected {
+    color:#FFF;
+    background-color:#000;
 }
 
 .gallery {
@@ -199,6 +311,7 @@ body#homepage-page #logo {
                 line-height: 30px !important;
                 text-transform: uppercase;
                 color: grey;
+                z-index: 2001 !important;
                 &:focus {
                     background-color: black;
                     color: white;
@@ -211,7 +324,7 @@ body#homepage-page #logo {
                     left: 45%;
                     position: absolute;
                     top: 50px;
-                    z-index: 2000;
+                    z-index: 2001 !important;
                     -o-transition: top 0.3s; /* For Safari 3.1 to 6.0 */
                     -moz-transition: top 0.3s; /* For Safari 3.1 to 6.0 */
                     -webkit-transition: top 0.3s; /* For Safari 3.1 to 6.0 */
@@ -534,6 +647,7 @@ body#homepage-page #logo {
 
 footer {
     background-color: #c6cfd2;
+    padding-bottom:60px;
 }
 
 /*
@@ -693,6 +807,7 @@ body#rivenditori-page {
         left: 0;
         position: absolute;
         width: 100%;
+        padding-bottom:20px;
         hr {
             display: none;
         }
@@ -932,3 +1047,4 @@ body.prodotti-dettaglio {
         background-position: 27% 350px;
     }   
 }
+

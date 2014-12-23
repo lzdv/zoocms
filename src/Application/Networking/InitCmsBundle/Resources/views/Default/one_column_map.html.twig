@@ -13,6 +13,17 @@ file that was distributed with this source code.
 {% block title %}{{ page.metaTitle }}{% endblock %}
 
 {% block content %}
+<style>
+ .locator-result a {display:block;padding:10px;border-bottom:1px solid #EDEDED;background:#FFF url(/bundles/applicationnetworkinginitcms/img/locator-point.png) 95% 20px no-repeat;
+ color:#939598;font-size:12px;}
+.locator-result .name {display:block;margin:0;padding:0;color:#64312E;text-transform:uppercase;font-family:Lora,"Times New Roman",Times,serif;font-size:16px;
+text-shadow:1px 1px 1px rgba(100,49,46,1);}
+.locator-result a:hover, .locator-result a:visited:hover, .locator-result a:focus {text-decoration:none;background:#FFF url(/bundles/applicationnetworkinginitcms/img/locator-point-black.png) 95% 20px no-repeat;}
+.locator_infowindow {display:block;background-color:rgba(0,0,0,.75);color:#FFFFFF;padding:10px;}
+.locator_infowindow span {display:block;float:left;}
+.locator_infowindow img {display:block;float:right;margin:0 10px 0 0;}
+.locator_infowindow {display:block;background-color:rgba(0,0,0,.75);color:#FFFFFF;padding:10px;}
+</style>
     <div id="map" class="row full" style="display:block;position:absolute;width:100%;height:100%;left:0;top:60px;"></div>
     {% if page.layoutBlock('header') is not empty %}
         <div class="row full">
@@ -31,16 +42,59 @@ file that was distributed with this source code.
     {% endif %}
     
     <div class="row center">
-        <div class="col-md-4 left">
+        <div class="col-md-5 left">
             <div class="row">
             {{ mopa_bootstrap_menu('subMenu', {}) }}
             </div>
             {% for layoutBlock in page.layoutBlock('left') %}
                 {{ render_initcms_block('ApplicationNetworkingInitCmsBundle:Content:cms_block.html.twig', layoutBlock) }}
             {% endfor %}
+            <div id="locatorNav" class="locator-results">
+                <div class="locator-filter">
+                    <a href="" class="selected">Romagna</a>
+                    <a href="">Mondo</a>
+                </div>
+                <div class="locator-results-inner">
+                    <div class="locator-result">
+                        <a href="javascript:void(0)" onclick="markerClick(0);/*new Fx.Scroll('patinator',{duration:1500,wait:true}).toElement('locator_top')*/">
+                            <span class="name">Nome Punto Vendita</span>
+                            RIMINI<br>Via Emilia, 104<br>Tel. 0541 743079/80<br>email@esempio.it
+                        </a>
+                    </div>
+                    <div class="locator-result">
+                        <a href="javascript:void(0)" onclick="markerClick(1);/*new Fx.Scroll('patinator',{duration:1500,wait:true}).toElement('locator_top')*/">
+                            <span class="name">Nome Punto Vendita</span>
+                            RIMINI<br>Via Emilia, 104<br>Tel. 0541 743079/80<br>email@esempio.it
+                        </a>
+                    </div>
+                    <div class="locator-result">
+                        <a href="javascript:void(0)" onclick="markerClick(2);/*new Fx.Scroll('patinator',{duration:1500,wait:true}).toElement('locator_top')*/">
+                            <span class="name">Nome Punto Vendita</span>
+                            RIMINI<br>Via Emilia, 104<br>Tel. 0541 743079/80<br>email@esempio.it
+                        </a>
+                    </div>
+                    <div class="locator-result">
+                        <a href="javascript:void(0)" onclick="markerClick(3);/*new Fx.Scroll('patinator',{duration:1500,wait:true}).toElement('locator_top')*/">
+                            <span class="name">Nome Punto Vendita</span>
+                            RIMINI<br>Via Emilia, 104<br>Tel. 0541 743079/80<br>email@esempio.it
+                        </a>
+                    </div>
+                    <div class="locator-result">
+                        <a href="javascript:void(0)" onclick="markerClick(4);/*new Fx.Scroll('patinator',{duration:1500,wait:true}).toElement('locator_top')*/">
+                            <span class="name">Nome Punto Vendita</span>
+                            RIMINI<br>Via Emilia, 104<br>Tel. 0541 743079/80<br>email@esempio.it
+                        </a>
+                    </div>
+                    <div class="locator-result">
+                        <a href="javascript:void(0)" onclick="markerClick(5);/*new Fx.Scroll('patinator',{duration:1500,wait:true}).toElement('locator_top')*/">
+                            <span class="name">Nome Punto Vendita</span>
+                            RIMINI<br>Via Emilia, 104<br>Tel. 0541 743079/80<br>email@esempio.it
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="col-md-12 right">
+        <div class="col-md-11 right">
         </div>
     </div>
 {% endblock content %}
@@ -49,7 +103,6 @@ file that was distributed with this source code.
 {% block foot_script %}
 {{ parent() }}
 
-<script src="/js/sandbox.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 <script src="/js/infobox.js"></script>
 <script type="text/javascript">
@@ -88,7 +141,7 @@ file that was distributed with this source code.
     };
 
     function locatorPanelPos(){
-            $('#locatorNav').css('height',$(document).height()-$('#footer-fixed').height()-$('#locatorNav').top);
+            //$('#locatorNav').css('height',$(document).height()-$('#footer-fixed').height()-$('#locatorNav').top);
     }
     $(window).ready(function(){locatorPanelPos();});
     $(window).resize(function(){locatorPanelPos();});
@@ -114,7 +167,7 @@ file that was distributed with this source code.
         //content: document.getElementById("infobox1"),
         disableAutoPan: false,
         maxWidth: 150,
-        pixelOffset: new google.maps.Size(35,-50),
+        pixelOffset: new google.maps.Size(-75,-150),
         zIndex: null,
         boxStyle: {
                 //background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif') no-repeat",
@@ -141,10 +194,10 @@ file that was distributed with this source code.
         });
 
         var infowindow = new google.maps.InfoWindow();
-        var image = new google.maps.MarkerImage('templates/default/img/pushpin.png',
-            new google.maps.Size(47,59),
+        var image = new google.maps.MarkerImage('/bundles/applicationnetworkinginitcms/img/pushpin.png',
+            new google.maps.Size(60,89),
             new google.maps.Point(0,0),
-            new google.maps.Point(18,59)
+            new google.maps.Point(30,89)
         );
         /*var shadow = new google.maps.MarkerImage('templates/default//img/pushpin_shadow.png',
                 new google.maps.Size(32,20),
@@ -182,12 +235,11 @@ file that was distributed with this source code.
                 //animation: google.maps.Animation.DROP,
                 //icon: 'templates/default/img/pushpin.png'
             });*/
-            var label = new Label({
-                map: map,
-                content: locationsMini[i][0]
-            });
-            label.bindTo('position', markers[i], 'position');
-            //label.bindTo('text', markers[i], 'test');
+            //var label = new Label({
+            //    map: map,
+            //    content: locationsMini[i][0]
+            //});
+            //label.bindTo('position', markers[i], 'position');
 
             google.maps.event.addListener(markers[i],'click',(function(marker,i) {
                 return function(){
@@ -195,7 +247,7 @@ file that was distributed with this source code.
                     infobox.setContent(locations[i][0]);
                     map.setCenter(new google.maps.LatLng(locations[i][1],locations[i][2]));
                     //infowindow.open(map, marker);
-                    infobox.open(map, marker);
+                    //infobox.open(map, marker);
                 }
             })(markers[i],i));
             bounds.extend(LatLong);
