@@ -49,13 +49,14 @@ file that was distributed with this source code.
         {{ carousel_full_width(galleryView.mediaGallery, 'centerCarousel', null, 'big', '300px') }}
     {% else %}
         <ul class="gallery-list">
-            {% for media in mediaItems %}
+            {% for galleryMedia in galleryView.mediaGallery.galleryHasMedias %}
                 <li>
-                    <figure>
-                        {% media media.media, gallery.defaultFormat %}
-                        {% if media.media.description %}<figcaption>{{ media.media.description }}</figcaption>{% endif %}
-                    </figure> 
-                    
+                    {% if galleryMedia.getLink %}<a href="{{ galleryMedia.getLink }}">{% endif %}
+                        <figure>
+                            {% media galleryMedia.media, gallery.defaultFormat with {'class': 'auto-resize'} %}
+                            {% if galleryMedia.getCaption %}<figcaption>{{ galleryMedia.getCaption }}</figcaption>{% endif %}
+                        </figure>
+                    {% if galleryMedia.getLink %}</a>{% endif %}
                 </li>
             {% endfor %}
         </ul>

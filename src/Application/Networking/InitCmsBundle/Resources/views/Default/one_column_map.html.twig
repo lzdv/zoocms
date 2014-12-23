@@ -14,7 +14,7 @@ file that was distributed with this source code.
 
 {% block content %}
 <style>
- .locator-result a {display:block;padding:10px;border-bottom:1px solid #EDEDED;background:#FFF url(/bundles/applicationnetworkinginitcms/img/locator-point.png) 95% 20px no-repeat;
+.locator-result a {display:block;padding:10px;border-bottom:1px solid #EDEDED;background:#FFF url(/bundles/applicationnetworkinginitcms/img/locator-point.png) 95% 20px no-repeat;
  color:#939598;font-size:12px;}
 .locator-result .name {display:block;margin:0;padding:0;color:#64312E;text-transform:uppercase;font-family:Lora,"Times New Roman",Times,serif;font-size:16px;
 text-shadow:1px 1px 1px rgba(100,49,46,1);}
@@ -101,163 +101,163 @@ text-shadow:1px 1px 1px rgba(100,49,46,1);}
 
 
 {% block foot_script %}
-{{ parent() }}
+    {{ parent() }}
 
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-<script src="/js/infobox.js"></script>
-<script type="text/javascript">
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script src="/bundles/applicationnetworkinginitcms/js/infobox.js"></script>
+    <script type="text/javascript">
 
-    function Label(opt_options) {
-            this.setValues(opt_options);
-            var span = this.span_ = document.createElement('span');
-            //span.style.cssText = 'position: relative; left: -50%; top: -8px; white-space: nowrap; border: 1px solid blue; padding: 2px; background-color: white';
-            span.className = 'locator_label';
-            var div = this.div_ = document.createElement('div');
-            div.appendChild(span);
-            div.style.cssText = 'position:absolute;display:none';
-    };
-    Label.prototype = new google.maps.OverlayView;
-    Label.prototype.onAdd = function() {
-            var pane = this.getPanes().overlayLayer;
-            pane.appendChild(this.div_);
-            var me = this;
-            this.listeners_ = [
-                    google.maps.event.addListener(this,'position_changed',function(){me.draw();}),
-                    google.maps.event.addListener(this,'text_changed',function(){me.draw();})
-            ];
-    };
-    Label.prototype.onRemove = function() {
-            this.div_.parentNode.removeChild(this.div_);
-            for (var i = 0, I = this.listeners_.length; i < I; ++i) {
-                    google.maps.event.removeListener(this.listeners_[i]);
+        function Label(opt_options) {
+                this.setValues(opt_options);
+                var span = this.span_ = document.createElement('span');
+                //span.style.cssText = 'position: relative; left: -50%; top: -8px; white-space: nowrap; border: 1px solid blue; padding: 2px; background-color: white';
+                span.className = 'locator_label';
+                var div = this.div_ = document.createElement('div');
+                div.appendChild(span);
+                div.style.cssText = 'position:absolute;display:none';
+        };
+        Label.prototype = new google.maps.OverlayView;
+        Label.prototype.onAdd = function() {
+                var pane = this.getPanes().overlayLayer;
+                pane.appendChild(this.div_);
+                var me = this;
+                this.listeners_ = [
+                        google.maps.event.addListener(this,'position_changed',function(){me.draw();}),
+                        google.maps.event.addListener(this,'text_changed',function(){me.draw();})
+                ];
+        };
+        Label.prototype.onRemove = function() {
+                this.div_.parentNode.removeChild(this.div_);
+                for (var i = 0, I = this.listeners_.length; i < I; ++i) {
+                        google.maps.event.removeListener(this.listeners_[i]);
+                }
+        };
+        Label.prototype.draw = function() {
+                var projection = this.getProjection(),position = projection.fromLatLngToDivPixel(this.get('position')),div = this.div_;
+                div.style.left = (position.x+27)+'px';
+                div.style.top = (position.y-51)+'px';
+                div.style.display = 'block';
+                this.span_.innerHTML = this.get('content');//.toString();
+        };
+
+        function locatorPanelPos(){
+                //$('#locatorNav').css('height',$(document).height()-$('#footer-fixed').height()-$('#locatorNav').top);
+        }
+        $(window).ready(function(){locatorPanelPos();});
+        $(window).resize(function(){locatorPanelPos();});
+
+        var locations = [
+        ['<div class="locator_infowindow"><span><strong>Raggi Silvarosa & C. s.n.c.</strong><br/><br/>Voltone Molinella, 5<br/>Faenza (RA)</span><br class="c" /></div>', 44.285419, 11.882560],
+        ['<div class="locator_infowindow"><span><strong>Transilvania di Toma Valentin</strong><br/><br/>Viale IV Novembre, 8<br/>Faenza (RA)</span><br class="c" /></div>', 44.290047, 11.884992],
+        ['<div class="locator_infowindow"><span><strong>Ravenna Tendaggi di Senni Alessandro e Massi Cristian s.n.c.</strong><br/><br/>Viale IV Novembre, 50/A<br/>Faenza (RA)</span><br class="c" /></div>', 44.290791, 11.882342],
+        ['<div class="locator_infowindow"><span><strong>TRE Faenza snc di Agata Giovanni Battista</strong><br/><br/>Viale IV Novembre, 10/C<br/>Faenza (RA)</span><br class="c" /></div>', 44.290180, 11.884705],
+        ['<div class="locator_infowindow"><span><strong>Petit Bazar di Fabbri Daniele</strong><br/><br/>Viale IV Novembre, 22/1<br/>Faenza (RA)</span><br class="c" /></div>', 44.290279, 11.884350],
+        ['<div class="locator_infowindow"><span><strong>Baccarat Interni Design di Guido M.</strong><br/><br/>Viale Baccarini A., 88<br/>Faenza (RA)</span><br class="c" /></div>', 44.290810, 11.880835]
+
+        ];
+        var locationsMini = [
+        ['Raggi Silvarosa & C. s.n.c.',44.285419,11.882560],
+        ['Transilvania di Toma Valentin',44.290047,11.884992],
+        ['Ravenna Tendaggi di Senni Alessandro e Massi Cristian s.n.c.',44.290791,11.882342],
+        ['TRE Faenza snc di Agata Giovanni Battista',44.290180,11.884705],
+        ['Petit Bazar di Fabbri Daniele',44.290279,11.884350],
+        ['Baccarat Interni Design di Guido M.',44.290810,11.880835]
+        ];
+        var infobox = new InfoBox({
+            //content: document.getElementById("infobox1"),
+            disableAutoPan: false,
+            maxWidth: 150,
+            pixelOffset: new google.maps.Size(-75,-150),
+            zIndex: null,
+            boxStyle: {
+                    //background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif') no-repeat",
+                    //opacity: 0.75,
+                    //width: "280px"
+            },
+            //closeBoxMargin: "10px 10px 0 0",
+            //closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif",
+            infoBoxClearance: new google.maps.Size(1, 1)
+        });
+        function markerClick(i) {
+                google.maps.event.trigger(markers[i], 'click');
+                //map.setZoom(8);
+        }
+
+        var bounds = new google.maps.LatLngBounds();
+        var markers=[],i;
+
+        $(document).ready(function(){
+            var map = new google.maps.Map(document.getElementById('map'),{
+                zoom: 10,
+                center: new google.maps.LatLng(44.288114, 11.882914),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+            var infowindow = new google.maps.InfoWindow();
+            var image = new google.maps.MarkerImage('/bundles/applicationnetworkinginitcms/img/pushpin.png',
+                new google.maps.Size(60,89),
+                new google.maps.Point(0,0),
+                new google.maps.Point(30,89)
+            );
+            /*var shadow = new google.maps.MarkerImage('templates/default//img/pushpin_shadow.png',
+                    new google.maps.Size(32,20),
+                    new google.maps.Point(0,0),
+                    new google.maps.Point(0,20)
+            );*/
+
+            for (i = 0; i < locations.length; i++) {  
+                LatLong = new google.maps.LatLng(locations[i][1], locations[i][2]);
+                markers[i] = new google.maps.Marker({
+                    position: LatLong,
+                    animation: google.maps.Animation.DROP,
+                    //shadow: shadow,
+                    icon: image,
+                    map: map
+                });
+                /*markers[i] = new MarkerWithLabel({
+                    position: LatLong,
+                    draggable: true,
+                    //raiseOnDrag: true,
+                    map: map,
+                    labelContent: locationsMini[i][0],
+                    labelAnchor: new google.maps.Point(-28,51),
+                    labelClass: "locator_label",
+                    //labelStyle: {opacity: 0.75},
+                    labelInBackground: true//,
+                    //icon: {
+                    //	url: 'templates/default/img/pushpin.png',
+                    //	size: new google.maps.Size(47,59),
+                    //	origin: new google.maps.Point(0,0),
+                    //	anchor: new google.maps.Point(18,59),
+                    //	position: LatLong
+                    }
+                    //position: LatLong,
+                    //animation: google.maps.Animation.DROP,
+                    //icon: 'templates/default/img/pushpin.png'
+                });*/
+                //var label = new Label({
+                //    map: map,
+                //    content: locationsMini[i][0]
+                //});
+                //label.bindTo('position', markers[i], 'position');
+
+                google.maps.event.addListener(markers[i],'click',(function(marker,i) {
+                    return function(){
+                        //infowindow.setContent(locations[i][0]);
+                        infobox.setContent(locations[i][0]);
+                        map.setCenter(new google.maps.LatLng(locations[i][1],locations[i][2]));
+                        //infowindow.open(map, marker);
+                        //infobox.open(map, marker);
+                    }
+                })(markers[i],i));
+                bounds.extend(LatLong);
             }
-    };
-    Label.prototype.draw = function() {
-            var projection = this.getProjection(),position = projection.fromLatLngToDivPixel(this.get('position')),div = this.div_;
-            div.style.left = (position.x+27)+'px';
-            div.style.top = (position.y-51)+'px';
-            div.style.display = 'block';
-            this.span_.innerHTML = this.get('content');//.toString();
-    };
-
-    function locatorPanelPos(){
-            //$('#locatorNav').css('height',$(document).height()-$('#footer-fixed').height()-$('#locatorNav').top);
-    }
-    $(window).ready(function(){locatorPanelPos();});
-    $(window).resize(function(){locatorPanelPos();});
-
-    var locations = [
-    ['<div class="locator_infowindow"><span><strong>Raggi Silvarosa & C. s.n.c.</strong><br/><br/>Voltone Molinella, 5<br/>Faenza (RA)</span><br class="c" /></div>', 44.285419, 11.882560],
-    ['<div class="locator_infowindow"><span><strong>Transilvania di Toma Valentin</strong><br/><br/>Viale IV Novembre, 8<br/>Faenza (RA)</span><br class="c" /></div>', 44.290047, 11.884992],
-    ['<div class="locator_infowindow"><span><strong>Ravenna Tendaggi di Senni Alessandro e Massi Cristian s.n.c.</strong><br/><br/>Viale IV Novembre, 50/A<br/>Faenza (RA)</span><br class="c" /></div>', 44.290791, 11.882342],
-    ['<div class="locator_infowindow"><span><strong>TRE Faenza snc di Agata Giovanni Battista</strong><br/><br/>Viale IV Novembre, 10/C<br/>Faenza (RA)</span><br class="c" /></div>', 44.290180, 11.884705],
-    ['<div class="locator_infowindow"><span><strong>Petit Bazar di Fabbri Daniele</strong><br/><br/>Viale IV Novembre, 22/1<br/>Faenza (RA)</span><br class="c" /></div>', 44.290279, 11.884350],
-    ['<div class="locator_infowindow"><span><strong>Baccarat Interni Design di Guido M.</strong><br/><br/>Viale Baccarini A., 88<br/>Faenza (RA)</span><br class="c" /></div>', 44.290810, 11.880835]
-
-    ];
-    var locationsMini = [
-    ['Raggi Silvarosa & C. s.n.c.',44.285419,11.882560],
-    ['Transilvania di Toma Valentin',44.290047,11.884992],
-    ['Ravenna Tendaggi di Senni Alessandro e Massi Cristian s.n.c.',44.290791,11.882342],
-    ['TRE Faenza snc di Agata Giovanni Battista',44.290180,11.884705],
-    ['Petit Bazar di Fabbri Daniele',44.290279,11.884350],
-    ['Baccarat Interni Design di Guido M.',44.290810,11.880835]
-    ];
-    var infobox = new InfoBox({
-        //content: document.getElementById("infobox1"),
-        disableAutoPan: false,
-        maxWidth: 150,
-        pixelOffset: new google.maps.Size(-75,-150),
-        zIndex: null,
-        boxStyle: {
-                //background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif') no-repeat",
-                //opacity: 0.75,
-                //width: "280px"
-        },
-        //closeBoxMargin: "10px 10px 0 0",
-        //closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif",
-        infoBoxClearance: new google.maps.Size(1, 1)
-    });
-    function markerClick(i) {
-            google.maps.event.trigger(markers[i], 'click');
-            //map.setZoom(8);
-    }
-
-    var bounds = new google.maps.LatLngBounds();
-    var markers=[],i;
-
-    $(document).ready(function(){
-        var map = new google.maps.Map(document.getElementById('map'),{
-            zoom: 10,
-            center: new google.maps.LatLng(44.288114, 11.882914),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+            map.fitBounds(bounds);
         });
 
-        var infowindow = new google.maps.InfoWindow();
-        var image = new google.maps.MarkerImage('/bundles/applicationnetworkinginitcms/img/pushpin.png',
-            new google.maps.Size(60,89),
-            new google.maps.Point(0,0),
-            new google.maps.Point(30,89)
-        );
-        /*var shadow = new google.maps.MarkerImage('templates/default//img/pushpin_shadow.png',
-                new google.maps.Size(32,20),
-                new google.maps.Point(0,0),
-                new google.maps.Point(0,20)
-        );*/
-
-        for (i = 0; i < locations.length; i++) {  
-            LatLong = new google.maps.LatLng(locations[i][1], locations[i][2]);
-            markers[i] = new google.maps.Marker({
-                position: LatLong,
-                animation: google.maps.Animation.DROP,
-                //shadow: shadow,
-                icon: image,
-                map: map
-            });
-            /*markers[i] = new MarkerWithLabel({
-                position: LatLong,
-                draggable: true,
-                //raiseOnDrag: true,
-                map: map,
-                labelContent: locationsMini[i][0],
-                labelAnchor: new google.maps.Point(-28,51),
-                labelClass: "locator_label",
-                //labelStyle: {opacity: 0.75},
-                labelInBackground: true//,
-                //icon: {
-                //	url: 'templates/default/img/pushpin.png',
-                //	size: new google.maps.Size(47,59),
-                //	origin: new google.maps.Point(0,0),
-                //	anchor: new google.maps.Point(18,59),
-                //	position: LatLong
-                }
-                //position: LatLong,
-                //animation: google.maps.Animation.DROP,
-                //icon: 'templates/default/img/pushpin.png'
-            });*/
-            //var label = new Label({
-            //    map: map,
-            //    content: locationsMini[i][0]
-            //});
-            //label.bindTo('position', markers[i], 'position');
-
-            google.maps.event.addListener(markers[i],'click',(function(marker,i) {
-                return function(){
-                    //infowindow.setContent(locations[i][0]);
-                    infobox.setContent(locations[i][0]);
-                    map.setCenter(new google.maps.LatLng(locations[i][1],locations[i][2]));
-                    //infowindow.open(map, marker);
-                    //infobox.open(map, marker);
-                }
-            })(markers[i],i));
-            bounds.extend(LatLong);
-        }
-        map.fitBounds(bounds);
-    });
-
-    (function ($) {
-        $('.carousel').carousel();
-        $("a[rel^='prettyPhoto']").prettyPhoto();
-    })(jQuery);
- </script>
- {% endblock %}
+        (function ($) {
+            $('.carousel').carousel();
+            $("a[rel^='prettyPhoto']").prettyPhoto();
+        })(jQuery);
+     </script>
+{% endblock %}
