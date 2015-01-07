@@ -873,6 +873,7 @@ body.prodotti {
                         
                         width: 100%;
                         
+                        a,
                         label {
                             display: inline-block;
                             position: relative;
@@ -918,6 +919,7 @@ body.prodotti {
                             clip: rect(1px, 1px, 1px, 1px);
                         }
                         
+                        &:not(#foo) > a.checked,
                         &:not(#foo) > input[type='radio']:checked + label,
                         &:not(#foo) > input[type='checkbox']:checked + label {
                             background-color: black;
@@ -932,6 +934,7 @@ body.prodotti {
             }
             
             #filter-collection {
+                a,
                 label {
                     font-family: @font-family-serif !important;
                     font-size: 14pt !important;

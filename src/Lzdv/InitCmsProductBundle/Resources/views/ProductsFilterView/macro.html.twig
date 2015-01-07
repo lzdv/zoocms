@@ -12,17 +12,25 @@
                 <header>
                     <h2 class="name">Filtra per Linea</h2>
                 </header>
+                
+                {% set selected = '' %}
+                {% if route_params and route_params.collection is not null %}{% set selected = route_params.collection %}{% endif %}
+
+{#                {% set queryParams = app.request.query.all|join(',') %}#}                
+                
                 <ul>
-                {% set selected = app.request.get('col') %}
+                {% set baseRoute = app.request.attributes.get('_route')|replace({ (selected): "" }) %}
                 {% for collection in productsFilterView.collections %}
                     <li>
-                        <input id="input-col-{{ collection.id }}" name="col[]" type="radio" value="{{ collection.id }}" {% if collection.id in selected %}checked="checked"{% endif %} />
-                        <label for="input-col-{{ collection.id }}">{{ collection.name }}</label>
+                        <a href="{{ baseRoute ~ collection.slug }}" class="{% if collection.slug in selected %}checked"{% endif %}">{{ collection.name }}</a>
+{#                        <input id="input-col-{{ collection.id }}" name="col" type="radio" value="{{ collection.slug }}" {% if collection.slug in selected %}checked="checked"{% endif %} />#}
+{#                        <label for="input-col-{{ collection.id }}">{{ collection.name }}</label>#}
                     </li>
                 {% endfor %}
                 <li>
-                    <input id="input-col-0" name="col[]" type="radio" value="" {% if 0 in selected %}checked="checked"{% endif %} />
-                    <label for="input-col-0">Tutti i vini</label>
+                    <a href="{{ baseRoute }}">Tutti i vini</a>
+{#                    <input id="input-col-0" name="col[]" type="radio" value="" {% if 0 in selected %}checked="checked"{% endif %} />#}
+{#                    <label for="input-col-0">Tutti i vini</label>#}
                 </li>
                 </ul>
             </div>

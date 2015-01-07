@@ -34,27 +34,27 @@ class ProductManager extends BaseProductManager implements ProductManagerInterfa
      */
     public function genericFind($params=array())
     {
+        $colls = $params['request']->query->get('collection');
         $cats = $params['request']->query->getDigits('cat');
-        $colls = $params['request']->query->getDigits('col');
         $tags = $params['request']->query->getDigits('tag');
 
         $k = 0;
-//die(var_dump($colls));
         
         $queryBuilder = $this->getRepository()->createQueryBuilder('p')
             ->leftJoin('p.image', 'i')
             ->leftJoin('p.gallery', 'g');
 
-        if (!empty($colls) && is_array($colls) && !empty($colls[0]))
+        if (!empty($colls))
         {
             $queryBuilder
-                ->leftJoin('p.productCollections', 'pl');
+                ->leftJoin('p.productCollections', 'pl')
+                ->leftJoin('pl.collection', 'cl')
+            ;
             $expr = $queryBuilder->expr()->orX();
-            foreach ($colls as $col) {
-                $expr->add('pl.collection = :collectionId_'.$k);
-                $queryBuilder->setParameter('collectionId_'.$k, $col);
-                ++$k;
-            }
+            
+            $expr->add('cl.slug = :collection_'.$k);
+            $queryBuilder->setParameter('collection_'.$k, $colls);
+            
             $queryBuilder->andWhere($expr);
         }
 

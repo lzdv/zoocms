@@ -95,7 +95,8 @@ file that was distributed with this source code.
                     <div class="hidden-sm hidden-xs navbar-right col-md-5">
                         <div class="pull-right nav-admin">
                             {% if admin_pool is defined %}
-                                {{ mopa_bootstrap_menu('AdminMenu') }}
+                                {# conflicting with parametric routes #}
+                                {# { mopa_bootstrap_menu('AdminMenu') } #}
                             {% endif %}
                         </div>
                     </div>
