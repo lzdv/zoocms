@@ -1,0 +1,25 @@
+{% if mapElementView is defined %}
+    {% if type is not defined %}
+        {% set type = 'link' %}
+    {% endif %}
+    {% if rowId is not defined %}
+        {% set rowId = 0 %}
+    {% endif %}
+    
+    {% if type == 'link' %}
+        <div class="locator-result">
+            <a href="javascript:void({{ rowId }})" onclick="markerClick({{ rowId }});">
+                <span class="name">{{ mapElementView.name }}</span>
+                {{ mapElementView.payoff }}<br>{{ mapElementView.text|raw }}
+            </a>
+        </div>
+    {% endif %}
+    
+    {% if type == 'location' %}
+        ['<div class="locator_infowindow"><span><strong>{{ mapElementView.name }}</strong><br/>{{ mapElementView.payoff }}<br/><br/>{{ mapElementView.text|raw }}</span><br class="c" /></div>', {{ mapElementView.lat }}, {{ mapElementView.lng }}],
+    {% endif %}
+    
+    {% if type == 'locationMini' %}
+        ['{{ mapElementView.name }}', {{ mapElementView.lat }}, {{ mapElementView.lng }}],
+    {% endif %}
+{% endif %}

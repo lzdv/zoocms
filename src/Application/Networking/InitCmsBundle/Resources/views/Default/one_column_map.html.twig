@@ -55,42 +55,9 @@ text-shadow:1px 1px 1px rgba(100,49,46,1);}
                     <a href="">Mondo</a>
                 </div>
                 <div class="locator-results-inner">
-                    <div class="locator-result">
-                        <a href="javascript:void(0)" onclick="markerClick(0);/*new Fx.Scroll('patinator',{duration:1500,wait:true}).toElement('locator_top')*/">
-                            <span class="name">Nome Punto Vendita</span>
-                            RIMINI<br>Via Emilia, 104<br>Tel. 0541 743079/80<br>email@esempio.it
-                        </a>
-                    </div>
-                    <div class="locator-result">
-                        <a href="javascript:void(0)" onclick="markerClick(1);/*new Fx.Scroll('patinator',{duration:1500,wait:true}).toElement('locator_top')*/">
-                            <span class="name">Nome Punto Vendita</span>
-                            RIMINI<br>Via Emilia, 104<br>Tel. 0541 743079/80<br>email@esempio.it
-                        </a>
-                    </div>
-                    <div class="locator-result">
-                        <a href="javascript:void(0)" onclick="markerClick(2);/*new Fx.Scroll('patinator',{duration:1500,wait:true}).toElement('locator_top')*/">
-                            <span class="name">Nome Punto Vendita</span>
-                            RIMINI<br>Via Emilia, 104<br>Tel. 0541 743079/80<br>email@esempio.it
-                        </a>
-                    </div>
-                    <div class="locator-result">
-                        <a href="javascript:void(0)" onclick="markerClick(3);/*new Fx.Scroll('patinator',{duration:1500,wait:true}).toElement('locator_top')*/">
-                            <span class="name">Nome Punto Vendita</span>
-                            RIMINI<br>Via Emilia, 104<br>Tel. 0541 743079/80<br>email@esempio.it
-                        </a>
-                    </div>
-                    <div class="locator-result">
-                        <a href="javascript:void(0)" onclick="markerClick(4);/*new Fx.Scroll('patinator',{duration:1500,wait:true}).toElement('locator_top')*/">
-                            <span class="name">Nome Punto Vendita</span>
-                            RIMINI<br>Via Emilia, 104<br>Tel. 0541 743079/80<br>email@esempio.it
-                        </a>
-                    </div>
-                    <div class="locator-result">
-                        <a href="javascript:void(0)" onclick="markerClick(5);/*new Fx.Scroll('patinator',{duration:1500,wait:true}).toElement('locator_top')*/">
-                            <span class="name">Nome Punto Vendita</span>
-                            RIMINI<br>Via Emilia, 104<br>Tel. 0541 743079/80<br>email@esempio.it
-                        </a>
-                    </div>
+                    {% for layoutBlock in page.layoutBlock('map') %}
+                        {{ render_initcms_block('LzdvInitCmsMapBundle:Content:map_block.html.twig', layoutBlock, { type: 'link', rowId: loop.index0 }) }}
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -147,21 +114,14 @@ text-shadow:1px 1px 1px rgba(100,49,46,1);}
         $(window).resize(function(){locatorPanelPos();});
 
         var locations = [
-        ['<div class="locator_infowindow"><span><strong>Raggi Silvarosa & C. s.n.c.</strong><br/><br/>Voltone Molinella, 5<br/>Faenza (RA)</span><br class="c" /></div>', 44.285419, 11.882560],
-        ['<div class="locator_infowindow"><span><strong>Transilvania di Toma Valentin</strong><br/><br/>Viale IV Novembre, 8<br/>Faenza (RA)</span><br class="c" /></div>', 44.290047, 11.884992],
-        ['<div class="locator_infowindow"><span><strong>Ravenna Tendaggi di Senni Alessandro e Massi Cristian s.n.c.</strong><br/><br/>Viale IV Novembre, 50/A<br/>Faenza (RA)</span><br class="c" /></div>', 44.290791, 11.882342],
-        ['<div class="locator_infowindow"><span><strong>TRE Faenza snc di Agata Giovanni Battista</strong><br/><br/>Viale IV Novembre, 10/C<br/>Faenza (RA)</span><br class="c" /></div>', 44.290180, 11.884705],
-        ['<div class="locator_infowindow"><span><strong>Petit Bazar di Fabbri Daniele</strong><br/><br/>Viale IV Novembre, 22/1<br/>Faenza (RA)</span><br class="c" /></div>', 44.290279, 11.884350],
-        ['<div class="locator_infowindow"><span><strong>Baccarat Interni Design di Guido M.</strong><br/><br/>Viale Baccarini A., 88<br/>Faenza (RA)</span><br class="c" /></div>', 44.290810, 11.880835]
-
+            {% for layoutBlock in page.layoutBlock('map') %}
+                {{ render_initcms_block('LzdvInitCmsMapBundle:Content:map_block.html.twig', layoutBlock, { type: 'location', id: loop.index0 }) }}
+            {% endfor %}
         ];
         var locationsMini = [
-        ['Raggi Silvarosa & C. s.n.c.',44.285419,11.882560],
-        ['Transilvania di Toma Valentin',44.290047,11.884992],
-        ['Ravenna Tendaggi di Senni Alessandro e Massi Cristian s.n.c.',44.290791,11.882342],
-        ['TRE Faenza snc di Agata Giovanni Battista',44.290180,11.884705],
-        ['Petit Bazar di Fabbri Daniele',44.290279,11.884350],
-        ['Baccarat Interni Design di Guido M.',44.290810,11.880835]
+            {% for layoutBlock in page.layoutBlock('map') %}
+                {{ render_initcms_block('LzdvInitCmsMapBundle:Content:map_block.html.twig', layoutBlock, { type: 'locationMini', id: loop.index0 }) }}
+            {% endfor %}
         ];
         var infobox = new InfoBox({
             //content: document.getElementById("infobox1"),
@@ -179,8 +139,8 @@ text-shadow:1px 1px 1px rgba(100,49,46,1);}
             infoBoxClearance: new google.maps.Size(1, 1)
         });
         function markerClick(i) {
-                google.maps.event.trigger(markers[i], 'click');
-                //map.setZoom(8);
+            google.maps.event.trigger(markers[i], 'click');
+            //map.setZoom(8);
         }
 
         var bounds = new google.maps.LatLngBounds();

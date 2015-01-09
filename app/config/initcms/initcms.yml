@@ -18,7 +18,7 @@ networking_init_cms:
             name: "Single Column with Map"
             icon: "bundles/applicationnetworkinginitcms/img/template_header_one_column.png"
             zones:
-                - { name: map , class: 'col-md-12', max_content_items: -1 }
+                - { name: map , class: 'col-md-12', restricted_types: [Lzdv\InitCmsMapBundle\Entity\MapElementView] }
                 - { name: header, class: 'col-md-12' }
                 - { name: left , class: 'col-md-6'}
                 - { name: right , class: 'col-md-6', max_content_items: -1}
@@ -68,3 +68,4 @@ networking_init_cms:
         - { name: 'Filtro Prodotti' , class: 'Lzdv\InitCmsProductBundle\Entity\ProductsFilterView'}
         - { name: 'Lista Prodotti' , class: 'Lzdv\InitCmsProductBundle\Entity\ProductsListView'}
         - { name: 'Dettagli Prodotto' , class: 'Lzdv\InitCmsProductBundle\Entity\ProductDetailsView'}
+        - { name: 'Posizione Mappa' , class: 'Lzdv\InitCmsMapBundle\Entity\MapElementView'}

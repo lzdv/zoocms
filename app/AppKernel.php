@@ -97,6 +97,10 @@ class AppKernel extends Kernel
             // CONTENT SHORTCODES
             new drinky78\Bundle\ShortcodeBundle\ShortcodeBundle(),
             new Lzdv\InitCmsProductBundle\LzdvInitCmsProductBundle(),
+            new Lzdv\InitCmsMapBundle\LzdvInitCmsMapBundle(),
+            
+            // INITCMS MAP BUNDLE
+            new Oh\GoogleMapFormTypeBundle\OhGoogleMapFormTypeBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

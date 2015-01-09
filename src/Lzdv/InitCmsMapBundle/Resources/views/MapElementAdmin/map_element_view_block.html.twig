@@ -1,0 +1,19 @@
+{% from 'LzdvInitCmsMapBundle:MapElementView:macro.html.twig' import admin_image, admin_video %}
+
+{% if mapElementView %}
+    <h4 class="block-title">Map Element</h4>
+    {#{% thumbnail mediaItem.media, 'small' with {'class': 'img-polaroid'} %}#}
+
+    <h4>{{ mapElementView.name }}</h4>
+    {% if mapElementView.payoff %}
+        <span>{{ mapElementView.payoff }}</span>
+    {% endif %}
+    <hr>
+    
+    {% if mapElementView.text %}
+        {{ mapElementView.text|raw }}
+    {% endif %}
+{% else %}
+    New Map Element
+{% endif %}
+<div style="clear: both;">&nbsp;</div>

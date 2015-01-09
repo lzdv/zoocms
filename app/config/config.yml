@@ -34,6 +34,9 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     cache:            false
+    form:
+        resources:
+            - 'OhGoogleMapFormTypeBundle:Form:fields.html.twig'
 
 mopa_bootstrap:
     menu: ~
