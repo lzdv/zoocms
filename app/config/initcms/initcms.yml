@@ -55,7 +55,7 @@ networking_init_cms:
 
     admin_menu_groups:
         big:
-          items: [pages, menu, products, media]
+          items: [pages, menu, products, news, media]
         small:
           items: [users, help_text, translation]
 

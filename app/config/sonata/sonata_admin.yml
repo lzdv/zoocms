@@ -19,6 +19,9 @@ sonata_admin:
             products:
                 label: "products.admin_menu_label"
                 items: [sonata.product.admin.product, sonata.classification.admin.category, sonata.classification.admin.collection, sonata.classification.admin.tag]
+            news:
+                label: "news.admin_menu_label"
+                items: [sonata.news.admin.post]
 #            pages:
 #                label: "pages.admin_menu_label"
 #                items: [networking_init_cms.admin.page]

@@ -2,6 +2,10 @@ application_lzdv_init_cms_extension:
     resource: "@LzdvInitCmsExtensionBundle/Resources/config/routing.yml"
     prefix:   /
 
+news:
+    resource: '@SonataNewsBundle/Resources/config/routing/news.xml'
+    prefix: /news
+    
 NetworkingInitCmsBundle:
     resource: "@NetworkingInitCmsBundle/Resources/config/routing/routing.yml"
     prefix:   /

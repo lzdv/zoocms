@@ -12,6 +12,9 @@ parameters:
     locale:            it_IT
     secret:            Liejrgp<@4>twnmae.ogaisygfnk<4g_us<4fghw4i
 
+    main_email_address:       info@lerocchemalatestiane.it
+    main_email_sender_name:   Le Rocche Malatestiane
+
     pdo.db_options:
         db_table:    session
         db_id_col:   session_id

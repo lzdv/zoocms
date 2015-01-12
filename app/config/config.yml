@@ -8,7 +8,7 @@ imports:
     - { resource: sonata/sonata_classification.yml }
     - { resource: sonata/sonata_product.yml }
     - { resource: sonata/sonata_formatter.yml }
-    #- { resource: sonata/sonata_news.yml }
+    - { resource: sonata/sonata_news.yml }
     - { resource: initcms/initcms.yml }
     - { resource: initcms/jms_serializer.yml }
     #- { resource: @LzdvInitCmsExtensionBundle/Resources/config/services.yml }
@@ -158,8 +158,8 @@ fos_user:
     group:
         group_class: Networking\InitCmsBundle\Entity\Group
     from_email:
-            address:        webmaster@example.com
-            sender_name:    net working Team
+            address:        %main_email_address%
+            sender_name:    %main_email_sender_name%
 
 services:
     pdo:

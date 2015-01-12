@@ -2,19 +2,27 @@
 # more information can be found here http://sonata-project.org/bundles/news
 #
 sonata_news:
-    title:        %sonata_news.blog_title%
-    link:         %sonata_news.blog_link%
-    description:  %sonata_news.blog_description%
-    salt:         %sonata_news.salt%
+    title:        "news"
+    link:         "news"
+    description:  "news"
+    salt:         framework.secret
 
     # permalink_generator: sonata.news.permalink.category # /party/new-year
     permalink_generator: sonata.news.permalink.date # /2011/12/31/new-year
 
+    class:
+#        tag:        Application\Sonata\ClassificationBundle\Entity\Tag
+#        collection: Application\Sonata\ClassificationBundle\Entity\Collection
+#        post:       Application\Sonata\NewsBundle\Entity\Post
+#        comment:    Application\Sonata\NewsBundle\Entity\Comment
+        media:      Networking\InitCmsBundle\Entity\Media
+        user:       Application\Networking\InitCmsBundle\Entity\User
+
     # comment options
     comment:
         notification:
-            emails:   %sonata_news.comment.emails%
-            from:     %sonata_news.comment.email_from%
+            emails:   [%main_email_address%]
+            from:     %main_email_sender_name%
             template: 'SonataNewsBundle:Mail:comment_notification.txt.twig'
 
 

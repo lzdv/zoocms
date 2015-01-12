@@ -49,6 +49,8 @@
         "drinky78/shortcode-bundle": "dev-master",
         "lzdv/ecommerce": "~2.3@dev",
         
+        "sonata-project/news-bundle": "~2.3@dev",
+        
         "sonata-project/classification-bundle": "2.2.*",
         
         "oh/google-map-form-type-bundle": "dev-master"
