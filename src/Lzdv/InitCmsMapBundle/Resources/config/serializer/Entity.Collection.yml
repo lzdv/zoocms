@@ -1,0 +1,14 @@
+Lzdv\InitCmsMapBundle\Entity\Collection:
+    properties:
+        id:
+            type: integer
+        name:
+            type: string
+        slug:
+            type: string
+        createdAt:
+            type: DateTime
+        updatedAt:
+            type: DateTime
+        elements:
+            exclude: true

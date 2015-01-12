@@ -1,0 +1,24 @@
+Lzdv\InitCmsMapBundle\Entity\MapElementView:
+    properties:
+        id:
+            type: integer
+        collection:
+            type: Lzdv\InitCmsMapBundle\Entity\Collection
+        name:
+            type: string
+        payoff:
+            type: string
+        text:
+            type: string
+        latlng:
+            type: array
+        lat:
+            type: float
+        lng:
+            type: float
+        slug:
+            type: string
+        createdAt:
+            type: DateTime
+        updatedAt:
+            type: DateTime

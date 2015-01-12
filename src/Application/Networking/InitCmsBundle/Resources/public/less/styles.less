@@ -221,25 +221,6 @@ figcaption {
     background-position:-50px 0;
 }
 
-.locator-filter {
-    display:block;
-    padding:0 10px 10px 10px;
-}
-.locator-filter a {
-    display:block;
-    padding:10px;
-    margin-bottom:1px;
-    text-align:center;
-    font-family:Lora,"Times New Roman",Times,serif;
-    color:#FFF;
-    text-transform:uppercase;
-    background-color:#C6CFD2;
-    text-shadow:1px 1px 1px rgba(106,138,136,1);
-}
-.locator-filter a.selected {
-    color:#FFF;
-    background-color:#000;
-}
 
 .gallery {
     width: 100%;
@@ -820,14 +801,42 @@ body#rivenditori-page {
             display: none;
         }
     }
-    .content {
-        .center {
-            .left {
-                background-color: white;
-            }
-        }
+    #locatorNav {
+        background-color: white;
+        
     }
+    #locator-filter {
+        display: block;
+        padding: 10px;
+    }
+    #locator-filter a {
+        display:block;
+        padding:10px;
+        margin-bottom:1px;
+        text-align:center;
+        font-family:Lora,"Times New Roman",Times,serif;
+        color:#FFF;
+        text-transform:uppercase;
+        background-color:#C6CFD2;
+        text-shadow:1px 1px 1px rgba(106,138,136,1);
+    }
+    #locator-filter a.selected {
+        color:#FFF;
+        background-color:#000;
+    }
+
+    .locator-result a {display:block;padding:10px;border-bottom:1px solid #EDEDED;background:#FFF url(/bundles/applicationnetworkinginitcms/img/locator-point.png) 95% 20px no-repeat;
+     color:#939598;font-size:12px;}
+    .locator-result .name {display:block;margin:0;padding:0;color:#64312E;text-transform:uppercase;font-family:Lora,"Times New Roman",Times,serif;font-size:16px;
+    text-shadow:1px 1px 1px rgba(100,49,46,1);}
+    .locator-result a:hover, .locator-result a:visited:hover, .locator-result a:focus {text-decoration:none;background:#FFF url(/bundles/applicationnetworkinginitcms/img/locator-point-black.png) 95% 20px no-repeat;}
+    .locator_infowindow {display:block;background-color:rgba(0,0,0,.75);color:#FFFFFF;padding:10px;}
+    .locator_infowindow span {display:block;float:left;}
+    .locator_infowindow img {display:block;float:right;margin:0 10px 0 0;}
+    .locator_infowindow {display:block;background-color:rgba(0,0,0,.75);color:#FFFFFF;padding:10px;}
 }
+
+
 
 body.prodotti {
     

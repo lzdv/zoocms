@@ -8,10 +8,14 @@ use Ibrows\Bundle\SonataAdminAnnotationBundle\Annotation as Sonata;
 use Networking\InitCmsBundle\Model\ContentInterface;
 use Lzdv\InitCmsMapBundle\Entity\MapElementViewInterface;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 use JMS\Serializer\Annotation\Type;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Oh\GoogleMapFormTypeBundle\Validator\Constraints as OhAssert;
+
+use Lzdv\InitCmsMapBundle\Entity\Collection;
 
 /**
  * MapElementView
@@ -32,6 +36,16 @@ class MapElementView implements MapElementViewInterface
     private $id;
 
     /**
+     * var Collection $collection
+     *
+     * @ORM\ManyToOne(targetEntity="Lzdv\InitCmsMapBundle\Entity\Collection", inversedBy="elements", cascade={"merge"})
+     * @ORM\JoinColumn( name="collection_id", referencedColumnName="id", onDelete="CASCADE" )
+     * @Sonata\FormMapper(name="collection", type="entity", options={"label"="form.label_collection","data_class"=null,"class"="Lzdv\InitCmsMapBundle\Entity\Collection"})
+     * 
+     */
+    protected $collection;
+    
+    /**
      * @var string $mediaType
      *
      * @ORM\Column(name="name", type="string", length=50)
@@ -42,7 +56,7 @@ class MapElementView implements MapElementViewInterface
     /**
      * @var string $mediaType
      *
-     * @ORM\Column(name="payoff", type="string", length=50)
+     * @ORM\Column(name="payoff", type="string", length=50, nullable=true)
      * @Sonata\FormMapper(name="payoff")
      */
     protected $payoff;
@@ -79,7 +93,7 @@ class MapElementView implements MapElementViewInterface
 
     /**
      * @var string $text
-     * @ORM\Column(name="text", type="text")
+     * @ORM\Column(name="text", type="text", nullable=true)
      * @Sonata\FormMapper(
      *      name="text",
      *      type="ckeditor",
@@ -108,6 +122,10 @@ class MapElementView implements MapElementViewInterface
      */
     protected $updatedAt;
     
+    
+    public function __construct()
+    {
+    }
     
     /**
      *
@@ -302,6 +320,24 @@ class MapElementView implements MapElementViewInterface
        return array('lat' => $this->lat,'lng' => $this->lng);
     }
     
+    /**
+     * @param  \
+     * @return $this
+     */
+    public function setCollection(Collection $collection)
+    {
+        $this->collection = $collection;
+
+        return $this;
+    }
+
+    /**
+     * @return \
+     */
+    public function getCollection()
+    {
+        return $this->collection;
+    }
     
     /**
      * @param array $params

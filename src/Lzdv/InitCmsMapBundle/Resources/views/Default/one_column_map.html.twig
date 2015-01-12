@@ -13,17 +13,6 @@ file that was distributed with this source code.
 {% block title %}{{ page.metaTitle }}{% endblock %}
 
 {% block content %}
-<style>
-.locator-result a {display:block;padding:10px;border-bottom:1px solid #EDEDED;background:#FFF url(/bundles/applicationnetworkinginitcms/img/locator-point.png) 95% 20px no-repeat;
- color:#939598;font-size:12px;}
-.locator-result .name {display:block;margin:0;padding:0;color:#64312E;text-transform:uppercase;font-family:Lora,"Times New Roman",Times,serif;font-size:16px;
-text-shadow:1px 1px 1px rgba(100,49,46,1);}
-.locator-result a:hover, .locator-result a:visited:hover, .locator-result a:focus {text-decoration:none;background:#FFF url(/bundles/applicationnetworkinginitcms/img/locator-point-black.png) 95% 20px no-repeat;}
-.locator_infowindow {display:block;background-color:rgba(0,0,0,.75);color:#FFFFFF;padding:10px;}
-.locator_infowindow span {display:block;float:left;}
-.locator_infowindow img {display:block;float:right;margin:0 10px 0 0;}
-.locator_infowindow {display:block;background-color:rgba(0,0,0,.75);color:#FFFFFF;padding:10px;}
-</style>
     <div id="map" class="row full" style="display:block;position:absolute;width:100%;height:100%;left:0;top:60px;"></div>
     {% if page.layoutBlock('header') is not empty %}
         <div class="row full">
@@ -43,18 +32,12 @@ text-shadow:1px 1px 1px rgba(100,49,46,1);}
     
     <div class="row center">
         <div class="col-md-5 left">
-            <div class="row">
-            {{ mopa_bootstrap_menu('subMenu', {}) }}
-            </div>
-            {% for layoutBlock in page.layoutBlock('left') %}
-                {{ render_initcms_block('ApplicationNetworkingInitCmsBundle:Content:cms_block.html.twig', layoutBlock) }}
-            {% endfor %}
             <div id="locatorNav" class="locator-results">
-                <div class="locator-filter">
-                    <a href="" class="selected">Romagna</a>
-                    <a href="">Mondo</a>
+                <div id="locator-filter">
+                    <a id="locator-filter-romagna" href="#" onclick="categoryFilter('romagna')" class="selected">Romagna</a>
+                    <a id="locator-filter-mondo" href="#" onclick="categoryFilter('mondo')">Mondo</a>
                 </div>
-                <div class="locator-results-inner">
+                <div id="locator-results-inner">
                     {% for layoutBlock in page.layoutBlock('map') %}
                         {{ render_initcms_block('LzdvInitCmsMapBundle:Content:map_block.html.twig', layoutBlock, { type: 'link', rowId: loop.index0 }) }}
                     {% endfor %}
@@ -73,7 +56,7 @@ text-shadow:1px 1px 1px rgba(100,49,46,1);}
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <script src="/bundles/applicationnetworkinginitcms/js/infobox.js"></script>
     <script type="text/javascript">
-
+/*
         function Label(opt_options) {
                 this.setValues(opt_options);
                 var span = this.span_ = document.createElement('span');
@@ -106,23 +89,25 @@ text-shadow:1px 1px 1px rgba(100,49,46,1);}
                 div.style.display = 'block';
                 this.span_.innerHTML = this.get('content');//.toString();
         };
-
+*/
+/*
         function locatorPanelPos(){
                 //$('#locatorNav').css('height',$(document).height()-$('#footer-fixed').height()-$('#locatorNav').top);
         }
         $(window).ready(function(){locatorPanelPos();});
         $(window).resize(function(){locatorPanelPos();});
-
+*/
         var locations = [
             {% for layoutBlock in page.layoutBlock('map') %}
-                {{ render_initcms_block('LzdvInitCmsMapBundle:Content:map_block.html.twig', layoutBlock, { type: 'location', id: loop.index0 }) }}
+                {{ render_initcms_block('LzdvInitCmsMapBundle:Content:map_block.html.twig', layoutBlock, { type: 'location', rowId: loop.index0 }) }}
             {% endfor %}
         ];
         var locationsMini = [
             {% for layoutBlock in page.layoutBlock('map') %}
-                {{ render_initcms_block('LzdvInitCmsMapBundle:Content:map_block.html.twig', layoutBlock, { type: 'locationMini', id: loop.index0 }) }}
+                {{ render_initcms_block('LzdvInitCmsMapBundle:Content:map_block.html.twig', layoutBlock, { type: 'locationMini', rowId: loop.index0 }) }}
             {% endfor %}
         ];
+        /*
         var infobox = new InfoBox({
             //content: document.getElementById("infobox1"),
             disableAutoPan: false,
@@ -138,81 +123,88 @@ text-shadow:1px 1px 1px rgba(100,49,46,1);}
             //closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif",
             infoBoxClearance: new google.maps.Size(1, 1)
         });
-        function markerClick(i) {
-            google.maps.event.trigger(markers[i], 'click');
-            //map.setZoom(8);
+        */
+        var map;
+        var bounds = new google.maps.LatLngBounds();
+        var markers={},i;
+
+        function markerClick(idx) {
+            var key = idx.split('-');
+            google.maps.event.trigger(markers[key[0]][idx], 'click');
+            map.setZoom(10);
+        }
+        function categoryFilter(cat) {
+            $('#locator-filter a').removeClass('selected');
+            $('#locator-filter a#locator-filter-'+cat).addClass('selected');
+            
+            bounds = new google.maps.LatLngBounds();
+            
+            for (var i in markers) {
+                var show = (cat=='' || i==cat);
+
+                for (var j in markers[i]) {
+                    markers[i][j].setVisible(show);
+
+                    if (show)
+                        bounds.extend(markers[i][j].position);
+                }
+            }
+            
+            map.fitBounds(bounds);
+            
+            $('#locator-results-inner .locator-result').hide();
+            $('#locator-results-inner .locator-result.'+cat).show();
         }
 
-        var bounds = new google.maps.LatLngBounds();
-        var markers=[],i;
-
         $(document).ready(function(){
-            var map = new google.maps.Map(document.getElementById('map'),{
+            var h = $(document).height() - $('#nav-main-container').height() - $('#footer').height();
+            $('#map').height(h);
+            
+            map = new google.maps.Map(document.getElementById('map'),{
                 zoom: 10,
                 center: new google.maps.LatLng(44.288114, 11.882914),
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             });
 
-            var infowindow = new google.maps.InfoWindow();
+            //var infowindow = new google.maps.InfoWindow();
+
             var image = new google.maps.MarkerImage('/bundles/applicationnetworkinginitcms/img/pushpin.png',
                 new google.maps.Size(60,89),
                 new google.maps.Point(0,0),
                 new google.maps.Point(30,89)
             );
-            /*var shadow = new google.maps.MarkerImage('templates/default//img/pushpin_shadow.png',
-                    new google.maps.Size(32,20),
-                    new google.maps.Point(0,0),
-                    new google.maps.Point(0,20)
-            );*/
 
             for (i = 0; i < locations.length; i++) {  
                 LatLong = new google.maps.LatLng(locations[i][1], locations[i][2]);
-                markers[i] = new google.maps.Marker({
-                    position: LatLong,
-                    animation: google.maps.Animation.DROP,
-                    //shadow: shadow,
-                    icon: image,
-                    map: map
-                });
-                /*markers[i] = new MarkerWithLabel({
-                    position: LatLong,
-                    draggable: true,
-                    //raiseOnDrag: true,
-                    map: map,
-                    labelContent: locationsMini[i][0],
-                    labelAnchor: new google.maps.Point(-28,51),
-                    labelClass: "locator_label",
-                    //labelStyle: {opacity: 0.75},
-                    labelInBackground: true//,
-                    //icon: {
-                    //	url: 'templates/default/img/pushpin.png',
-                    //	size: new google.maps.Size(47,59),
-                    //	origin: new google.maps.Point(0,0),
-                    //	anchor: new google.maps.Point(18,59),
-                    //	position: LatLong
-                    }
-                    //position: LatLong,
-                    //animation: google.maps.Animation.DROP,
-                    //icon: 'templates/default/img/pushpin.png'
-                });*/
-                //var label = new Label({
-                //    map: map,
-                //    content: locationsMini[i][0]
-                //});
-                //label.bindTo('position', markers[i], 'position');
+                
+                var key = locations[i][3].split('-');
+                var cat = key[0];
+                var idx = cat+'-'+key[1];
+                if (cat && idx) {
+                    if (markers[cat] == undefined) markers[cat] = {};
+                    markers[cat][idx] = new google.maps.Marker({
+                        position: LatLong,
+                        //animation: google.maps.Animation.DROP,
+                        icon: image,
+                        visible: false,
+                        map: map
+                    });
 
-                google.maps.event.addListener(markers[i],'click',(function(marker,i) {
-                    return function(){
-                        //infowindow.setContent(locations[i][0]);
-                        infobox.setContent(locations[i][0]);
-                        map.setCenter(new google.maps.LatLng(locations[i][1],locations[i][2]));
-                        //infowindow.open(map, marker);
-                        //infobox.open(map, marker);
-                    }
-                })(markers[i],i));
-                bounds.extend(LatLong);
+                    google.maps.event.addListener(markers[cat][idx],'click',(function(marker,i) {
+                        return function(){
+                            //infowindow.setContent(locations[i][0]);
+                            //infobox.setContent(locations[i][0]);
+                            map.setCenter(new google.maps.LatLng(locations[i][1],locations[i][2]));
+                            //infowindow.open(map, marker);
+                            //infobox.open(map, marker);
+                        }
+                    })(markers[cat][idx],i));
+//                    bounds.extend(LatLong);
+                }
             }
-            map.fitBounds(bounds);
+            
+            categoryFilter('romagna');
+//            map.fitBounds(bounds);
         });
 
         (function ($) {

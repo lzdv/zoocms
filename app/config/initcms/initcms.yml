@@ -14,7 +14,7 @@ networking_init_cms:
                 - { name: header, class: 'col-md-12' }
                 - { name: main_content, class: 'col-md-12'}
         'Sandbox_one_column_map_template':
-            template: "ApplicationNetworkingInitCmsBundle:Default:one_column_map.html.twig"
+            template: "LzdvNetworkingInitCmsMapBundle:Default:one_column_map.html.twig"
             name: "Single Column with Map"
             icon: "bundles/applicationnetworkinginitcms/img/template_header_one_column.png"
             zones:
