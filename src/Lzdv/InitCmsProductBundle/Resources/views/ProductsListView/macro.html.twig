@@ -40,7 +40,7 @@
             $('#products-list').show(); 
             $('.products-filter').children().show();
             $('#product-details').html( "" );
-            $(body).removeClass('prodotti-dettaglio');
+            $(document.body).removeClass('prodotti-dettaglio');
 //            window.history.pushState('elenco-prodotti', 'Prodotti', '/../');
             return false;
         }
@@ -51,7 +51,7 @@
             $('#products-back-button').show();
             $('#product-attachment-button').show();
             $('#product-details').show();
-            $(body).addClass('prodotti-dettaglio');
+            $(document.body).addClass('prodotti-dettaglio');
 //                window.history.pushState('dettaglio-prodotto', '{# { product.name }}', 'prodotti/{{ product.slug } #}');
             return false;
         }

@@ -73,9 +73,6 @@ class ProductManager extends BaseProductManager implements ProductManagerInterfa
                 $queryBuilder->andWhere($expr);
             }
         }
-        
-//        echo $queryBuilder->getDQL();
-//        die;
 
         return $queryBuilder
             ->getQuery()
