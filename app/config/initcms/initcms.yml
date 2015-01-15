@@ -13,15 +13,6 @@ networking_init_cms:
             zones:
                 - { name: header, class: 'col-md-12' }
                 - { name: main_content, class: 'col-md-12'}
-        'Sandbox_one_column_map_template':
-            template: "LzdvNetworkingInitCmsMapBundle:Default:one_column_map.html.twig"
-            name: "Single Column with Map"
-            icon: "bundles/applicationnetworkinginitcms/img/template_header_one_column.png"
-            zones:
-                - { name: map , class: 'col-md-12', restricted_types: [Lzdv\InitCmsMapBundle\Entity\MapElementView] }
-                - { name: header, class: 'col-md-12' }
-                - { name: left , class: 'col-md-6'}
-                - { name: right , class: 'col-md-6', max_content_items: -1}
         'Sandbox_two_column_template':
             template: "ApplicationNetworkingInitCmsBundle:Default:two_column.html.twig"
             name: "Two Column"
@@ -52,6 +43,15 @@ networking_init_cms:
                 - { name: advertising , class: 'col-md-12', max_content_items: -1 }
                 - { name: bottom_left , class: 'col-md-6'}
                 - { name: bottom_right , class: 'col-md-6'}
+        'Sandbox_one_column_map_template':
+            template: "LzdvNetworkingInitCmsMapBundle:Default:one_column_map.html.twig"
+            name: "Single Column with Map"
+            icon: "bundles/applicationnetworkinginitcms/img/template_header_one_column.png"
+            zones:
+                - { name: map , class: 'col-md-12', restricted_types: [Lzdv\InitCmsMapBundle\Entity\MapElementView] }
+                - { name: header, class: 'col-md-12' }
+                - { name: left , class: 'col-md-6'}
+                - { name: right , class: 'col-md-6', max_content_items: -1}
 
     admin_menu_groups:
         big:
@@ -69,3 +69,6 @@ networking_init_cms:
         - { name: 'Lista Prodotti' , class: 'Lzdv\InitCmsProductBundle\Entity\ProductsListView'}
         - { name: 'Dettagli Prodotto' , class: 'Lzdv\InitCmsProductBundle\Entity\ProductDetailsView'}
         - { name: 'Posizione Mappa' , class: 'Lzdv\InitCmsMapBundle\Entity\MapElementView'}
+        - { name: 'Filtro News' , class: 'Lzdv\InitCmsPostBundle\Entity\PostsFilterView'}
+        - { name: 'Lista News' , class: 'Lzdv\InitCmsPostBundle\Entity\PostsListView'}
+        - { name: 'Dettaglio News' , class: 'Lzdv\InitCmsPostBundle\Entity\PostDetailsView'}

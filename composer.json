@@ -43,7 +43,7 @@
         "twig/extensions": "~1.0",
 
         "twbs/bootstrap-sass": "3.3.*",
-        "oyejorge/less.php": "1.7.*",
+        "oyejorge/less.php": "1.6.*",
         
         "lzdv/init-cms-bundle": "~2.3@dev",
         "drinky78/shortcode-bundle": "dev-master",

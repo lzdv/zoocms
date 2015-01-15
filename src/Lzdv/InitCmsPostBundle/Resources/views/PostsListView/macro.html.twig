@@ -1,0 +1,76 @@
+{% macro posts_list(postsListView) %}
+    <header class="filters">
+        {% if postsListView.title %}
+            <h1>{{ postsListView.title }}</h1>
+        {% endif %}
+        <ul>
+            <li>collezione: {% if postsListView.collection is not null %}{{ postsListView.collection.name }}{% else %}nessuna{% endif %}</li>
+            <li>tag: {% if postsListView.tag is not null %}{{ postsListView.tag.name }}{% else %}nessuno{% endif %}</li>
+        </ul>
+    </header>
+    <article id="post-details" style="display: none;"></article>
+    <ul id="posts-list" style="display: block;">
+    {% for post in postsListView.posts %}
+        <li>
+            {#<a href="/prodotti/dettaglio/{{ post.slug }}/">#}
+            <a href="#" onclick="showPost({{ post.id }});">
+                <figure>
+                    {% media post.image, 'small' %}
+                    <figcaption>{{ post.name }}</figcaption>
+                </figure>
+                <detail id="post-{{ post.id }}" style="display: none;">
+                    <figure>
+                        <img src="{% path post.image, "wide" %}" />
+                    </figure>
+                    <h1>{{ post.name }}</h1>
+                    <h3>{% if postsListView.tag is not null %}{{ postsListView.tag.name }}{% endif %} {% if postsListView.collection is not null %}{{ postsListView.collection.name }}{% endif %}</h3>
+                    <div class='description'>{{ post.description | markdown }}</div>
+                </detail>
+            </a>
+                
+            {# { post.rawDescription | markdown } #}
+        </li>
+    {% endfor %}
+    </ul>
+    <script>
+        function backToPostsList() {
+            $('#posts-back-button').hide();
+            $('#post-attachment-button').show();
+            $('#post-details').hide();
+            $('#posts-list').show(); 
+            $('.posts-filter').children().show();
+            $('#post-details').html( "" );
+            $(document.body).removeClass('prodotti-dettaglio');
+//            window.history.pushState('elenco-prodotti', 'Prodotti', '/../');
+            return false;
+        }
+        function showPost(id) {
+            $('#post-details').html( $('#post-'+id).html() );
+            $('#posts-list').hide(); 
+            $('.posts-filter').children().hide();
+            $('#posts-back-button').show();
+            $('#post-attachment-button').show();
+            $('#post-details').show();
+            $(document.body).addClass('prodotti-dettaglio');
+//                window.history.pushState('dettaglio-prodotto', '{# { post.name }}', 'prodotti/{{ post.slug } #}');
+            return false;
+        }
+        
+        if ({% if app.request.get('p') %}true{% else %}false{% endif %}) {
+            window.addEventListener('load', function() { showPost({{ app.request.get('p') }}); }, false )
+        }
+        
+    </script>
+{% endmacro %}
+
+
+{% macro admin_posts_list(postsListView) %}
+    <div class="tag">
+        <header class="filters">
+            <ul>
+                <li>categoria: {% if postsListView.tag is not null %}{{ postsListView.tag.name }}{% else %}nessuna{% endif %}</li>
+                <li>collezione: {% if postsListView.collection is not null %}{{ postsListView.collection.name }}{% else %}nessuna{% endif %}</li>
+            </ul>
+        </header>
+    </div>
+{% endmacro %}

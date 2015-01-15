@@ -13,7 +13,7 @@ sonata_news:
     class:
 #        tag:        Application\Sonata\ClassificationBundle\Entity\Tag
 #        collection: Application\Sonata\ClassificationBundle\Entity\Collection
-#        post:       Application\Sonata\NewsBundle\Entity\Post
+        post:       Application\Sonata\NewsBundle\Entity\Post
 #        comment:    Application\Sonata\NewsBundle\Entity\Comment
         media:      Networking\InitCmsBundle\Entity\Media
         user:       Application\Networking\InitCmsBundle\Entity\User

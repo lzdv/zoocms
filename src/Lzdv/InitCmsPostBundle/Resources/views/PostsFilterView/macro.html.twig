@@ -1,0 +1,65 @@
+{% from 'LzdvInitCmsPostBundle:CategoryView:macro.html.twig' import tag %}
+
+{% macro posts_filter(postsFilterView) %}
+    <header>
+        {% if postsFilterView.title %}
+            <h1 class="title">{{ postsFilterView.title }}</h1>
+        {% endif %}
+    </header>
+    <div id="filter-collection" class="collection row btn-group-vertical" role="group" aria-label="">
+        <header>
+            <h2 class="name">Ricerca per Anno</h2>
+        </header>
+        {% set selected = '' %}
+        {% if route_params is defined and route_params.year is defined and route_params.year is not null %}{% set selected = route_params.year %}{% endif %}
+
+        {% set baseRoute = app.request.attributes.get('_route')|replace({ (selected): "" }) %}
+        {% set actualYear = "now"|date("Y") %}
+        {% set years = 2014..actualYear %}
+        <ul>
+            {% for y in 2014..actualYear %}
+                <li>
+                    <a href="{{ baseRoute ~ y }}" class="{% if y in selected %}checked{% endif %}">{{ y }}</a>
+                </li>
+            {% endfor %}
+            <li>
+                <a href="{{ baseRoute }}" class="{% if selected == '' %}checked{% endif %}">Tutte le novità</a>
+            </li>
+        </ul>
+    </div>
+    {# filter by collection #
+    {% if postsFilterView.collections is not null %}
+    {% endif %}
+    {# filter by tags #
+    {% if postsFilterView.tags is not null %}
+        {% set selected = app.request.get('cat') %}
+        {% for tag in postsFilterView.tags %}
+            <div id="filter-tag-{{ tag.slug }}" class="tag row btn-group-vertical" role="group" aria-label="">
+                <header>
+                    <h2 class="name">Ricerca per {{ tag.name }}</h2>
+                </header>
+                <ul>
+                {% for subtag in tag.children %}
+                    <li>
+                        <a href="{{ baseRoute ~ subtag.name }}" class="{% if y in selected %}checked{% endif %}">{{ y }}</a>
+                        <label for="input-cat-{{ subtag.id }}">{{ subtag.name }}</label>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    {% endif %}
+    #}
+{% endmacro %}
+
+
+{% macro admin_posts_filter(postsFilterView) %}
+    <div class="posts-filter">
+        <header class="filters">
+            <ul>
+                <li>tag: {% if postsFilterView.tags is not null %}coming soon{% else %}nessuna{% endif %}</li>
+                <li>collezioni: {% if postsFilterView.collections is not null %}coming soon{#{ postsFilterView.collections }#}{% else %}nessuna{% endif %}</li>
+            </ul>
+        </header>
+    </div>
+{% endmacro %}

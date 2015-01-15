@@ -981,6 +981,16 @@ body.prodotti {
             }
         }
         .right {
+            
+            & > .gallery-list {
+                li {
+                    display: none;
+                }
+                li:first-child {
+                    display: block;
+                }
+            }
+            
             .products-list {
                 header {
                     display: none;
@@ -1063,6 +1073,50 @@ body.prodotti {
     
 }
 
+body#prodotti-terre-dei-malatesta-page {
+    .content .center {
+        .right {
+            & > .gallery-list {
+                li {
+                    display: none;
+                }
+                li.terre-dei-malatesta {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+body#prodotti-le-rocche-page {
+    .content .center {
+        .right {
+            & > .gallery-list {
+                li {
+                    display: none;
+                }
+                li.le-rocche {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+body#prodotti-prime-rocche-page {
+    .content .center {
+        .right {
+            & > .gallery-list {
+                li {
+                    display: none;
+                }
+                li.prime-rocche {
+                    display: block;
+                }
+            }
+        }
+    }
+}
 
 body.prodotti-dettaglio {
     .container {

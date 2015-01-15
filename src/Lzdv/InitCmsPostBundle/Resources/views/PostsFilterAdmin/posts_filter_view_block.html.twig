@@ -1,0 +1,11 @@
+{% from 'LzdvInitCmsPostBundle:PostsFilterView:macro.html.twig' import posts_filter, admin_posts_filter %}
+
+<h4 class="block-title">Posts filter</h4>
+
+{% if postsFilterView.title %}
+    <h4>{{ postsFilterView.title }}</h4>
+    <hr>
+{% endif %}
+<div>
+    {{ admin_posts_filter(postsFilterView, '') }}
+</div>    

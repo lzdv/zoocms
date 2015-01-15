@@ -15,6 +15,8 @@ file that was distributed with this source code.
 {% from 'LzdvInitCmsProductBundle:CollectionView:macro.html.twig' import collection %}
 {% from 'LzdvInitCmsProductBundle:ProductsListView:macro.html.twig' import products_list %}
 {% from 'LzdvInitCmsProductBundle:ProductsFilterView:macro.html.twig' import products_filter %}
+{% from 'LzdvInitCmsPostBundle:PostsListView:macro.html.twig' import posts_list %}
+{% from 'LzdvInitCmsPostBundle:PostsFilterView:macro.html.twig' import posts_filter %}
 
 {% if text is defined %}
     <div class="textbox">
@@ -50,7 +52,8 @@ file that was distributed with this source code.
     {% else %}
         <ul class="gallery-list">
             {% for galleryMedia in galleryView.mediaGallery.galleryHasMedias %}
-                <li>
+                {% set foo = galleryMedia.media.name|split('.') %}
+                <li class="{{ foo[0] }}">
                     {% if galleryMedia.getLink %}<a href="{{ galleryMedia.getLink }}">{% endif %}
                         <figure>
                             {% media galleryMedia.media, gallery.defaultFormat with {'class': 'auto-resize'} %}
@@ -107,5 +110,27 @@ file that was distributed with this source code.
 {% if productsFilterView is defined %}
     <div class="products-filter row">
         {{ products_filter(productsFilterView) }}
+    </div>
+{% endif %}
+
+{% if postDetailsView is defined %}
+    <div class="post-details row">
+        {{ render(controller('SonataNewsBundle:Post:view', { 'slug': route_params.slug })) }}
+    </div>
+{% endif %}
+
+{% if postsListView is defined %}
+    <div class="posts-list row">
+        {% if route_params.year matches '/^\\d+$/' %}
+            {{ render(controller('SonataNewsBundle:Post:archiveYearly', { 'year': route_params.year })) }}
+        {% else %}
+            {{ render(controller('SonataNewsBundle:Post:tag', { 'tag': route_params.year })) }}
+        {% endif %}
+    </div>
+{% endif %}
+
+{% if postsFilterView is defined %}
+    <div class="posts-filter row">
+        {{ posts_filter(postsFilterView) }}
     </div>
 {% endif %}

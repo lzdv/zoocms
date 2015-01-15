@@ -48,13 +48,16 @@ mopa_bootstrap:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
+    node: "/usr/bin/nodejs"
+    node_paths: [ "/usr/bin/nodejs" ]
     filters:
+#        less: ~
         lessphp:
             #file: %kernel.root_dir%/../vendor/leafo/lessphp/lessc.inc.php # use with leafo/lessphp - not supporting bootstrap 3.1
             file: %kernel.root_dir%/../vendor/oyejorge/less.php/lessc.inc.php # use with oyejorge/less.php
             apply_to: "\.less$"
             # Formatter options: compressed, lessjs, classic
-            formatter: "compressed"
+            formatter: "classic"
             preserve_comments: false
         sass:
             bin: d:\Programmi\Ruby21\bin\sass

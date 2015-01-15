@@ -1,0 +1,14 @@
+{% from 'LzdvInitCmsPostBundle:PostsListView:macro.html.twig' import posts_list, admin_posts_list %}
+    <h4 class="block-title">Posts List - {% if categoryView.category.dynamic is defined and categoryView.category.dynamic %}dinamica{% else %}statica{% endif %}</h4>
+    
+    {% if postsListView.title %}
+        <h4>{{ postsListView.title }}</h4>
+        <hr>
+    {% endif %}
+    <div>
+        {{ admin_posts_list(postsListView, '') }}
+    </div>
+    
+    {% if postsListView.text %}
+        {{ postsListView.text|raw }}
+    {% endif %}

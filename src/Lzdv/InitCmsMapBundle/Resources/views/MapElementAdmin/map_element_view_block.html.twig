@@ -4,7 +4,7 @@
     <h4 class="block-title">Map Element</h4>
     {#{% thumbnail mediaItem.media, 'small' with {'class': 'img-polaroid'} %}#}
 
-    <h4>{{ mapElementView.name }}</h4>
+    <h4>{{ mapElementView.name }} - {{ mapElementView.collection.name }}</h4>
     {% if mapElementView.payoff %}
         <span>{{ mapElementView.payoff }}</span>
     {% endif %}

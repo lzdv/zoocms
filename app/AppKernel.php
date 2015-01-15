@@ -83,6 +83,7 @@ class AppKernel extends Kernel
             // SONATA NEWS
             new Sonata\NewsBundle\SonataNewsBundle(),
             new Application\Sonata\NewsBundle\ApplicationSonataNewsBundle(),
+            new Lzdv\InitCmsPostBundle\LzdvInitCmsPostBundle(),
 
             // CMF Integration
             new Symfony\Cmf\Bundle\RoutingBundle\CmfRoutingBundle(),
