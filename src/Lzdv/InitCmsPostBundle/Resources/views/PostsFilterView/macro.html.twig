@@ -1,25 +1,21 @@
 {% from 'LzdvInitCmsPostBundle:CategoryView:macro.html.twig' import tag %}
 
 {% macro posts_filter(postsFilterView) %}
-    <header>
-        {% if postsFilterView.title %}
-            <h1 class="title">{{ postsFilterView.title }}</h1>
-        {% endif %}
-    </header>
-    <div id="filter-collection" class="collection row btn-group-vertical" role="group" aria-label="">
-        <header>
-            <h2 class="name">Ricerca per Anno</h2>
-        </header>
-        {% set selected = '' %}
-        {% if route_params is defined and route_params.year is defined and route_params.year is not null %}{% set selected = route_params.year %}{% endif %}
+    {% set selected = '' %}
+    {% if route_params is defined and route_params.year is defined and route_params.year is not null %}{% set selected = route_params.year %}{% endif %}
 
-        {% set baseRoute = app.request.attributes.get('_route')|replace({ (selected): "" }) %}
-        {% set actualYear = "now"|date("Y") %}
-        {% set years = 2014..actualYear %}
+    {% set baseRoute = app.request.attributes.get('_route')|replace({ (selected): "" }) %}
+    {% set actualYear = "now"|date("Y") %}
+    {% set years = 2014..actualYear %}
+    
+    <div id="filter-collection" class="nav collection row" role="group" aria-label="">
+        <header>
+            <h2>Ricerca per Anno</h2>
+        </header>
         <ul>
             {% for y in 2014..actualYear %}
                 <li>
-                    <a href="{{ baseRoute ~ y }}" class="{% if y in selected %}checked{% endif %}">{{ y }}</a>
+                    <a href="{{ '/news/' ~ y }}" class="{% if y in selected %}checked{% endif %}">{{ y }}</a>
                 </li>
             {% endfor %}
             <li>

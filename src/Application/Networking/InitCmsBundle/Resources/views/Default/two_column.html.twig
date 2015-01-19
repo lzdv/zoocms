@@ -31,7 +31,7 @@ file that was distributed with this source code.
     <div class="row center">
         <div class="col-md-4 left">
             <div class="row">
-            {{ mopa_bootstrap_menu('subMenu', {}) }}
+                {{ mopa_bootstrap_menu('subMenu', {}) }}
             </div>
             {% for layoutBlock in page.layoutBlock('left') %}
                 {{ render_initcms_block('ApplicationNetworkingInitCmsBundle:Content:cms_block.html.twig', layoutBlock) }}

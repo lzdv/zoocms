@@ -75,6 +75,10 @@ ul {
     }
 }
 
+pre {
+    font-size: 9pt;
+}
+
 figure {
     display: inline-block;
 } 
@@ -551,6 +555,7 @@ body#homepage-page #logo {
                 width: 100% !important;
                 height: 100% !important;
                 background-color: transparent !important;
+                display: block;
                 
                 font-family: @font-family-serif;
                 font-size: 13pt !important;
@@ -1124,3 +1129,61 @@ body.prodotti-dettaglio {
     }   
 }
 
+body.news {
+    #posts-list > li {
+        padding: 20px 0;
+        
+    }
+    
+    a.read-more {
+        color: @nav-hover-color;
+    }
+    
+    #filter-collection {
+        header {
+            background: url("/bundles/applicationnetworkinginitcms/img/hr.png") repeat-x scroll left bottom #fff;
+            box-sizing: border-box;
+            display: inline-block;
+            margin: 0;
+            padding: 10px 20px 16px;
+            width: 100%;
+            
+            h2 {
+                color: #999999;
+                font-size: 10pt !important;
+                font-weight: normal;
+                line-height: 13pt !important;
+                margin: 0;
+                text-transform: uppercase;
+            }
+        }
+        
+        a {
+            box-sizing: border-box;
+            color: white !important;
+            display: inline-block;
+            font-size: 10pt !important;
+            font-weight: normal;
+            line-height: 13pt !important;
+            margin: 0;
+            padding: 10px 20px;
+            position: relative;
+            text-shadow: 1px 1px 1px #999;
+            text-transform: uppercase;
+            width: 100%;
+        }
+    }
+
+    .post-information {
+        font-size: 10pt;
+        margin-bottom: 10px;
+
+        .post-author {
+            font-size: 10pt;
+        }
+
+        .post-tags {
+            font-size: 10pt;
+        }
+    }
+}
