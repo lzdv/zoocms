@@ -77,15 +77,15 @@ sonata_media:
                 small:   { width: 100, quality: 70}
                 wide:    { width: 220, quality: 100} 
                 
-        news:
+        sonata_news:
             providers:
                 - sonata.media.provider.dailymotion
                 - sonata.media.provider.youtube
                 - sonata.media.provider.image
 
             formats:
-                small: { width: 150 , quality: 95}
-                big:   { width: 500 , quality: 90}
+                small: { width: 150 , quality: 70}
+                big:   { width: 300 , quality: 90}
                 
     cdn:
         server:

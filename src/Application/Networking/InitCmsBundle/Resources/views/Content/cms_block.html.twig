@@ -25,16 +25,20 @@ file that was distributed with this source code.
 {% endif %}
 
 {% if mediaView is defined %}
-    <div class="media row">
-        {% if mediaView.mediaType == 'image' %}
-            {% set h = 'height: '~mediaView.media.height~'px;' %}
-            {% set w = 'width: '~mediaView.media.width~'px;' %}
-            {% media mediaView.media, 'big' with {'style': h~w} %}
-        {% endif %}
-        {% if mediaView.mediaType == 'video' %}
-            {{ carousel(mediaView.media, 'heroCarousel', null, 'medium', '460px') }}
-        {% endif %}
-    </div>
+    {% if format is defined and format == 'wide' %}
+        <div class="media row full cover-image" style="background-image: url({% path mediaView.media, 'wide' %})"></div>
+    {% else %}
+        <div class="media row">
+            {% if mediaView.mediaType == 'image' %}
+                    {% set h = 'height: '~mediaView.media.height~'px;' %}
+                    {% set w = 'width: '~mediaView.media.width~'px;' %}
+                    {% media mediaView.media, format|default('big') with {'style': h~w} %}
+                {% endif %}
+            {% if mediaView.mediaType == 'video' %}
+                {{ carousel(mediaView.media, 'heroCarousel', null, 'medium', '460px') }}
+            {% endif %}
+        </div>
+    {% endif %}
 {% endif %}
 
 {% if cardView is defined %}

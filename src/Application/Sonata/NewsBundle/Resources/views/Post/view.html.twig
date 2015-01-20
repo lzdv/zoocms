@@ -23,7 +23,6 @@
             {{ post.title }}
         </h1>
         <hr/>
-
         
         <div class="post-information">
             <div class="post-author">
@@ -46,6 +45,9 @@
         </div>
     </header>
 
+    <div class="post-image">
+        {% media post.image, 'big' with { 'style': 'max-height:' ~ height|default('auto')} %}
+    </div>
     <div class="post-content">
         {{ post.content|raw }}
     </div>

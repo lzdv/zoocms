@@ -19,7 +19,7 @@ networking_init_cms:
             icon: "bundles/applicationnetworkinginitcms/img/template_header_two_column.png"
             zones:
                 - { name: header , class: 'col-md-12'}
-                - { name: advertising , class: 'col-md-12', max_content_items: -1 }
+                - { name: advertising , class: 'col-md-12', restricted_types: [Lzdv\InitCmsExtensionBundle\Entity\MediaView], max_content_items: 1 }
                 - { name: left , class: 'col-md-6'}
                 - { name: right , class: 'col-md-6'}
         'Sandbox_three_column_template':
@@ -28,7 +28,7 @@ networking_init_cms:
             icon: "bundles/applicationnetworkinginitcms/img/template_header_three_column.png"
             zones:
                 - { name: header , class: 'col-md-12'}
-                - { name: advertising , class: 'col-md-12', max_content_items: -1 }
+                - { name: advertising , class: 'col-md-12', restricted_types: [Lzdv\InitCmsExtensionBundle\Entity\MediaView], max_content_items: 1 }
                 - { name: left , class: 'col-md-3'}
                 - { name: center, class: 'col-md-6'}
                 - { name: right , class: 'col-md-3'}
@@ -40,7 +40,7 @@ networking_init_cms:
                 - { name: header , class: 'col-md-12'}
                 - { name: left , class: 'col-md-6'}
                 - { name: right , class: 'col-md-6'}
-                - { name: advertising , class: 'col-md-12', max_content_items: -1 }
+                - { name: advertising , class: 'col-md-12', restricted_types: [Lzdv\InitCmsExtensionBundle\Entity\MediaView], max_content_items: 1 }
                 - { name: bottom_left , class: 'col-md-6'}
                 - { name: bottom_right , class: 'col-md-6'}
         'Sandbox_one_column_map_template':

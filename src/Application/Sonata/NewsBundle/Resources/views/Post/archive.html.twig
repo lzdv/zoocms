@@ -51,6 +51,7 @@
                 </header>
 
                 <div class="post-abtract">
+                    {% media post.image, 'small' with { 'class': "post-image", 'style': 'max-height:' ~ height|default('auto')} %}
                     {{ post.abstract }} ... <a class="read-more" href="{{ '/news/detail/' ~ post.slug }}">{{ 'read_more'|trans({}, 'SonataNewsBundle') }}</a>
                 </div>
             </article>

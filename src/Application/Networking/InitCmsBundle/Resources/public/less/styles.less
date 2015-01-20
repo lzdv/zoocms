@@ -91,6 +91,14 @@ figcaption {
     z-index: 1050;
 }
 
+.cover-image {
+    background-repeat: no-repeat;
+    background-position: center center; 
+    background-size: cover;
+    display: block; 
+    height: 100%;
+}
+
 .container {
     background-image: url(/bundles/applicationnetworkinginitcms/img/big_face.png);
     background-repeat: no-repeat;
@@ -1132,7 +1140,7 @@ body.prodotti-dettaglio {
 body.news {
     #posts-list > li {
         padding: 20px 0;
-        
+        clear: both;
     }
     
     a.read-more {
@@ -1162,7 +1170,7 @@ body.news {
             box-sizing: border-box;
             color: white !important;
             display: inline-block;
-            font-size: 10pt !important;
+            font-size: 13pt !important;
             font-weight: normal;
             line-height: 13pt !important;
             margin: 0;
@@ -1174,6 +1182,13 @@ body.news {
         }
     }
 
+    .post-image {
+        float: left;
+        margin: 0px 20px 20px 0;
+        box-sizing: content-box;
+        border: 10px solid white;
+    }
+    
     .post-information {
         font-size: 10pt;
         margin-bottom: 10px;

@@ -7,6 +7,10 @@ sonata_news:
     description:  "news"
     salt:         framework.secret
 
+    admin:
+        post:       
+            class:  Application\Sonata\NewsBundle\Admin\PostAdmin
+
     # permalink_generator: sonata.news.permalink.category # /party/new-year
     permalink_generator: sonata.news.permalink.date # /2011/12/31/new-year
 

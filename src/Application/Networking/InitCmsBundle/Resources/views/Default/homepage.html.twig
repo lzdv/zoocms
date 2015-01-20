@@ -66,7 +66,9 @@ file that was distributed with this source code.
             </div>
         </div>
         <div class="row advertising full">
-            <img src="uploads/media/advertising/0001/01/thumb_17_advertising_wide.jpeg" />
+            {% for layoutBlock in page.layoutBlock('advertising') %}
+                {{ render_initcms_block('ApplicationNetworkingInitCmsBundle:Content:cms_block.html.twig', layoutBlock, { 'format': 'wide' }) }}
+            {% endfor %}
         </div>
         <div class="row bottom">
             <div class="col-md-8">
