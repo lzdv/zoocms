@@ -25,6 +25,7 @@ use Networking\InitCmsBundle\Entity\DynamicLayoutBlockDataManagerInterface;
 
 class PostManager extends BasePostManager implements DynamicLayoutBlockDataManagerInterface
 {
+
     /**
      * Retrieve an active post from its id and its slug
      *
@@ -33,9 +34,9 @@ class PostManager extends BasePostManager implements DynamicLayoutBlockDataManag
      *
      * @return PostInterface|null
      */
-    public function genericFind($params=array())
+    public function proxyFind($params=array())
     {
-
+        return array();
     }
     
 

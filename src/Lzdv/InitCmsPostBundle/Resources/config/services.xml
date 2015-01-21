@@ -4,17 +4,15 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
-    <parameters>
-        <parameter key="lzdv_init_cms_product.example.class">Lzdv\InitCmsProductBundle\Example</parameter>
+    <!-- parameters>
+        <parameter key="lzdv_init_cms_post.manager.class">Lzdv\InitCmsPostBundle\Entity\PostManager</parameter>
     </parameters>
 
     <services>
-        <service id="lzdv_init_cms_product.example" class="%lzdv_init_cms_product.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="lzdv_init_cms_post.manager.generic_find" class="%lzdv_init_cms_post.manager.class%">
+            <call method="setRequestStack">
+                <argument type="service" id="request_stack"/>
+            </call>
         </service>
-    </services>
-    -->
+    </services -->
 </container>

@@ -20,10 +20,13 @@ use Sonata\Component\Product\ProductInterface;
 use Sonata\Component\Product\ProductManagerInterface;
 use  Sonata\ProductBundle\Entity\ProductManager as BaseProductManager;
 
+use Symfony\Component\HttpFoundation\Request;
+
 use Networking\InitCmsBundle\Entity\DynamicLayoutBlockDataManagerInterface;
 
 class ProductManager extends BaseProductManager implements ProductManagerInterface, DynamicLayoutBlockDataManagerInterface
 {
+    
     /**
      * Retrieve an active product from its id and its slug
      *
@@ -32,12 +35,18 @@ class ProductManager extends BaseProductManager implements ProductManagerInterfa
      *
      * @return ProductInterface|null
      */
-    public function genericFind($params=array())
+    public function proxyFind($params=array())
     {
-        $colls = $params['request']->query->get('collection');
-        $cats = $params['request']->query->getDigits('cat');
-        $tags = $params['request']->query->getDigits('tag');
-
+        
+        $colls = null;
+        $cats = null;
+        $tags = null;
+        if (isset($params['request']) && ($params['request'] instanceof Request)) {
+            $colls = $params['request']->query->get('collection');
+            $cats = $params['request']->query->getDigits('cat');
+            $tags = $params['request']->query->getDigits('tag');
+        }
+        
         $k = 0;
         
         $queryBuilder = $this->getRepository()->createQueryBuilder('p')

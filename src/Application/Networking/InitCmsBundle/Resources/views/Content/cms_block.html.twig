@@ -125,6 +125,9 @@ file that was distributed with this source code.
 
 {% if postsListView is defined %}
     <div class="posts-list row">
+        {% if route_params.year is not defined  %}
+            {% set route_params = route_params|merge({'year': 'now'|date('Y')}) %}
+        {% endif %}
         {% if route_params.year matches '/^\\d+$/' %}
             {{ render(controller('SonataNewsBundle:Post:archiveYearly', { 'year': route_params.year })) }}
         {% else %}

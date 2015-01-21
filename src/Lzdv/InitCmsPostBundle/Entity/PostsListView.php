@@ -84,6 +84,14 @@ class PostsListView implements PostsListViewInterface, DynamicLayoutBlockInterfa
     protected $text;
 
     /**
+     * @var string $maxPosts
+     *
+     * @ORM\Column(name="max_posts", type="integer")
+     * @Sonata\FormMapper(name="maxPosts")
+     */
+    protected $maxPosts = 0;
+    
+    /**
      * @var \DateTime $createdAt
      *
      * @ORM\Column(name="created_at", type="datetime")
@@ -221,6 +229,25 @@ class PostsListView implements PostsListViewInterface, DynamicLayoutBlockInterfa
     public function getText()
     {
         return $this->text;
+    }
+
+    /**
+     * @param  string $maxPosts
+     * @return $this
+     */
+    public function setMaxPosts($maxPosts)
+    {
+        $this->maxPosts= $maxPosts;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMaxPosts()
+    {
+        return $this->maxPosts;
     }
 
     /**

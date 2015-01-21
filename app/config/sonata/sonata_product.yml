@@ -19,7 +19,7 @@ sonata_product:
     seo:
         product:
             site: '@sonataproject'
-            creator: '@th0masr'
+            creator: '@rad'
             domain: 'http://demo.sonata-project.org'
             media_prefix: 'http://demo.sonata-project.org'
             media_format: 'reference'
