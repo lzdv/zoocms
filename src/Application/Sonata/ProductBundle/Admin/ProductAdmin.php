@@ -15,4 +15,9 @@ use Sonata\ProductBundle\Admin\ProductAdmin as BaseProductAdmin;
 
 class ProductAdmin extends BaseProductAdmin
 {
+    
+
+    /**
+     * {@inheritdoc}
+     */
 }

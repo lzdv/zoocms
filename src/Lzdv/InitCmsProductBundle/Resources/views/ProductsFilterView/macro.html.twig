@@ -13,7 +13,11 @@
                     <h2 class="name">Filtra per Linea</h2>
                 </header>
                 {% set selected = '' %}
-                {% if route_params is defined and route_params.collection is defined and route_params.collection is not null %}{% set selected = route_params.collection %}{% endif %}
+                {% if route_params is defined and route_params.collection is defined and route_params.collection is not null %}
+                    {% set selected = route_params.collection %}
+                {% else %}
+                    {% set selected = productsFilterView.collections[0].slug %}
+                {% endif %}
 
                 <ul>
                 {% set baseRoute = app.request.attributes.get('_route')|replace({ (selected): "" }) %}
@@ -24,11 +28,11 @@
 {#                        <label for="input-col-{{ collection.id }}">{{ collection.name }}</label>#}
                     </li>
                 {% endfor %}
+{#
                 <li>
                     <a href="{{ baseRoute }}" class="{% if selected == '' %}checked{% endif %}">Tutti i vini</a>
-{#                    <input id="input-col-0" name="col[]" type="radio" value="" {% if 0 in selected %}checked="checked"{% endif %} />#}
-{#                    <label for="input-col-0">Tutti i vini</label>#}
                 </li>
+#}
                 </ul>
             </div>
         {% endif %}

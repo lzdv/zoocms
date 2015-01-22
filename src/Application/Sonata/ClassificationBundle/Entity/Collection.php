@@ -28,6 +28,8 @@ class Collection extends BaseCollection
      */
     protected $id;
 
+    protected $collectionProducts;
+    
     /**
      * Get id
      *
@@ -36,5 +38,67 @@ class Collection extends BaseCollection
     public function getId()
     {
         return $this->id;
+    }
+    
+    /**
+     * Add a CollectionProduct to collection.
+     *
+     * @param CollectionProductInterface $productCollection
+     */
+    public function addCollectionProduct(CollectionProductInterface $productCollection)
+    {
+        $productCollection->setCollection($this);
+
+        $this->collectionProducts->add($productCollection);
+    }
+
+    /**
+     * Remove a CollectionProduct from collection.
+     *
+     * @param CollectionProductInterface $productCollection
+     */
+    public function removeCollectionProduct(CollectionProductInterface $productCollection)
+    {
+        if ($this->collectionProducts->contains($productCollection)) {
+            $this->collectionProducts->removeElement($productCollection);
+        }
+    }
+
+    /**
+     * Get CollectionProducts collection.
+     *
+     * @return ArrayCollection
+     */
+    public function getCollectionProducts()
+    {
+        return $this->collectionProducts;
+    }
+
+    /**
+     * Set CollectionProduct collection.
+     *
+     * @param ArrayCollection $productCollections
+     */
+    public function setCollectionProducts(ArrayCollection $productCollections)
+    {
+        $this->collectionProducts = $productCollections;
+    }
+
+    /**
+     * Get Collections collection.
+     *
+     * @return ArrayCollection
+     */
+    public function getCollections()
+    {
+        $collections = new ArrayCollection();
+
+        foreach ($this->collectionProducts as $productCollection) {
+            if (!$collections->contains($productCollection)) {
+                $collections->add($productCollection->getCollection());
+            }
+        }
+
+        return $collections;
     }
 }

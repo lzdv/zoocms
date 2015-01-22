@@ -45,4 +45,5 @@ abstract class Product extends BaseProduct
     {
         $this->id = $id;
     }
+
 }

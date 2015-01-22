@@ -3,18 +3,18 @@ sonata_classification:
         tag:          Application\Sonata\ClassificationBundle\Entity\Tag
         category:     Application\Sonata\ClassificationBundle\Entity\Category
         collection:   Application\Sonata\ClassificationBundle\Entity\Collection
-        media:     Networking\InitCmsBundle\Entity\Media
+        media:        Networking\InitCmsBundle\Entity\Media
         
     admin:
+        collection:
+            class:        ApplicationUODDA\Sonata\ClassificationBundle\Admin\CollectionAdmin
+#              controller:   SonataAdminBundle:CRUD
+#              translation:  SonataClassificationBundle
 #          tag:
 #              class:        Sonata\ClassificationBundle\Admin\TagAdmin
 #              controller:   SonataAdminBundle:CRUD
 #              translation:  SonataClassificationBundle
         category:
-            class:        Application\Sonata\ClassificationBundle\Admin\CategoryAdmin
-#              controller:   SonataAdminBundle:CRUD
-#              translation:  SonataClassificationBundle
-#          collection:
-#              class:        Sonata\ClassificationBundle\Admin\CollectionAdmin
+            class:        ApplicationFAX\Sonata\ClassificationBundle\Admin\CategoryAdmin
 #              controller:   SonataAdminBundle:CRUD
 #              translation:  SonataClassificationBundle

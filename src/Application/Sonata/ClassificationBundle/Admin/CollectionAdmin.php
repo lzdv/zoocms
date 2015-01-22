@@ -11,12 +11,13 @@
 
 namespace Application\Sonata\ClassificationBundle\Admin;
 
-use Sonata\AdminBundle\Admin\Admin;
+use Sonata\ClassificationBundle\Admin\CollectionAdmin as BaseCollectionAdmin;
+
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class CollectionAdmin extends Admin
+class CollectionAdmin extends BaseCollectionAdmin
 {
     protected $formOptions = array(
         'cascade_validation' => true
@@ -27,43 +28,27 @@ class CollectionAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
+        $context = $this->getPersistentParameter('context');
+
         $formMapper
-            ->with('General', array('class' => 'col-md-6'))
-                ->add('name')
-                ->add('description', 'textarea', array('required' => false))
-            ->end()
-            ->with('Options', array('class' => 'col-md-6'))
-                ->add('enabled')
-                ->add('position', 'integer', array('required' => false, 'data' => 0))
-            ->end()
+            ->add('enabled', null, array('required' => false))
+            ->add('name')
+            ->add('description', 'textarea', array('required' => false))
+            ->add(
+                'collectionProducts',
+                'sonata_type_collection',
+                array(
+                    'cascade_validation' => true,
+                ),
+                array(
+                    'edit' => 'inline',
+                    'inline' => 'table',
+                    'sortable' => 'position',
+                    'link_parameters' => array('context' => $context),
+                )
+            )
         ;
-  
-        if ($this->getSubject()->getParent() !== null || $this->getSubject()->getId() === null) {
-            $formMapper
-                ->add('parent', 'sonata_collection_selector', array(
-                    'collection'      => $this->getSubject() ?: null,
-                    'model_manager' => $this->getModelManager(),
-                    'class'         => $this->getClass(),
-                    'required'      => false/*,
-                    'context'       => $this->getSubject()->getContext()*/
-                ));
-        }
-/**/
-        if (interface_exists('Sonata\MediaBundle\Model\MediaInterface')) {
-            $formMapper
-                ->with('General')
-                    ->add('media', 'sonata_type_model_list',
-                        array('required' => false),
-                        array(
-                            'link_parameters' => array(
-                                'provider' => 'sonata.media.provider.image',
-                                'context'  => 'sonata_collection',
-                            )
-                        )
-                    )
-                ->end();
-        }
-//*/
+        
     }
 
     /**

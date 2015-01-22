@@ -29,6 +29,11 @@ class ProductCollection extends BaseProductCollection
     protected $id;
 
     /**
+     * @var integer $id
+     */
+    protected $position;
+
+    /**
      * Get id
      *
      * @return integer $id
@@ -36,5 +41,23 @@ class ProductCollection extends BaseProductCollection
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get position
+     *
+     * @return integer $position
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+    
+    /**
+     * @param int $position
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
     }
 }

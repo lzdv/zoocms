@@ -62,7 +62,7 @@ class Configuration implements ConfigurationInterface
                         ->arrayNode('collection')
                             ->addDefaultsIfNotSet()
                             ->children()
-                                ->scalarNode('class')->cannotBeEmpty()->defaultValue('Sonata\\ClassificationBundle\\Admin\\CollectionAdmin')->end()
+                                ->scalarNode('class')->cannotBeEmpty()->defaultValue('Application\\Sonata\\ClassificationBundle\\Admin\\CollectionAdmin')->end()
                                 ->scalarNode('controller')->cannotBeEmpty()->defaultValue('SonataAdminBundle:CRUD')->end()
                                 ->scalarNode('translation')->cannotBeEmpty()->defaultValue('SonataClassificationBundle')->end()
                             ->end()
